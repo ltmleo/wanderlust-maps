@@ -1,12 +1,78 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useCallback } from "react";
+import { AnimatePresence } from "framer-motion";
+import { TravelMap } from "@/components/TravelMap";
+import { MapControls } from "@/components/MapControls";
+import { RegionSidebar } from "@/components/RegionSidebar";
+import { POIModal } from "@/components/POIModal";
+import { RoadmapModal } from "@/components/RoadmapModal";
+import type { ViewMode, RegionProperties, POIProperties } from "@/data/travelData";
+import { Rocket } from "lucide-react";
 
 const Index = () => {
+  const [selectedMonth, setSelectedMonth] = useState(6);
+  const [viewMode, setViewMode] = useState<ViewMode>("recommended");
+  const [selectedRegion, setSelectedRegion] = useState<RegionProperties | null>(null);
+  const [selectedPOI, setSelectedPOI] = useState<POIProperties | null>(null);
+  const [showRoadmap, setShowRoadmap] = useState(false);
+
+  const handleRegionClick = useCallback((region: RegionProperties) => {
+    setSelectedRegion(region);
+    setSelectedPOI(null);
+  }, []);
+
+  const handlePOIClick = useCallback((poi: POIProperties) => {
+    setSelectedPOI(poi);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="relative w-full h-screen overflow-hidden bg-background">
+      {/* Map */}
+      <TravelMap
+        selectedMonth={selectedMonth}
+        viewMode={viewMode}
+        onRegionClick={handleRegionClick}
+        onPOIClick={handlePOIClick}
+      />
+
+      {/* Controls */}
+      <MapControls
+        selectedMonth={selectedMonth}
+        onMonthChange={setSelectedMonth}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+      />
+
+      {/* Region Sidebar */}
+      <AnimatePresence>
+        {selectedRegion && (
+          <RegionSidebar
+            region={selectedRegion}
+            selectedMonth={selectedMonth}
+            onClose={() => setSelectedRegion(null)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* POI Modal */}
+      <AnimatePresence>
+        {selectedPOI && (
+          <POIModal poi={selectedPOI} onClose={() => setSelectedPOI(null)} />
+        )}
+      </AnimatePresence>
+
+      {/* Roadmap Modal */}
+      <AnimatePresence>
+        <RoadmapModal isOpen={showRoadmap} onClose={() => setShowRoadmap(false)} />
+      </AnimatePresence>
+
+      {/* Roadmap button */}
+      <button
+        onClick={() => setShowRoadmap(true)}
+        className="absolute bottom-4 right-4 z-[1000] glass-panel rounded-xl px-4 py-2.5 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <Rocket className="w-4 h-4 text-primary" />
+        <span>Roadmap</span>
+      </button>
     </div>
   );
 };
