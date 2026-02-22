@@ -1,22 +1,24 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MONTHS, type ViewMode } from "@/data/travelData";
-import { Sun, DollarSign, Star, ChevronLeft, ChevronRight, Map, Compass } from "lucide-react";
+import { Sun, Moon, DollarSign, Star, ChevronLeft, ChevronRight, Map, Compass } from "lucide-react";
 
 const viewModes: { key: ViewMode; label: string; icon: React.ReactNode; desc: string }[] = [
   { key: "weather", label: "Weather", icon: <Sun className="w-4 h-4" />, desc: "Climate & vibe" },
   { key: "cost", label: "Cost", icon: <DollarSign className="w-4 h-4" />, desc: "Budget guide" },
   { key: "recommended", label: "Top Picks", icon: <Star className="w-4 h-4" />, desc: "Best overall" },
-];
+] as const;
 
 interface MapControlsProps {
   selectedMonth: number;
   onMonthChange: (month: number) => void;
   viewMode: ViewMode;
   onViewModeChange: (mode: ViewMode) => void;
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
 }
 
-export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewModeChange }: MapControlsProps) {
+export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewModeChange, theme, onToggleTheme }: MapControlsProps) {
   const [isExpanded, setIsExpanded] = useState(true);
 
   const prevMonth = () => onMonthChange(selectedMonth === 1 ? 12 : selectedMonth - 1);
@@ -33,12 +35,21 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50">
         <Compass className="w-5 h-5 text-primary" />
         <span className="font-display text-sm font-semibold text-foreground tracking-wide">WANDERLUST</span>
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="ml-auto text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <Map className="w-4 h-4" />
-        </button>
+        <div className="ml-auto flex items-center gap-1">
+          <button
+            onClick={onToggleTheme}
+            className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
+            title={theme === "dark" ? "Modo claro" : "Modo escuro"}
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Map className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

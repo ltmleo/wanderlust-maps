@@ -5,10 +5,12 @@ import { MapControls } from "@/components/MapControls";
 import { RegionSidebar } from "@/components/RegionSidebar";
 import { POIModal } from "@/components/POIModal";
 import { RoadmapModal } from "@/components/RoadmapModal";
+import { useTheme } from "@/hooks/useTheme";
 import type { ViewMode, RegionProperties, POIProperties } from "@/data/travelData";
 import { Rocket } from "lucide-react";
 
 const Index = () => {
+  const { theme, toggleTheme } = useTheme();
   const [selectedMonth, setSelectedMonth] = useState(6);
   const [viewMode, setViewMode] = useState<ViewMode>("recommended");
   const [selectedRegion, setSelectedRegion] = useState<RegionProperties | null>(null);
@@ -30,6 +32,7 @@ const Index = () => {
       <TravelMap
         selectedMonth={selectedMonth}
         viewMode={viewMode}
+        theme={theme}
         onRegionClick={handleRegionClick}
         onPOIClick={handlePOIClick}
       />
@@ -40,6 +43,8 @@ const Index = () => {
         onMonthChange={setSelectedMonth}
         viewMode={viewMode}
         onViewModeChange={setViewMode}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       {/* Region Sidebar */}

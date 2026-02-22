@@ -6,6 +6,66 @@
 
 @layer base {
   :root {
+    --background: 40 30% 96%;
+    --foreground: 222 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 30% 15%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 90%;
+    --secondary-foreground: 222 30% 25%;
+
+    --muted: 40 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 38 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.75rem;
+
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 40 15% 80% / 0.5;
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --glow-primary: 0 0 20px hsl(38 92% 50% / 0.2);
+
+    --weather-excellent: 142 76% 45%;
+    --weather-good: 85 65% 50%;
+    --weather-fair: 45 90% 55%;
+    --weather-poor: 15 80% 50%;
+    --weather-bad: 0 75% 50%;
+
+    --cost-cheap: 142 76% 45%;
+    --cost-moderate: 45 90% 55%;
+    --cost-expensive: 0 75% 50%;
+
+    --recommended-top: 38 92% 50%;
+    --recommended-good: 38 60% 45%;
+    --recommended-average: 220 15% 70%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 30% 15%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 20% 90%;
+    --sidebar-accent-foreground: 222 30% 25%;
+    --sidebar-border: 40 15% 85%;
+    --sidebar-ring: 38 92% 50%;
+  }
+
+  .dark {
     --background: 222 47% 6%;
     --foreground: 40 20% 92%;
 
@@ -34,15 +94,11 @@
     --input: 222 25% 18%;
     --ring: 38 92% 55%;
 
-    --radius: 0.75rem;
-
-    /* Custom tokens */
     --glass-bg: 222 40% 10% / 0.7;
     --glass-border: 222 25% 30% / 0.3;
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     --glow-primary: 0 0 20px hsl(38 92% 55% / 0.3);
-    
-    /* Map overlay colors */
+
     --weather-excellent: 142 76% 45%;
     --weather-good: 85 65% 50%;
     --weather-fair: 45 90% 55%;
