@@ -9,7 +9,7 @@
       "category": "natural_wonder",
       "namePt": "Cataratas do Iguaçu",
       "descriptionPt": "Um dos maiores sistemas de cachoeiras do mundo, na fronteira entre Argentina e Brasil. Mais de 275 quedas d'água em quase 3km.",
-      "bestTimePt": "Novembro a Março (verão) para o pico do fluxo de água."
+      "bestTimePt": "Novembro a Março (verão) para o pico do fluxo de água. De manhã cedo para evitar multidões e ver arcos-íris."
     },
     "geometry": {
       "type": "Point",
@@ -28,8 +28,8 @@
       "bestTime": "Early morning or late afternoon to avoid crowds. April-May and September-October for ideal weather.",
       "category": "wonder",
       "namePt": "O Coliseu",
-      "descriptionPt": "O icônico anfiteatro da Roma Antiga, construído no ano 80 d.C. Esta maravilha arquitetônica abrigava 50.000 espectadores.",
-      "bestTimePt": "De manhã cedo ou no final da tarde para evitar multidões."
+      "descriptionPt": "O icônico anfiteatro da Roma Antiga, construído no ano 80 d.C. Esta maravilha arquitetônica abrigava 50.000 espectadores para combates de gladiadores.",
+      "bestTimePt": "De manhã cedo ou no final da tarde para evitar multidões. Abril-Maio e Setembro-Outubro para um clima ideal."
     },
     "geometry": {
       "type": "Point",
@@ -49,7 +49,7 @@
       "category": "beach",
       "namePt": "Santorini",
       "descriptionPt": "Deslumbrante ilha grega famosa por seus edifícios brancos com cúpulas azuis, no alto de dramáticos penhascos.",
-      "bestTimePt": "Pôr do sol na vila de Oia. Final de Abril-Junho ou Setembro-Outubro."
+      "bestTimePt": "Pôr do sol na vila de Oia. Final de Abril a Junho ou Setembro a Outubro para evitar as multidões do pico do verão."
     },
     "geometry": {
       "type": "Point",
@@ -69,7 +69,7 @@
       "category": "culture",
       "namePt": "Angkor Wat",
       "descriptionPt": "O maior monumento religioso do mundo, este complexo de templos do século 12 no Camboja é uma obra-prima da arquitetura Khmer.",
-      "bestTimePt": "Nascer do sol para a icônica foto do reflexo."
+      "bestTimePt": "Nascer do sol para a icônica foto do reflexo. Novembro a Fevereiro para um clima mais seco e fresco."
     },
     "geometry": {
       "type": "Point",
@@ -93,7 +93,7 @@
       ],
       "namePt": "Grand Canyon",
       "descriptionPt": "Um desfiladeiro íngreme esculpido pelo Rio Colorado, expondo quase 2 bilhões de anos da história geológica da Terra.",
-      "bestTimePt": "Março a Maio ou Setembro a Novembro. Nascer e pôr do sol."
+      "bestTimePt": "Março a Maio ou Setembro a Novembro. Nascer e pôr do sol para as cores mais dramáticas."
     },
     "geometry": {
       "type": "Point",
@@ -113,7 +113,7 @@
       "category": "culture",
       "namePt": "Santuário Fushimi Inari",
       "descriptionPt": "Icônico santuário xintoísta em Kyoto, famoso por seus milhares de portões torii vermelhinhos ao longo da montanha.",
-      "bestTimePt": "De manhã bem cedo (antes das 7h) para caminhar com tranquilidade."
+      "bestTimePt": "De manhã bem cedo (antes das 7h) para caminhar com tranquilidade. Lindo o ano todo."
     },
     "geometry": {
       "type": "Point",
@@ -133,7 +133,7 @@
       "category": "nature",
       "namePt": "Parque Nacional Serengeti",
       "descriptionPt": "Vasta savana africana que abriga a Grande Migração — mais de 1,5 milhão de gnus e zebras.",
-      "bestTimePt": "Julho a Outubro para a travessia dos rios."
+      "bestTimePt": "Julho a Outubro para a travessia dos rios. Junho a Setembro para a melhor observação geral de animais."
     },
     "geometry": {
       "type": "Point",
@@ -153,7 +153,7 @@
       "category": "culture",
       "namePt": "Pelourinho, Salvador",
       "descriptionPt": "O centro histórico de Salvador, Patrimônio Mundial da UNESCO. Arquitetura colonial colorida e cultura afro-brasileira.",
-      "bestTimePt": "Terças à noite para a percussão do Olodum."
+      "bestTimePt": "Terças à noite para a percussão do Olodum. Setembro a Fevereiro para a temporada de festivais."
     },
     "geometry": {
       "type": "Point",
@@ -216,7 +216,7 @@
       "bestTime": "Autumn (Sept-Nov) for cool temperatures and beautiful foliage.",
       "bestTimePt": "Outono (Set-Nov) para temperaturas amenas e folhagem bonita.",
       "category": "wonder",
-      "imageUrl": "https://images.unsplash.com/photo-1542055990-2bf3fc388a10?auto=format&fit=crop&q=80&w=800"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg"
     },
     "geometry": {
       "type": "Point",
@@ -258,7 +258,7 @@
       "bestTime": "Spring (March-May) or Autumn (Sept-Nov) for cooler exploring.",
       "bestTimePt": "Primavera (Março-Maio) ou Outono (Set-Nov) para exploração mais fresca.",
       "category": "wonder",
-      "imageUrl": "https://images.unsplash.com/photo-1574015949673-810a9f5d3420?auto=format&fit=crop&q=80&w=800"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Treasury_petra_crop.jpeg"
     },
     "geometry": {
       "type": "Point",
@@ -300,7 +300,7 @@
       "bestTime": "October to March for the best weather. Sunrise is magical.",
       "bestTimePt": "Outubro a Março para o melhor clima. O nascer do sol é mágico.",
       "category": "wonder",
-      "imageUrl": "https://images.unsplash.com/photo-1564507592208-013dd6cd4093?auto=format&fit=crop&q=80&w=800"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Taj_Mahal_in_March_2004.jpg"
     },
     "geometry": {
       "type": "Point",
@@ -342,7 +342,7 @@
       "bestTime": "Winter months (Sept to March) in Northern Scandinavia or Canada.",
       "bestTimePt": "Meses de inverno (Setembro a Março) no Norte da Escandinávia ou Canadá.",
       "category": "natural_wonder",
-      "imageUrl": "https://images.unsplash.com/photo-1531366936310-008bd6b8c9a3?auto=format&fit=crop&q=80&w=800"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Polarlicht_2.jpg"
     },
     "geometry": {
       "type": "Point",
@@ -405,7 +405,7 @@
       "bestTime": "February to May for maximum spray, or dry season to swim in Devil's Pool.",
       "bestTimePt": "Fevereiro a Maio pelo volume d'água, ou seca para nadar na Devil's Pool.",
       "category": "natural_wonder",
-      "imageUrl": "https://images.unsplash.com/photo-1518182170546-076616fdcbbe?auto=format&fit=crop&q=80&w=800"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Victoria_Falls_from_Zambia_%28August_2009%29.jpg"
     },
     "geometry": {
       "type": "Point",
@@ -420,13 +420,13 @@
     "properties": {
       "id": "poi-paricutin",
       "name": "Parícutin",
-      "namePt": "Paricutina",
+      "namePt": "Parícutin",
       "description": "A cinder cone volcano located in the Mexican state of Michoacán, which surged suddenly from a cornfield in 1943.",
       "descriptionPt": "Um vulcão de cone de cinzas localizado no estado mexicano de Michoacán, que surgiu repentinamente de um milharal em 1943.",
       "bestTime": "Winter and spring months for trekking.",
       "bestTimePt": "Meses de inverno e primavera para trekking.",
       "category": "natural_wonder",
-      "imageUrl": "https://images.unsplash.com/photo-1621539151528-790dc3ed0377?auto=format&fit=crop&q=80&w=800"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Volc%C3%A1n_Uvas.jpg"
     },
     "geometry": {
       "type": "Point",
