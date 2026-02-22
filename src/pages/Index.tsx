@@ -16,6 +16,8 @@ const Index = () => {
   const [selectedRegion, setSelectedRegion] = useState<RegionProperties | null>(null);
   const [selectedPOI, setSelectedPOI] = useState<POIProperties | null>(null);
   const [showRoadmap, setShowRoadmap] = useState(false);
+  const [poiFilters, setPoiFilters] = useState<string[]>(["landmark", "nature", "culture", "beach", "city", "wonder", "natural_wonder"]);
+  const [showRegions, setShowRegions] = useState(true);
 
   const handleRegionClick = useCallback((region: RegionProperties) => {
     setSelectedRegion(region);
@@ -33,6 +35,8 @@ const Index = () => {
         selectedMonth={selectedMonth}
         viewMode={viewMode}
         theme={theme}
+        poiFilters={poiFilters}
+        showRegions={showRegions}
         onRegionClick={handleRegionClick}
         onPOIClick={handlePOIClick}
       />
@@ -45,6 +49,10 @@ const Index = () => {
         onViewModeChange={setViewMode}
         theme={theme}
         onToggleTheme={toggleTheme}
+        poiFilters={poiFilters}
+        showRegions={showRegions}
+        onToggleRegions={() => setShowRegions(!showRegions)}
+        onTogglePoiFilter={(f) => setPoiFilters(prev => prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f])}
       />
 
       {/* Region Sidebar */}

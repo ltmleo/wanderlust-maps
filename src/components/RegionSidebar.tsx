@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import type { RegionProperties } from "@/data/travelData";
 import { MONTHS } from "@/data/travelData";
 import { X, Thermometer, DollarSign, Star, Sparkles } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface RegionSidebarProps {
   region: RegionProperties | null;
@@ -10,10 +11,18 @@ interface RegionSidebarProps {
 }
 
 export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarProps) {
+  const { t, locale } = useTranslation();
+
   if (!region) return null;
 
   const data = region.monthlyData[selectedMonth];
   if (!data) return null;
+
+  const name = locale === 'pt' && region.namePt ? region.namePt : region.name;
+  const description = locale === 'pt' && region.descriptionPt ? region.descriptionPt : region.description;
+  const whyVisit = locale === 'pt' && data.whyVisitPt ? data.whyVisitPt : data.whyVisit;
+  const weatherDesc = locale === 'pt' && data.weatherDescPt ? data.weatherDescPt : data.weatherDesc;
+  const highlights = locale === 'pt' && data.highlightsPt && data.highlightsPt.length > 0 ? data.highlightsPt : data.highlights;
 
   return (
     <motion.div
@@ -28,7 +37,7 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
         <div className="flex items-start justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-primary mb-1">{region.country}</p>
-            <h2 className="font-display text-xl font-bold text-foreground">{region.name}</h2>
+            <h2 className="font-display text-xl font-bold text-foreground">{name}</h2>
           </div>
           <button
             onClick={onClose}
@@ -37,36 +46,36 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
             <X className="w-4 h-4" />
           </button>
         </div>
-        <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{region.description}</p>
+        <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{description}</p>
       </div>
 
       {/* Month context */}
       <div className="px-5 py-3 border-b border-border/50 bg-primary/5">
         <p className="text-[10px] uppercase tracking-widest text-primary mb-1">
-          {MONTHS[selectedMonth - 1]} Overview
+          {t(`month.${MONTHS[selectedMonth - 1].toLowerCase()}`)} Overview
         </p>
-        <p className="text-sm text-secondary-foreground leading-relaxed">{data.whyVisit}</p>
+        <p className="text-sm text-secondary-foreground leading-relaxed">{whyVisit}</p>
       </div>
 
       {/* Scores */}
       <div className="px-5 py-4 border-b border-border/50">
         <div className="grid grid-cols-3 gap-3">
-          <ScoreCard icon={<Thermometer className="w-4 h-4" />} label="Weather" score={data.weatherScore} />
-          <ScoreCard icon={<DollarSign className="w-4 h-4" />} label="Value" score={data.costScore} />
-          <ScoreCard icon={<Star className="w-4 h-4" />} label="Overall" score={data.recommendedScore} />
+          <ScoreCard icon={<Thermometer className="w-4 h-4" />} label={t("map.weather")} score={data.weatherScore} />
+          <ScoreCard icon={<DollarSign className="w-4 h-4" />} label={t("map.cost")} score={data.costScore} />
+          <ScoreCard icon={<Star className="w-4 h-4" />} label={t("region.score")} score={data.recommendedScore} />
         </div>
       </div>
 
       {/* Weather description */}
       <div className="px-5 py-3 border-b border-border/50">
         <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Climate</p>
-        <p className="text-sm text-foreground">{data.weatherDesc}</p>
+        <p className="text-sm text-foreground">{weatherDesc}</p>
       </div>
 
       {/* Cost */}
       <div className="px-5 py-3 border-b border-border/50">
         <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Average Daily Cost</p>
-        <p className="text-2xl font-display font-bold text-primary">${data.avgDailyCost}<span className="text-xs text-muted-foreground font-body font-normal">/day</span></p>
+        <p className="text-2xl font-display font-bold text-primary">${data.avgDailyCost}<span className="text-xs text-muted-foreground font-body font-normal">/{t("region.day")}</span></p>
       </div>
 
       {/* Highlights */}
@@ -76,7 +85,7 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
           Highlights
         </p>
         <div className="space-y-1.5">
-          {data.highlights.map((h, i) => (
+          {highlights.map((h, i) => (
             <div key={i} className="flex items-center gap-2 text-sm text-secondary-foreground">
               <div className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
               {h}

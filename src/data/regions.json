@@ -1,0 +1,5710 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "ne-brazil",
+      "name": "Northeast Brazil",
+      "country": "Brazil",
+      "description": "Tropical paradise with stunning beaches, vibrant culture, and year-round warmth. Home to Salvador, Recife, and the stunning Lençóis Maranhenses dunes.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 9,
+          "costScore": 4,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm and sunny, perfect beach weather",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Beach activities",
+            "Carnival vibes",
+            "Water sports"
+          ],
+          "whyVisit": "Perfect weather for beaches and outdoor adventures. Peak tropical paradise experience.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Perfeito para curtir o clima e os festivais",
+          "highlightsPt": [
+            "Ponto alto: Beach acti...",
+            "Ponto alto: Carnival v...",
+            "Ponto alto: Water spor..."
+          ]
+        },
+        "2": {
+          "weatherScore": 9,
+          "costScore": 4,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm and sunny, perfect beach weather",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Beach activities",
+            "Carnival vibes",
+            "Water sports"
+          ],
+          "whyVisit": "Perfect weather for beaches and outdoor adventures. Peak tropical paradise experience.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Perfeito para curtir o clima e os festivais",
+          "highlightsPt": [
+            "Ponto alto: Beach acti...",
+            "Ponto alto: Carnival v...",
+            "Ponto alto: Water spor..."
+          ]
+        },
+        "3": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Rainy season with occasional showers",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Indoor cultural attractions",
+            "Fewer crowds",
+            "Lush landscapes"
+          ],
+          "whyVisit": "Lower prices and fewer tourists, but expect rain. Great for cultural exploration.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Indoor cul...",
+            "Ponto alto: Fewer crow...",
+            "Ponto alto: Lush lands..."
+          ]
+        },
+        "4": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Rainy season with occasional showers",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Indoor cultural attractions",
+            "Fewer crowds",
+            "Lush landscapes"
+          ],
+          "whyVisit": "Lower prices and fewer tourists, but expect rain. Great for cultural exploration.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Indoor cul...",
+            "Ponto alto: Fewer crow...",
+            "Ponto alto: Lush lands..."
+          ]
+        },
+        "5": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Rainy season with occasional showers",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Indoor cultural attractions",
+            "Fewer crowds",
+            "Lush landscapes"
+          ],
+          "whyVisit": "Lower prices and fewer tourists, but expect rain. Great for cultural exploration.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Indoor cul...",
+            "Ponto alto: Fewer crow...",
+            "Ponto alto: Lush lands..."
+          ]
+        },
+        "6": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Rainy season with occasional showers",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Indoor cultural attractions",
+            "Fewer crowds",
+            "Lush landscapes"
+          ],
+          "whyVisit": "Lower prices and fewer tourists, but expect rain. Great for cultural exploration.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Indoor cul...",
+            "Ponto alto: Fewer crow...",
+            "Ponto alto: Lush lands..."
+          ]
+        },
+        "7": {
+          "weatherScore": 5,
+          "costScore": 4,
+          "recommendedScore": 4.6,
+          "weatherDesc": "Rainy season with occasional showers",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Indoor cultural attractions",
+            "Fewer crowds",
+            "Lush landscapes"
+          ],
+          "whyVisit": "Lower prices and fewer tourists, but expect rain. Great for cultural exploration.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Indoor cul...",
+            "Ponto alto: Fewer crow...",
+            "Ponto alto: Lush lands..."
+          ]
+        },
+        "8": {
+          "weatherScore": 9,
+          "costScore": 8,
+          "recommendedScore": 8.6,
+          "weatherDesc": "Warm and sunny, perfect beach weather",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Beach activities",
+            "Carnival vibes",
+            "Water sports"
+          ],
+          "whyVisit": "Perfect weather for beaches and outdoor adventures. Peak tropical paradise experience.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Perfeito para curtir o clima e os festivais",
+          "highlightsPt": [
+            "Ponto alto: Beach acti...",
+            "Ponto alto: Carnival v...",
+            "Ponto alto: Water spor..."
+          ]
+        },
+        "9": {
+          "weatherScore": 9,
+          "costScore": 8,
+          "recommendedScore": 8.6,
+          "weatherDesc": "Warm and sunny, perfect beach weather",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Beach activities",
+            "Carnival vibes",
+            "Water sports"
+          ],
+          "whyVisit": "Perfect weather for beaches and outdoor adventures. Peak tropical paradise experience.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Perfeito para curtir o clima e os festivais",
+          "highlightsPt": [
+            "Ponto alto: Beach acti...",
+            "Ponto alto: Carnival v...",
+            "Ponto alto: Water spor..."
+          ]
+        },
+        "10": {
+          "weatherScore": 9,
+          "costScore": 8,
+          "recommendedScore": 8.6,
+          "weatherDesc": "Warm and sunny, perfect beach weather",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Beach activities",
+            "Carnival vibes",
+            "Water sports"
+          ],
+          "whyVisit": "Perfect weather for beaches and outdoor adventures. Peak tropical paradise experience.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Perfeito para curtir o clima e os festivais",
+          "highlightsPt": [
+            "Ponto alto: Beach acti...",
+            "Ponto alto: Carnival v...",
+            "Ponto alto: Water spor..."
+          ]
+        },
+        "11": {
+          "weatherScore": 9,
+          "costScore": 8,
+          "recommendedScore": 8.6,
+          "weatherDesc": "Warm and sunny, perfect beach weather",
+          "avgDailyCost": 65,
+          "highlights": [
+            "Beach activities",
+            "Carnival vibes",
+            "Water sports"
+          ],
+          "whyVisit": "Perfect weather for beaches and outdoor adventures. Peak tropical paradise experience.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Perfeito para curtir o clima e os festivais",
+          "highlightsPt": [
+            "Ponto alto: Beach acti...",
+            "Ponto alto: Carnival v...",
+            "Ponto alto: Water spor..."
+          ]
+        },
+        "12": {
+          "weatherScore": 9,
+          "costScore": 4,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm and sunny, perfect beach weather",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Beach activities",
+            "Carnival vibes",
+            "Water sports"
+          ],
+          "whyVisit": "Perfect weather for beaches and outdoor adventures. Peak tropical paradise experience.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Perfeito para curtir o clima e os festivais",
+          "highlightsPt": [
+            "Ponto alto: Beach acti...",
+            "Ponto alto: Carnival v...",
+            "Ponto alto: Water spor..."
+          ]
+        }
+      },
+      "namePt": "Europa Ocidental",
+      "descriptionPt": "Tropical paradise with stunning beaches, vibrant culture, and year-round warmth. Home to Salvador, Recife, and the stunning Lençóis Maranhenses dunes."
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -47,
+            -2
+          ],
+          [
+            -35,
+            -3
+          ],
+          [
+            -34.5,
+            -8
+          ],
+          [
+            -35,
+            -13
+          ],
+          [
+            -38,
+            -15
+          ],
+          [
+            -42,
+            -14
+          ],
+          [
+            -45,
+            -10
+          ],
+          [
+            -47,
+            -5
+          ],
+          [
+            -47,
+            -2
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "s-brazil",
+      "name": "Southern Brazil",
+      "country": "Brazil",
+      "description": "European-influenced region with temperate climate, wine country, dramatic canyons, and the thundering Iguazu Falls.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Warm summer, great for waterfalls",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Iguazu Falls at peak flow",
+            "Beach towns",
+            "Outdoor hiking"
+          ],
+          "whyVisit": "Peak season for waterfalls and outdoor adventures. Warm and vibrant.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Iguazu Fal...",
+            "Ponto alto: Beach town...",
+            "Ponto alto: Outdoor hi..."
+          ]
+        },
+        "2": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Warm summer, great for waterfalls",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Iguazu Falls at peak flow",
+            "Beach towns",
+            "Outdoor hiking"
+          ],
+          "whyVisit": "Peak season for waterfalls and outdoor adventures. Warm and vibrant.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Iguazu Fal...",
+            "Ponto alto: Beach town...",
+            "Ponto alto: Outdoor hi..."
+          ]
+        },
+        "3": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Warm summer, great for waterfalls",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Iguazu Falls at peak flow",
+            "Beach towns",
+            "Outdoor hiking"
+          ],
+          "whyVisit": "Peak season for waterfalls and outdoor adventures. Warm and vibrant.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Iguazu Fal...",
+            "Ponto alto: Beach town...",
+            "Ponto alto: Outdoor hi..."
+          ]
+        },
+        "4": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 7.4,
+          "weatherDesc": "Mild and pleasant",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Canyon trekking",
+            "Cultural events",
+            "Moderate crowds"
+          ],
+          "whyVisit": "Shoulder season offers great value with pleasant weather.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Canyon tre...",
+            "Ponto alto: Cultural e...",
+            "Ponto alto: Moderate c..."
+          ]
+        },
+        "5": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 7.4,
+          "weatherDesc": "Mild and pleasant",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Canyon trekking",
+            "Cultural events",
+            "Moderate crowds"
+          ],
+          "whyVisit": "Shoulder season offers great value with pleasant weather.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Canyon tre...",
+            "Ponto alto: Cultural e...",
+            "Ponto alto: Moderate c..."
+          ]
+        },
+        "6": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cool winter, wine season",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Wine tasting in Vale dos Vinhedos",
+            "Chocolate festivals",
+            "Cozy mountain towns"
+          ],
+          "whyVisit": "Wine country at its finest. Cozy European-style towns with excellent food.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Wine tasti...",
+            "Ponto alto: Chocolate ...",
+            "Ponto alto: Cozy mount..."
+          ]
+        },
+        "7": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cool winter, wine season",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Wine tasting in Vale dos Vinhedos",
+            "Chocolate festivals",
+            "Cozy mountain towns"
+          ],
+          "whyVisit": "Wine country at its finest. Cozy European-style towns with excellent food.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Wine tasti...",
+            "Ponto alto: Chocolate ...",
+            "Ponto alto: Cozy mount..."
+          ]
+        },
+        "8": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cool winter, wine season",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Wine tasting in Vale dos Vinhedos",
+            "Chocolate festivals",
+            "Cozy mountain towns"
+          ],
+          "whyVisit": "Wine country at its finest. Cozy European-style towns with excellent food.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Wine tasti...",
+            "Ponto alto: Chocolate ...",
+            "Ponto alto: Cozy mount..."
+          ]
+        },
+        "9": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 7.4,
+          "weatherDesc": "Mild and pleasant",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Canyon trekking",
+            "Cultural events",
+            "Moderate crowds"
+          ],
+          "whyVisit": "Shoulder season offers great value with pleasant weather.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Canyon tre...",
+            "Ponto alto: Cultural e...",
+            "Ponto alto: Moderate c..."
+          ]
+        },
+        "10": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 7.4,
+          "weatherDesc": "Mild and pleasant",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Canyon trekking",
+            "Cultural events",
+            "Moderate crowds"
+          ],
+          "whyVisit": "Shoulder season offers great value with pleasant weather.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Canyon tre...",
+            "Ponto alto: Cultural e...",
+            "Ponto alto: Moderate c..."
+          ]
+        },
+        "11": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 7.4,
+          "weatherDesc": "Mild and pleasant",
+          "avgDailyCost": 55,
+          "highlights": [
+            "Canyon trekking",
+            "Cultural events",
+            "Moderate crowds"
+          ],
+          "whyVisit": "Shoulder season offers great value with pleasant weather.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Canyon tre...",
+            "Ponto alto: Cultural e...",
+            "Ponto alto: Moderate c..."
+          ]
+        },
+        "12": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Warm summer, great for waterfalls",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Iguazu Falls at peak flow",
+            "Beach towns",
+            "Outdoor hiking"
+          ],
+          "whyVisit": "Peak season for waterfalls and outdoor adventures. Warm and vibrant.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Iguazu Fal...",
+            "Ponto alto: Beach town...",
+            "Ponto alto: Outdoor hi..."
+          ]
+        }
+      },
+      "namePt": "Europa Ocidental",
+      "descriptionPt": "European-influenced region with temperate climate, wine country, dramatic canyons, and the thundering Iguazu Falls."
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -54,
+            -22
+          ],
+          [
+            -48,
+            -22
+          ],
+          [
+            -47,
+            -24
+          ],
+          [
+            -48,
+            -29
+          ],
+          [
+            -50,
+            -30
+          ],
+          [
+            -54,
+            -28
+          ],
+          [
+            -55,
+            -25
+          ],
+          [
+            -54,
+            -22
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "s-europe",
+      "name": "Southern Europe",
+      "country": "Mediterranean",
+      "description": "The sun-drenched Mediterranean coast spanning Spain, southern France, Italy, and Greece. Ancient ruins, world-class cuisine, and azure seas.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and rainy, but charming",
+          "avgDailyCost": 70,
+          "highlights": [
+            "Christmas markets",
+            "Ski resorts nearby",
+            "Truffle season"
+          ],
+          "whyVisit": "Off-season charm with the lowest prices and authentic local experiences.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Christmas ...",
+            "Ponto alto: Ski resort...",
+            "Ponto alto: Truffle se..."
+          ]
+        },
+        "2": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and rainy, but charming",
+          "avgDailyCost": 70,
+          "highlights": [
+            "Christmas markets",
+            "Ski resorts nearby",
+            "Truffle season"
+          ],
+          "whyVisit": "Off-season charm with the lowest prices and authentic local experiences.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Christmas ...",
+            "Ponto alto: Ski resort...",
+            "Ponto alto: Truffle se..."
+          ]
+        },
+        "3": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and rainy, but charming",
+          "avgDailyCost": 70,
+          "highlights": [
+            "Christmas markets",
+            "Ski resorts nearby",
+            "Truffle season"
+          ],
+          "whyVisit": "Off-season charm with the lowest prices and authentic local experiences.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Christmas ...",
+            "Ponto alto: Ski resort...",
+            "Ponto alto: Truffle se..."
+          ]
+        },
+        "4": {
+          "weatherScore": 8,
+          "costScore": 7,
+          "recommendedScore": 7.6,
+          "weatherDesc": "Warm and pleasant, ideal for sightseeing",
+          "avgDailyCost": 110,
+          "highlights": [
+            "Museum visits without crowds",
+            "Perfect hiking weather",
+            "Local food festivals"
+          ],
+          "whyVisit": "The sweet spot — great weather, fewer crowds, better prices.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Museum vis...",
+            "Ponto alto: Perfect hi...",
+            "Ponto alto: Local food..."
+          ]
+        },
+        "5": {
+          "weatherScore": 8,
+          "costScore": 7,
+          "recommendedScore": 7.6,
+          "weatherDesc": "Warm and pleasant, ideal for sightseeing",
+          "avgDailyCost": 110,
+          "highlights": [
+            "Museum visits without crowds",
+            "Perfect hiking weather",
+            "Local food festivals"
+          ],
+          "whyVisit": "The sweet spot — great weather, fewer crowds, better prices.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Museum vis...",
+            "Ponto alto: Perfect hi...",
+            "Ponto alto: Local food..."
+          ]
+        },
+        "6": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Hot Mediterranean summer, clear skies",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Island hopping",
+            "Beach clubs",
+            "Open-air festivals"
+          ],
+          "whyVisit": "Peak Mediterranean experience but very crowded and expensive.",
+          "weatherDescPt": "Quente e úmido",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Island hop...",
+            "Ponto alto: Beach club...",
+            "Ponto alto: Open-air f..."
+          ]
+        },
+        "7": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Hot Mediterranean summer, clear skies",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Island hopping",
+            "Beach clubs",
+            "Open-air festivals"
+          ],
+          "whyVisit": "Peak Mediterranean experience but very crowded and expensive.",
+          "weatherDescPt": "Quente e úmido",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Island hop...",
+            "Ponto alto: Beach club...",
+            "Ponto alto: Open-air f..."
+          ]
+        },
+        "8": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Hot Mediterranean summer, clear skies",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Island hopping",
+            "Beach clubs",
+            "Open-air festivals"
+          ],
+          "whyVisit": "Peak Mediterranean experience but very crowded and expensive.",
+          "weatherDescPt": "Quente e úmido",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Island hop...",
+            "Ponto alto: Beach club...",
+            "Ponto alto: Open-air f..."
+          ]
+        },
+        "9": {
+          "weatherScore": 8,
+          "costScore": 7,
+          "recommendedScore": 7.6,
+          "weatherDesc": "Warm and pleasant, ideal for sightseeing",
+          "avgDailyCost": 110,
+          "highlights": [
+            "Museum visits without crowds",
+            "Perfect hiking weather",
+            "Local food festivals"
+          ],
+          "whyVisit": "The sweet spot — great weather, fewer crowds, better prices.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Museum vis...",
+            "Ponto alto: Perfect hi...",
+            "Ponto alto: Local food..."
+          ]
+        },
+        "10": {
+          "weatherScore": 8,
+          "costScore": 7,
+          "recommendedScore": 7.6,
+          "weatherDesc": "Warm and pleasant, ideal for sightseeing",
+          "avgDailyCost": 110,
+          "highlights": [
+            "Museum visits without crowds",
+            "Perfect hiking weather",
+            "Local food festivals"
+          ],
+          "whyVisit": "The sweet spot — great weather, fewer crowds, better prices.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Museum vis...",
+            "Ponto alto: Perfect hi...",
+            "Ponto alto: Local food..."
+          ]
+        },
+        "11": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and rainy, but charming",
+          "avgDailyCost": 70,
+          "highlights": [
+            "Christmas markets",
+            "Ski resorts nearby",
+            "Truffle season"
+          ],
+          "whyVisit": "Off-season charm with the lowest prices and authentic local experiences.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Christmas ...",
+            "Ponto alto: Ski resort...",
+            "Ponto alto: Truffle se..."
+          ]
+        },
+        "12": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and rainy, but charming",
+          "avgDailyCost": 70,
+          "highlights": [
+            "Christmas markets",
+            "Ski resorts nearby",
+            "Truffle season"
+          ],
+          "whyVisit": "Off-season charm with the lowest prices and authentic local experiences.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Christmas ...",
+            "Ponto alto: Ski resort...",
+            "Ponto alto: Truffle se..."
+          ]
+        }
+      },
+      "namePt": "Europa Ocidental",
+      "descriptionPt": "The sun-drenched Mediterranean coast spanning Spain, southern France, Italy, and Greece. Ancient ruins, world-class cuisine, and azure seas."
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -10,
+            36
+          ],
+          [
+            0,
+            36
+          ],
+          [
+            10,
+            37
+          ],
+          [
+            20,
+            35
+          ],
+          [
+            28,
+            36
+          ],
+          [
+            28,
+            42
+          ],
+          [
+            20,
+            42
+          ],
+          [
+            10,
+            44
+          ],
+          [
+            3,
+            44
+          ],
+          [
+            -5,
+            43
+          ],
+          [
+            -10,
+            42
+          ],
+          [
+            -10,
+            36
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "w-usa",
+      "name": "Western United States",
+      "country": "USA",
+      "description": "From California's Pacific coast to the Grand Canyon, Yellowstone, and the Rocky Mountains. Epic road trip territory.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cold in mountains, mild on coast",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Ski season",
+            "Desert warmth in Arizona",
+            "Whale watching"
+          ],
+          "whyVisit": "Ski resorts and desert escapes at lower costs.",
+          "weatherDescPt": "Frio",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Desert war...",
+            "Ponto alto: Whale watc..."
+          ]
+        },
+        "2": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cold in mountains, mild on coast",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Ski season",
+            "Desert warmth in Arizona",
+            "Whale watching"
+          ],
+          "whyVisit": "Ski resorts and desert escapes at lower costs.",
+          "weatherDescPt": "Frio",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Desert war...",
+            "Ponto alto: Whale watc..."
+          ]
+        },
+        "3": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cold in mountains, mild on coast",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Ski season",
+            "Desert warmth in Arizona",
+            "Whale watching"
+          ],
+          "whyVisit": "Ski resorts and desert escapes at lower costs.",
+          "weatherDescPt": "Frio",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Desert war...",
+            "Ponto alto: Whale watc..."
+          ]
+        },
+        "4": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Mild temps, some parks still accessible",
+          "avgDailyCost": 140,
+          "highlights": [
+            "Fall foliage",
+            "Wine country harvest",
+            "Cooler hiking"
+          ],
+          "whyVisit": "Great balance of weather, crowds, and pricing.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Fall folia...",
+            "Ponto alto: Wine count...",
+            "Ponto alto: Cooler hik..."
+          ]
+        },
+        "5": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Mild temps, some parks still accessible",
+          "avgDailyCost": 140,
+          "highlights": [
+            "Fall foliage",
+            "Wine country harvest",
+            "Cooler hiking"
+          ],
+          "whyVisit": "Great balance of weather, crowds, and pricing.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Fall folia...",
+            "Ponto alto: Wine count...",
+            "Ponto alto: Cooler hik..."
+          ]
+        },
+        "6": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Hot and dry, perfect for national parks",
+          "avgDailyCost": 200,
+          "highlights": [
+            "National park road trips",
+            "Pacific Coast Highway",
+            "Music festivals"
+          ],
+          "whyVisit": "All parks open, endless outdoor activities, but peak prices.",
+          "weatherDescPt": "Quente e úmido",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: National p...",
+            "Ponto alto: Pacific Co...",
+            "Ponto alto: Music fest..."
+          ]
+        },
+        "7": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Hot and dry, perfect for national parks",
+          "avgDailyCost": 200,
+          "highlights": [
+            "National park road trips",
+            "Pacific Coast Highway",
+            "Music festivals"
+          ],
+          "whyVisit": "All parks open, endless outdoor activities, but peak prices.",
+          "weatherDescPt": "Quente e úmido",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: National p...",
+            "Ponto alto: Pacific Co...",
+            "Ponto alto: Music fest..."
+          ]
+        },
+        "8": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Hot and dry, perfect for national parks",
+          "avgDailyCost": 200,
+          "highlights": [
+            "National park road trips",
+            "Pacific Coast Highway",
+            "Music festivals"
+          ],
+          "whyVisit": "All parks open, endless outdoor activities, but peak prices.",
+          "weatherDescPt": "Quente e úmido",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: National p...",
+            "Ponto alto: Pacific Co...",
+            "Ponto alto: Music fest..."
+          ]
+        },
+        "9": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Mild temps, some parks still accessible",
+          "avgDailyCost": 140,
+          "highlights": [
+            "Fall foliage",
+            "Wine country harvest",
+            "Cooler hiking"
+          ],
+          "whyVisit": "Great balance of weather, crowds, and pricing.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Fall folia...",
+            "Ponto alto: Wine count...",
+            "Ponto alto: Cooler hik..."
+          ]
+        },
+        "10": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Mild temps, some parks still accessible",
+          "avgDailyCost": 140,
+          "highlights": [
+            "Fall foliage",
+            "Wine country harvest",
+            "Cooler hiking"
+          ],
+          "whyVisit": "Great balance of weather, crowds, and pricing.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Fall folia...",
+            "Ponto alto: Wine count...",
+            "Ponto alto: Cooler hik..."
+          ]
+        },
+        "11": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cold in mountains, mild on coast",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Ski season",
+            "Desert warmth in Arizona",
+            "Whale watching"
+          ],
+          "whyVisit": "Ski resorts and desert escapes at lower costs.",
+          "weatherDescPt": "Frio",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Desert war...",
+            "Ponto alto: Whale watc..."
+          ]
+        },
+        "12": {
+          "weatherScore": 5,
+          "costScore": 8,
+          "recommendedScore": 6.2,
+          "weatherDesc": "Cold in mountains, mild on coast",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Ski season",
+            "Desert warmth in Arizona",
+            "Whale watching"
+          ],
+          "whyVisit": "Ski resorts and desert escapes at lower costs.",
+          "weatherDescPt": "Frio",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Desert war...",
+            "Ponto alto: Whale watc..."
+          ]
+        }
+      },
+      "namePt": "Europa Ocidental",
+      "descriptionPt": "From California's Pacific coast to the Grand Canyon, Yellowstone, and the Rocky Mountains. Epic road trip territory."
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -125,
+            32
+          ],
+          [
+            -115,
+            32
+          ],
+          [
+            -104,
+            37
+          ],
+          [
+            -104,
+            49
+          ],
+          [
+            -125,
+            49
+          ],
+          [
+            -125,
+            42
+          ],
+          [
+            -125,
+            32
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "japan",
+      "name": "Japan",
+      "country": "Japan",
+      "description": "A mesmerizing blend of ancient traditions and futuristic cities. Cherry blossoms, hot springs, incredible cuisine, and serene temples.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Variable but comfortable",
+          "avgDailyCost": 160,
+          "highlights": [
+            "Ski season (winter)",
+            "Summer festivals",
+            "Hiking"
+          ],
+          "whyVisit": "Solid all-around experience with varied activities.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Summer fes...",
+            "Ponto alto: Hiking..."
+          ]
+        },
+        "2": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Variable but comfortable",
+          "avgDailyCost": 160,
+          "highlights": [
+            "Ski season (winter)",
+            "Summer festivals",
+            "Hiking"
+          ],
+          "whyVisit": "Solid all-around experience with varied activities.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Summer fes...",
+            "Ponto alto: Hiking..."
+          ]
+        },
+        "3": {
+          "weatherScore": 10,
+          "costScore": 2,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Cherry blossom season, mild and magical",
+          "avgDailyCost": 220,
+          "highlights": [
+            "Hanami festivals",
+            "Temple visits",
+            "Perfect photography"
+          ],
+          "whyVisit": "The most magical time to visit Japan. Book far in advance.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Hanami fes...",
+            "Ponto alto: Temple vis...",
+            "Ponto alto: Perfect ph..."
+          ]
+        },
+        "4": {
+          "weatherScore": 10,
+          "costScore": 2,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Cherry blossom season, mild and magical",
+          "avgDailyCost": 220,
+          "highlights": [
+            "Hanami festivals",
+            "Temple visits",
+            "Perfect photography"
+          ],
+          "whyVisit": "The most magical time to visit Japan. Book far in advance.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Hanami fes...",
+            "Ponto alto: Temple vis...",
+            "Ponto alto: Perfect ph..."
+          ]
+        },
+        "5": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Variable but comfortable",
+          "avgDailyCost": 160,
+          "highlights": [
+            "Ski season (winter)",
+            "Summer festivals",
+            "Hiking"
+          ],
+          "whyVisit": "Solid all-around experience with varied activities.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Summer fes...",
+            "Ponto alto: Hiking..."
+          ]
+        },
+        "6": {
+          "weatherScore": 4,
+          "costScore": 8,
+          "recommendedScore": 5.6,
+          "weatherDesc": "Rainy season (tsuyu)",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Museum season",
+            "Indoor markets",
+            "Hydrangea viewing"
+          ],
+          "whyVisit": "Lowest prices but expect persistent rain. Great for food-focused trips.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Museum sea...",
+            "Ponto alto: Indoor mar...",
+            "Ponto alto: Hydrangea ..."
+          ]
+        },
+        "7": {
+          "weatherScore": 4,
+          "costScore": 8,
+          "recommendedScore": 5.6,
+          "weatherDesc": "Rainy season (tsuyu)",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Museum season",
+            "Indoor markets",
+            "Hydrangea viewing"
+          ],
+          "whyVisit": "Lowest prices but expect persistent rain. Great for food-focused trips.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Museum sea...",
+            "Ponto alto: Indoor mar...",
+            "Ponto alto: Hydrangea ..."
+          ]
+        },
+        "8": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Variable but comfortable",
+          "avgDailyCost": 160,
+          "highlights": [
+            "Ski season (winter)",
+            "Summer festivals",
+            "Hiking"
+          ],
+          "whyVisit": "Solid all-around experience with varied activities.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Summer fes...",
+            "Ponto alto: Hiking..."
+          ]
+        },
+        "9": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Variable but comfortable",
+          "avgDailyCost": 160,
+          "highlights": [
+            "Ski season (winter)",
+            "Summer festivals",
+            "Hiking"
+          ],
+          "whyVisit": "Solid all-around experience with varied activities.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Summer fes...",
+            "Ponto alto: Hiking..."
+          ]
+        },
+        "10": {
+          "weatherScore": 10,
+          "costScore": 3,
+          "recommendedScore": 7.2,
+          "weatherDesc": "Stunning fall foliage",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Momiji (maple viewing)",
+            "Hot springs",
+            "Harvest cuisine"
+          ],
+          "whyVisit": "Equally stunning as spring with fiery autumn colors and fewer crowds.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Momiji (ma...",
+            "Ponto alto: Hot spring...",
+            "Ponto alto: Harvest cu..."
+          ]
+        },
+        "11": {
+          "weatherScore": 10,
+          "costScore": 3,
+          "recommendedScore": 7.2,
+          "weatherDesc": "Stunning fall foliage",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Momiji (maple viewing)",
+            "Hot springs",
+            "Harvest cuisine"
+          ],
+          "whyVisit": "Equally stunning as spring with fiery autumn colors and fewer crowds.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Momiji (ma...",
+            "Ponto alto: Hot spring...",
+            "Ponto alto: Harvest cu..."
+          ]
+        },
+        "12": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 6.6,
+          "weatherDesc": "Variable but comfortable",
+          "avgDailyCost": 160,
+          "highlights": [
+            "Ski season (winter)",
+            "Summer festivals",
+            "Hiking"
+          ],
+          "whyVisit": "Solid all-around experience with varied activities.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Ski season...",
+            "Ponto alto: Summer fes...",
+            "Ponto alto: Hiking..."
+          ]
+        }
+      },
+      "namePt": "Europa Ocidental",
+      "descriptionPt": "A mesmerizing blend of ancient traditions and futuristic cities. Cherry blossoms, hot springs, incredible cuisine, and serene temples."
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            129,
+            30
+          ],
+          [
+            132,
+            32
+          ],
+          [
+            135,
+            33
+          ],
+          [
+            140,
+            35
+          ],
+          [
+            142,
+            39
+          ],
+          [
+            145,
+            44
+          ],
+          [
+            143,
+            45
+          ],
+          [
+            140,
+            43
+          ],
+          [
+            137,
+            38
+          ],
+          [
+            135,
+            35
+          ],
+          [
+            131,
+            33
+          ],
+          [
+            129,
+            31
+          ],
+          [
+            129,
+            30
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "e-africa",
+      "name": "East Africa",
+      "country": "Kenya / Tanzania",
+      "description": "The ultimate safari destination. Witness the Great Migration, climb Kilimanjaro, and experience diverse wildlife on the Serengeti plains.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Dry and pleasant for safaris",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Safari game drives",
+            "Kilimanjaro climbing",
+            "Beach extensions to Zanzibar"
+          ],
+          "whyVisit": "Excellent safari conditions with good visibility and active wildlife.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Safari gam...",
+            "Ponto alto: Kilimanjar...",
+            "Ponto alto: Beach exte..."
+          ]
+        },
+        "2": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Dry and pleasant for safaris",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Safari game drives",
+            "Kilimanjaro climbing",
+            "Beach extensions to Zanzibar"
+          ],
+          "whyVisit": "Excellent safari conditions with good visibility and active wildlife.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Safari gam...",
+            "Ponto alto: Kilimanjar...",
+            "Ponto alto: Beach exte..."
+          ]
+        },
+        "3": {
+          "weatherScore": 4,
+          "costScore": 8,
+          "recommendedScore": 5.6,
+          "weatherDesc": "Long rains, some lodges close",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Bird watching",
+            "Green season photography",
+            "Budget safaris"
+          ],
+          "whyVisit": "Green season offers dramatic landscapes and baby animals at lower cost.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Bird watch...",
+            "Ponto alto: Green seas...",
+            "Ponto alto: Budget saf..."
+          ]
+        },
+        "4": {
+          "weatherScore": 4,
+          "costScore": 8,
+          "recommendedScore": 5.6,
+          "weatherDesc": "Long rains, some lodges close",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Bird watching",
+            "Green season photography",
+            "Budget safaris"
+          ],
+          "whyVisit": "Green season offers dramatic landscapes and baby animals at lower cost.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Bird watch...",
+            "Ponto alto: Green seas...",
+            "Ponto alto: Budget saf..."
+          ]
+        },
+        "5": {
+          "weatherScore": 4,
+          "costScore": 8,
+          "recommendedScore": 5.6,
+          "weatherDesc": "Long rains, some lodges close",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Bird watching",
+            "Green season photography",
+            "Budget safaris"
+          ],
+          "whyVisit": "Green season offers dramatic landscapes and baby animals at lower cost.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Bird watch...",
+            "Ponto alto: Green seas...",
+            "Ponto alto: Budget saf..."
+          ]
+        },
+        "6": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Dry and pleasant for safaris",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Safari game drives",
+            "Kilimanjaro climbing",
+            "Beach extensions to Zanzibar"
+          ],
+          "whyVisit": "Excellent safari conditions with good visibility and active wildlife.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Safari gam...",
+            "Ponto alto: Kilimanjar...",
+            "Ponto alto: Beach exte..."
+          ]
+        },
+        "7": {
+          "weatherScore": 10,
+          "costScore": 2,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Dry season, Great Migration crossing the Mara",
+          "avgDailyCost": 350,
+          "highlights": [
+            "Great Migration river crossings",
+            "Peak wildlife viewing",
+            "Hot air balloon safaris"
+          ],
+          "whyVisit": "The greatest wildlife spectacle on Earth. Worth every penny.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Great Migr...",
+            "Ponto alto: Peak wildl...",
+            "Ponto alto: Hot air ba..."
+          ]
+        },
+        "8": {
+          "weatherScore": 10,
+          "costScore": 2,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Dry season, Great Migration crossing the Mara",
+          "avgDailyCost": 350,
+          "highlights": [
+            "Great Migration river crossings",
+            "Peak wildlife viewing",
+            "Hot air balloon safaris"
+          ],
+          "whyVisit": "The greatest wildlife spectacle on Earth. Worth every penny.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Great Migr...",
+            "Ponto alto: Peak wildl...",
+            "Ponto alto: Hot air ba..."
+          ]
+        },
+        "9": {
+          "weatherScore": 10,
+          "costScore": 2,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Dry season, Great Migration crossing the Mara",
+          "avgDailyCost": 350,
+          "highlights": [
+            "Great Migration river crossings",
+            "Peak wildlife viewing",
+            "Hot air balloon safaris"
+          ],
+          "whyVisit": "The greatest wildlife spectacle on Earth. Worth every penny.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Great Migr...",
+            "Ponto alto: Peak wildl...",
+            "Ponto alto: Hot air ba..."
+          ]
+        },
+        "10": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 6.8,
+          "weatherDesc": "Dry and pleasant for safaris",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Safari game drives",
+            "Kilimanjaro climbing",
+            "Beach extensions to Zanzibar"
+          ],
+          "whyVisit": "Excellent safari conditions with good visibility and active wildlife.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Safari gam...",
+            "Ponto alto: Kilimanjar...",
+            "Ponto alto: Beach exte..."
+          ]
+        },
+        "11": {
+          "weatherScore": 4,
+          "costScore": 8,
+          "recommendedScore": 5.6,
+          "weatherDesc": "Long rains, some lodges close",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Bird watching",
+            "Green season photography",
+            "Budget safaris"
+          ],
+          "whyVisit": "Green season offers dramatic landscapes and baby animals at lower cost.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Bird watch...",
+            "Ponto alto: Green seas...",
+            "Ponto alto: Budget saf..."
+          ]
+        },
+        "12": {
+          "weatherScore": 4,
+          "costScore": 8,
+          "recommendedScore": 5.6,
+          "weatherDesc": "Long rains, some lodges close",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Bird watching",
+            "Green season photography",
+            "Budget safaris"
+          ],
+          "whyVisit": "Green season offers dramatic landscapes and baby animals at lower cost.",
+          "weatherDescPt": "Clima agradável",
+          "whyVisitPt": "Excelente época para fugir das multidões",
+          "highlightsPt": [
+            "Ponto alto: Bird watch...",
+            "Ponto alto: Green seas...",
+            "Ponto alto: Budget saf..."
+          ]
+        }
+      },
+      "namePt": "Europa Ocidental",
+      "descriptionPt": "The ultimate safari destination. Witness the Great Migration, climb Kilimanjaro, and experience diverse wildlife on the Serengeti plains."
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            29,
+            -1
+          ],
+          [
+            34,
+            -1
+          ],
+          [
+            41,
+            -2
+          ],
+          [
+            41,
+            -8
+          ],
+          [
+            40,
+            -11
+          ],
+          [
+            35,
+            -11
+          ],
+          [
+            29,
+            -5
+          ],
+          [
+            29,
+            -1
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-amazon",
+      "name": "Amazon Rainforest",
+      "namePt": "Floresta Amazônica",
+      "country": "South America",
+      "description": "The world's largest tropical rainforest, famous for its biodiversity. It's crisscrossed by thousands of rivers, including the powerful Amazon.",
+      "descriptionPt": "A maior floresta tropical do mundo, famosa por sua biodiversidade e rios gigantescos.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "2": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "3": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "4": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "5": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "6": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "7": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "8": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "9": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "10": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "11": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        },
+        "12": {
+          "weatherScore": 5,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Hot, humid, and rainy year-round.",
+          "weatherDescPt": "Quente, úmido e chuvoso o ano todo.",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Jungle tours",
+            "River cruises",
+            "Wildlife spotting"
+          ],
+          "highlightsPt": [
+            "Tours na selva",
+            "Cruzeiros fluviais",
+            "Observação da vida selvagem"
+          ],
+          "whyVisit": "Incredible biodiversity and indigenous culture.",
+          "whyVisitPt": "Incrível biodiversidade e cultura indígena."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -75,
+            -5
+          ],
+          [
+            -60,
+            5
+          ],
+          [
+            -50,
+            0
+          ],
+          [
+            -55,
+            -15
+          ],
+          [
+            -75,
+            -5
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-nordic",
+      "name": "Nordic Region",
+      "namePt": "Península Nórdica",
+      "country": "Scandinavia",
+      "description": "Defined by stunning fjords, aurora borealis, and cold sub-arctic to tundra climates. Home to deep forests and magical winters.",
+      "descriptionPt": "Definida por planaltos impressionantes, fjords, aurora boreal, com clima muito frio.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 3,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Freezing, dark, snowy",
+          "weatherDescPt": "Congelante, escuro, muita neve",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Northern lights",
+            "Husky sledding",
+            "Skiing"
+          ],
+          "highlightsPt": [
+            "Aurora boreal",
+            "Trenós",
+            "Esqui"
+          ],
+          "whyVisit": "Magical snowy landscapes and polar nights.",
+          "whyVisitPt": "Paisagens de neve mágicas."
+        },
+        "2": {
+          "weatherScore": 3,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Freezing, dark, snowy",
+          "weatherDescPt": "Congelante, escuro, muita neve",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Northern lights",
+            "Husky sledding",
+            "Skiing"
+          ],
+          "highlightsPt": [
+            "Aurora boreal",
+            "Trenós",
+            "Esqui"
+          ],
+          "whyVisit": "Magical snowy landscapes and polar nights.",
+          "whyVisitPt": "Paisagens de neve mágicas."
+        },
+        "3": {
+          "weatherScore": 3,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Freezing, dark, snowy",
+          "weatherDescPt": "Congelante, escuro, muita neve",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Northern lights",
+            "Husky sledding",
+            "Skiing"
+          ],
+          "highlightsPt": [
+            "Aurora boreal",
+            "Trenós",
+            "Esqui"
+          ],
+          "whyVisit": "Magical snowy landscapes and polar nights.",
+          "whyVisitPt": "Paisagens de neve mágicas."
+        },
+        "4": {
+          "weatherScore": 8,
+          "costScore": 2,
+          "recommendedScore": 9,
+          "weatherDesc": "Mild, midnight sun",
+          "weatherDescPt": "Ameno, sol da meia-noite",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Fjord cruises",
+            "Hiking",
+            "Wild camping"
+          ],
+          "highlightsPt": [
+            "Cruzeiros nos fjords",
+            "Caminhadas",
+            "Acampar"
+          ],
+          "whyVisit": "Endless summer days.",
+          "whyVisitPt": "Dias intermináveis de verão."
+        },
+        "5": {
+          "weatherScore": 8,
+          "costScore": 2,
+          "recommendedScore": 9,
+          "weatherDesc": "Mild, midnight sun",
+          "weatherDescPt": "Ameno, sol da meia-noite",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Fjord cruises",
+            "Hiking",
+            "Wild camping"
+          ],
+          "highlightsPt": [
+            "Cruzeiros nos fjords",
+            "Caminhadas",
+            "Acampar"
+          ],
+          "whyVisit": "Endless summer days.",
+          "whyVisitPt": "Dias intermináveis de verão."
+        },
+        "6": {
+          "weatherScore": 8,
+          "costScore": 2,
+          "recommendedScore": 9,
+          "weatherDesc": "Mild, midnight sun",
+          "weatherDescPt": "Ameno, sol da meia-noite",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Fjord cruises",
+            "Hiking",
+            "Wild camping"
+          ],
+          "highlightsPt": [
+            "Cruzeiros nos fjords",
+            "Caminhadas",
+            "Acampar"
+          ],
+          "whyVisit": "Endless summer days.",
+          "whyVisitPt": "Dias intermináveis de verão."
+        },
+        "7": {
+          "weatherScore": 8,
+          "costScore": 2,
+          "recommendedScore": 9,
+          "weatherDesc": "Mild, midnight sun",
+          "weatherDescPt": "Ameno, sol da meia-noite",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Fjord cruises",
+            "Hiking",
+            "Wild camping"
+          ],
+          "highlightsPt": [
+            "Cruzeiros nos fjords",
+            "Caminhadas",
+            "Acampar"
+          ],
+          "whyVisit": "Endless summer days.",
+          "whyVisitPt": "Dias intermináveis de verão."
+        },
+        "8": {
+          "weatherScore": 8,
+          "costScore": 2,
+          "recommendedScore": 9,
+          "weatherDesc": "Mild, midnight sun",
+          "weatherDescPt": "Ameno, sol da meia-noite",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Fjord cruises",
+            "Hiking",
+            "Wild camping"
+          ],
+          "highlightsPt": [
+            "Cruzeiros nos fjords",
+            "Caminhadas",
+            "Acampar"
+          ],
+          "whyVisit": "Endless summer days.",
+          "whyVisitPt": "Dias intermináveis de verão."
+        },
+        "9": {
+          "weatherScore": 8,
+          "costScore": 2,
+          "recommendedScore": 9,
+          "weatherDesc": "Mild, midnight sun",
+          "weatherDescPt": "Ameno, sol da meia-noite",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Fjord cruises",
+            "Hiking",
+            "Wild camping"
+          ],
+          "highlightsPt": [
+            "Cruzeiros nos fjords",
+            "Caminhadas",
+            "Acampar"
+          ],
+          "whyVisit": "Endless summer days.",
+          "whyVisitPt": "Dias intermináveis de verão."
+        },
+        "10": {
+          "weatherScore": 3,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Freezing, dark, snowy",
+          "weatherDescPt": "Congelante, escuro, muita neve",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Northern lights",
+            "Husky sledding",
+            "Skiing"
+          ],
+          "highlightsPt": [
+            "Aurora boreal",
+            "Trenós",
+            "Esqui"
+          ],
+          "whyVisit": "Magical snowy landscapes and polar nights.",
+          "whyVisitPt": "Paisagens de neve mágicas."
+        },
+        "11": {
+          "weatherScore": 3,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Freezing, dark, snowy",
+          "weatherDescPt": "Congelante, escuro, muita neve",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Northern lights",
+            "Husky sledding",
+            "Skiing"
+          ],
+          "highlightsPt": [
+            "Aurora boreal",
+            "Trenós",
+            "Esqui"
+          ],
+          "whyVisit": "Magical snowy landscapes and polar nights.",
+          "whyVisitPt": "Paisagens de neve mágicas."
+        },
+        "12": {
+          "weatherScore": 3,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Freezing, dark, snowy",
+          "weatherDescPt": "Congelante, escuro, muita neve",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Northern lights",
+            "Husky sledding",
+            "Skiing"
+          ],
+          "highlightsPt": [
+            "Aurora boreal",
+            "Trenós",
+            "Esqui"
+          ],
+          "whyVisit": "Magical snowy landscapes and polar nights.",
+          "whyVisitPt": "Paisagens de neve mágicas."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            5,
+            58
+          ],
+          [
+            15,
+            55
+          ],
+          [
+            30,
+            70
+          ],
+          [
+            20,
+            71
+          ],
+          [
+            5,
+            58
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-sahara",
+      "name": "Sahara Desert",
+      "namePt": "Deserto do Saara",
+      "country": "North Africa",
+      "description": "The largest hot desert in the world, covering most of North Africa with sweeping sand dunes and rocky plateaus.",
+      "descriptionPt": "O maior deserto quente do mundo, cobrindo grande parte do Norte da África com dunas de areia.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        },
+        "2": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        },
+        "3": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        },
+        "4": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        },
+        "5": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        },
+        "6": {
+          "weatherScore": 2,
+          "costScore": 8,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorching heat during the day",
+          "weatherDescPt": "Calor escaldante durante o dia",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "Too hot to visit comfortably.",
+          "whyVisitPt": "Muito quente."
+        },
+        "7": {
+          "weatherScore": 2,
+          "costScore": 8,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorching heat during the day",
+          "weatherDescPt": "Calor escaldante durante o dia",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "Too hot to visit comfortably.",
+          "whyVisitPt": "Muito quente."
+        },
+        "8": {
+          "weatherScore": 2,
+          "costScore": 8,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorching heat during the day",
+          "weatherDescPt": "Calor escaldante durante o dia",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "Too hot to visit comfortably.",
+          "whyVisitPt": "Muito quente."
+        },
+        "9": {
+          "weatherScore": 2,
+          "costScore": 8,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorching heat during the day",
+          "weatherDescPt": "Calor escaldante durante o dia",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "Too hot to visit comfortably.",
+          "whyVisitPt": "Muito quente."
+        },
+        "10": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        },
+        "11": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        },
+        "12": {
+          "weatherScore": 7,
+          "costScore": 8,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm days, freezing nights",
+          "weatherDescPt": "Dias quentes, madrugadas congelantes",
+          "avgDailyCost": 50,
+          "highlights": [
+            "Camel treks",
+            "Star gazing",
+            "Oasis visiting"
+          ],
+          "highlightsPt": [
+            "Passeios de camelo",
+            "Observação de estrelas",
+            "Visita a oásis"
+          ],
+          "whyVisit": "A profound experience of isolation and beauty.",
+          "whyVisitPt": "Uma profunda experiência de isolamento e beleza."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -15,
+            20
+          ],
+          [
+            30,
+            20
+          ],
+          [
+            35,
+            30
+          ],
+          [
+            0,
+            35
+          ],
+          [
+            -15,
+            20
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-atacama",
+      "name": "Atacama Desert",
+      "namePt": "Deserto do Atacama",
+      "country": "Chile",
+      "description": "One of the driest places on Earth, featuring otherworldly landscapes, salt flats, and geysers.",
+      "descriptionPt": "Um dos lugares mais secos da Terra, com paisagens de outro mundo, salares e gêiseres.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 8,
+          "costScore": 6,
+          "recommendedScore": 8,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "2": {
+          "weatherScore": 8,
+          "costScore": 6,
+          "recommendedScore": 8,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "3": {
+          "weatherScore": 8,
+          "costScore": 6,
+          "recommendedScore": 8,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "4": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6.5,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "5": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6.5,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "6": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6.5,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "7": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6.5,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "8": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6.5,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "9": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6.5,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "10": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6.5,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "11": {
+          "weatherScore": 8,
+          "costScore": 6,
+          "recommendedScore": 8,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        },
+        "12": {
+          "weatherScore": 8,
+          "costScore": 6,
+          "recommendedScore": 8,
+          "weatherDesc": "Dry and sunny year-round. Cold nights.",
+          "weatherDescPt": "Seco e ensolarado o ano todo. Noites frias.",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Stargazing",
+            "Valle de la Luna",
+            "Geysers"
+          ],
+          "highlightsPt": [
+            "Observação de estrelas",
+            "Valle de la Luna",
+            "Gêiseres"
+          ],
+          "whyVisit": "Clearest skies in the world for stargazing.",
+          "whyVisitPt": "Os céus mais limpos do mundo para observação de estrelas."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -70,
+            -25
+          ],
+          [
+            -67,
+            -25
+          ],
+          [
+            -67,
+            -20
+          ],
+          [
+            -70,
+            -20
+          ],
+          [
+            -70,
+            -25
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-himalayas",
+      "name": "The Himalayas",
+      "namePt": "Himalaia",
+      "country": "Central Asia",
+      "description": "Massive mountain range home to the world's highest peaks, rich spiritual traditions, and breathtaking treks.",
+      "descriptionPt": "Imensa cordilheira que abriga os picos mais altos do mundo e tradições espirituais.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 3,
+          "costScore": 9,
+          "recommendedScore": 4,
+          "weatherDesc": "Freezing, snowy",
+          "weatherDescPt": "Congelante, com neve",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Difficult and dangerous conditions.",
+          "whyVisitPt": "Condições difíceis e perigosas."
+        },
+        "2": {
+          "weatherScore": 3,
+          "costScore": 9,
+          "recommendedScore": 4,
+          "weatherDesc": "Freezing, snowy",
+          "weatherDescPt": "Congelante, com neve",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Difficult and dangerous conditions.",
+          "whyVisitPt": "Condições difíceis e perigosas."
+        },
+        "3": {
+          "weatherScore": 9,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Clear skies, great for trekking",
+          "weatherDescPt": "Céu azul, ótimo para trekking",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Peak trekking season with clear views.",
+          "whyVisitPt": "Alta temporada de trekking com vistas claras."
+        },
+        "4": {
+          "weatherScore": 9,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Clear skies, great for trekking",
+          "weatherDescPt": "Céu azul, ótimo para trekking",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Peak trekking season with clear views.",
+          "whyVisitPt": "Alta temporada de trekking com vistas claras."
+        },
+        "5": {
+          "weatherScore": 9,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Clear skies, great for trekking",
+          "weatherDescPt": "Céu azul, ótimo para trekking",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Peak trekking season with clear views.",
+          "whyVisitPt": "Alta temporada de trekking com vistas claras."
+        },
+        "6": {
+          "weatherScore": 3,
+          "costScore": 9,
+          "recommendedScore": 4,
+          "weatherDesc": "Heavy rain, landslides",
+          "weatherDescPt": "Muita chuva",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Difficult and dangerous conditions.",
+          "whyVisitPt": "Condições difíceis e perigosas."
+        },
+        "7": {
+          "weatherScore": 3,
+          "costScore": 9,
+          "recommendedScore": 4,
+          "weatherDesc": "Heavy rain, landslides",
+          "weatherDescPt": "Muita chuva",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Difficult and dangerous conditions.",
+          "whyVisitPt": "Condições difíceis e perigosas."
+        },
+        "8": {
+          "weatherScore": 3,
+          "costScore": 9,
+          "recommendedScore": 4,
+          "weatherDesc": "Heavy rain, landslides",
+          "weatherDescPt": "Muita chuva",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Difficult and dangerous conditions.",
+          "whyVisitPt": "Condições difíceis e perigosas."
+        },
+        "9": {
+          "weatherScore": 9,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Clear skies, great for trekking",
+          "weatherDescPt": "Céu azul, ótimo para trekking",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Peak trekking season with clear views.",
+          "whyVisitPt": "Alta temporada de trekking com vistas claras."
+        },
+        "10": {
+          "weatherScore": 9,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Clear skies, great for trekking",
+          "weatherDescPt": "Céu azul, ótimo para trekking",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Peak trekking season with clear views.",
+          "whyVisitPt": "Alta temporada de trekking com vistas claras."
+        },
+        "11": {
+          "weatherScore": 3,
+          "costScore": 9,
+          "recommendedScore": 4,
+          "weatherDesc": "Freezing, snowy",
+          "weatherDescPt": "Congelante, com neve",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Difficult and dangerous conditions.",
+          "whyVisitPt": "Condições difíceis e perigosas."
+        },
+        "12": {
+          "weatherScore": 3,
+          "costScore": 9,
+          "recommendedScore": 4,
+          "weatherDesc": "Freezing, snowy",
+          "weatherDescPt": "Congelante, com neve",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Trekking",
+            "Monasteries",
+            "Mountain Views"
+          ],
+          "highlightsPt": [
+            "Trekking",
+            "Mosteiros",
+            "Vistas das montanhas"
+          ],
+          "whyVisit": "Difficult and dangerous conditions.",
+          "whyVisitPt": "Condições difíceis e perigosas."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            74,
+            35
+          ],
+          [
+            95,
+            29
+          ],
+          [
+            90,
+            27
+          ],
+          [
+            74,
+            30
+          ],
+          [
+            74,
+            35
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-congo",
+      "name": "Congo Rainforest",
+      "namePt": "Bacia do Congo",
+      "country": "Central Africa",
+      "description": "The world's second-largest tropical rainforest, teeming with gorillas and vast river networks.",
+      "descriptionPt": "A segunda maior floresta tropical do mundo, repleta de gorilas e vastas redes fluviais.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "2": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "3": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "4": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "5": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "6": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "7": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "8": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "9": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "10": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "11": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        },
+        "12": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, wet, and intensely humid.",
+          "weatherDescPt": "Quente, chuvoso e intensamente úmido.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Gorilla trekking",
+            "Jungle safaris",
+            "River trips"
+          ],
+          "highlightsPt": [
+            "Trekking com gorilas",
+            "Safáris na selva",
+            "Viagens de rio"
+          ],
+          "whyVisit": "Epic wildlife encounters in deep jungle.",
+          "whyVisitPt": "Encontros épicos com a vida selvagem na floresta profunda."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            10,
+            5
+          ],
+          [
+            30,
+            5
+          ],
+          [
+            30,
+            -5
+          ],
+          [
+            10,
+            -5
+          ],
+          [
+            10,
+            5
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-antarctica",
+      "name": "Antarctica",
+      "namePt": "Antártida",
+      "country": "Antarctica",
+      "description": "Earth's southernmost continent. It contains the geographic South Pole and is situated in the Antarctic region.",
+      "descriptionPt": "O continente mais ao sul da Terra. Contém o Pólo Sul geográfico e está coberto de gelo o ano todo.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 4,
+          "costScore": 1,
+          "recommendedScore": 8,
+          "weatherDesc": "Around freezing, 24h sunlight.",
+          "weatherDescPt": "Perto de zero graus, sol 24h.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "The only time civilian travel is broadly possible.",
+          "whyVisitPt": "A única época em que viagens civis são amplamente possíveis."
+        },
+        "2": {
+          "weatherScore": 4,
+          "costScore": 1,
+          "recommendedScore": 8,
+          "weatherDesc": "Around freezing, 24h sunlight.",
+          "weatherDescPt": "Perto de zero graus, sol 24h.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "The only time civilian travel is broadly possible.",
+          "whyVisitPt": "A única época em que viagens civis são amplamente possíveis."
+        },
+        "3": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "4": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "5": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "6": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "7": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "8": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "9": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "10": {
+          "weatherScore": 1,
+          "costScore": 1,
+          "recommendedScore": 1,
+          "weatherDesc": "Lethally cold, pure darkness.",
+          "weatherDescPt": "Frio letal, escuridão total.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "Inaccessible to tourists.",
+          "whyVisitPt": "Inacessível para turistas."
+        },
+        "11": {
+          "weatherScore": 4,
+          "costScore": 1,
+          "recommendedScore": 8,
+          "weatherDesc": "Around freezing, 24h sunlight.",
+          "weatherDescPt": "Perto de zero graus, sol 24h.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "The only time civilian travel is broadly possible.",
+          "whyVisitPt": "A única época em que viagens civis são amplamente possíveis."
+        },
+        "12": {
+          "weatherScore": 4,
+          "costScore": 1,
+          "recommendedScore": 8,
+          "weatherDesc": "Around freezing, 24h sunlight.",
+          "weatherDescPt": "Perto de zero graus, sol 24h.",
+          "avgDailyCost": 500,
+          "highlights": [
+            "Penguin colonies",
+            "Glacial cruising",
+            "Ice hiking"
+          ],
+          "highlightsPt": [
+            "Colônias de pinguins",
+            "Cruzeiros glaciais",
+            "Caminhada no gelo"
+          ],
+          "whyVisit": "The only time civilian travel is broadly possible.",
+          "whyVisitPt": "A única época em que viagens civis são amplamente possíveis."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -180,
+            -90
+          ],
+          [
+            180,
+            -90
+          ],
+          [
+            180,
+            -60
+          ],
+          [
+            -180,
+            -60
+          ],
+          [
+            -180,
+            -90
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-arabian",
+      "name": "Arabian Desert",
+      "namePt": "Deserto da Arábia",
+      "country": "Middle East",
+      "description": "A vast desert wilderness in Western Asia, occupying most of the Arabian Peninsula.",
+      "descriptionPt": "Um vasto deserto na Ásia Ocidental, ocupando a maior parte da Península Arábica.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 7,
+          "costScore": 3,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant and warm days, cool nights.",
+          "weatherDescPt": "Dias agradáveis e quentes, noites frias.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Perfect desert weather.",
+          "whyVisitPt": "Clima perfeito no deserto."
+        },
+        "2": {
+          "weatherScore": 7,
+          "costScore": 3,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant and warm days, cool nights.",
+          "weatherDescPt": "Dias agradáveis e quentes, noites frias.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Perfect desert weather.",
+          "whyVisitPt": "Clima perfeito no deserto."
+        },
+        "3": {
+          "weatherScore": 7,
+          "costScore": 3,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant and warm days, cool nights.",
+          "weatherDescPt": "Dias agradáveis e quentes, noites frias.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Perfect desert weather.",
+          "whyVisitPt": "Clima perfeito no deserto."
+        },
+        "4": {
+          "weatherScore": 7,
+          "costScore": 3,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant and warm days, cool nights.",
+          "weatherDescPt": "Dias agradáveis e quentes, noites frias.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Perfect desert weather.",
+          "whyVisitPt": "Clima perfeito no deserto."
+        },
+        "5": {
+          "weatherScore": 2,
+          "costScore": 3,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorchingly hot, unbearable outside.",
+          "weatherDescPt": "Calor escaldante, insuportável lá fora.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Avoid outdoor activities.",
+          "whyVisitPt": "Evite atividades ao ar livre."
+        },
+        "6": {
+          "weatherScore": 2,
+          "costScore": 3,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorchingly hot, unbearable outside.",
+          "weatherDescPt": "Calor escaldante, insuportável lá fora.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Avoid outdoor activities.",
+          "whyVisitPt": "Evite atividades ao ar livre."
+        },
+        "7": {
+          "weatherScore": 2,
+          "costScore": 3,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorchingly hot, unbearable outside.",
+          "weatherDescPt": "Calor escaldante, insuportável lá fora.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Avoid outdoor activities.",
+          "whyVisitPt": "Evite atividades ao ar livre."
+        },
+        "8": {
+          "weatherScore": 2,
+          "costScore": 3,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorchingly hot, unbearable outside.",
+          "weatherDescPt": "Calor escaldante, insuportável lá fora.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Avoid outdoor activities.",
+          "whyVisitPt": "Evite atividades ao ar livre."
+        },
+        "9": {
+          "weatherScore": 2,
+          "costScore": 3,
+          "recommendedScore": 3,
+          "weatherDesc": "Scorchingly hot, unbearable outside.",
+          "weatherDescPt": "Calor escaldante, insuportável lá fora.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Avoid outdoor activities.",
+          "whyVisitPt": "Evite atividades ao ar livre."
+        },
+        "10": {
+          "weatherScore": 7,
+          "costScore": 3,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant and warm days, cool nights.",
+          "weatherDescPt": "Dias agradáveis e quentes, noites frias.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Perfect desert weather.",
+          "whyVisitPt": "Clima perfeito no deserto."
+        },
+        "11": {
+          "weatherScore": 7,
+          "costScore": 3,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant and warm days, cool nights.",
+          "weatherDescPt": "Dias agradáveis e quentes, noites frias.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Perfect desert weather.",
+          "whyVisitPt": "Clima perfeito no deserto."
+        },
+        "12": {
+          "weatherScore": 7,
+          "costScore": 3,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant and warm days, cool nights.",
+          "weatherDescPt": "Dias agradáveis e quentes, noites frias.",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Dune bashing",
+            "Luxury desert camps",
+            "Camel rides"
+          ],
+          "highlightsPt": [
+            "Passeios nas dunas",
+            "Acampamentos de luxo no deserto",
+            "Passeios de camelo"
+          ],
+          "whyVisit": "Perfect desert weather.",
+          "whyVisitPt": "Clima perfeito no deserto."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            35,
+            30
+          ],
+          [
+            60,
+            25
+          ],
+          [
+            55,
+            15
+          ],
+          [
+            40,
+            15
+          ],
+          [
+            35,
+            30
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-outback",
+      "name": "Australian Outback",
+      "namePt": "Outback Australiano",
+      "country": "Australia",
+      "description": "The vast, remote, arid area of Australia. It is known for its red dirt, sparse vegetation, and unique wildlife.",
+      "descriptionPt": "A imensa área remota e árida da Austrália. Conhecida por sua terra vermelha, vegetação rala e fauna única.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 3,
+          "costScore": 5,
+          "recommendedScore": 4,
+          "weatherDesc": "Incredibly hot, sweltering.",
+          "weatherDescPt": "Incrivelmente quente, sufocante.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Extreme heat makes travel dangerous.",
+          "whyVisitPt": "Calor extremo torna a viagem perigosa."
+        },
+        "2": {
+          "weatherScore": 3,
+          "costScore": 5,
+          "recommendedScore": 4,
+          "weatherDesc": "Incredibly hot, sweltering.",
+          "weatherDescPt": "Incrivelmente quente, sufocante.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Extreme heat makes travel dangerous.",
+          "whyVisitPt": "Calor extremo torna a viagem perigosa."
+        },
+        "3": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "4": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "5": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "6": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "7": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "8": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "9": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "10": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Pleasant, clear blue skies.",
+          "weatherDescPt": "Agradável, céu azul claro.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Perfect for exploring the red center.",
+          "whyVisitPt": "Perfeito para explorar o centro vermelho."
+        },
+        "11": {
+          "weatherScore": 3,
+          "costScore": 5,
+          "recommendedScore": 4,
+          "weatherDesc": "Incredibly hot, sweltering.",
+          "weatherDescPt": "Incrivelmente quente, sufocante.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Extreme heat makes travel dangerous.",
+          "whyVisitPt": "Calor extremo torna a viagem perigosa."
+        },
+        "12": {
+          "weatherScore": 3,
+          "costScore": 5,
+          "recommendedScore": 4,
+          "weatherDesc": "Incredibly hot, sweltering.",
+          "weatherDescPt": "Incrivelmente quente, sufocante.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Uluru tours",
+            "Star gazing",
+            "4x4 drives"
+          ],
+          "highlightsPt": [
+            "Tours no Uluru",
+            "Observação de estrelas",
+            "Passeios 4x4"
+          ],
+          "whyVisit": "Extreme heat makes travel dangerous.",
+          "whyVisitPt": "Calor extremo torna a viagem perigosa."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            120,
+            -20
+          ],
+          [
+            140,
+            -20
+          ],
+          [
+            140,
+            -30
+          ],
+          [
+            120,
+            -30
+          ],
+          [
+            120,
+            -20
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-siberia",
+      "name": "Siberia",
+      "namePt": "Sibéria",
+      "country": "Russia",
+      "description": "An extensive geographical region, and by the broadest definition is also known as North Asia, historically famous for extreme winters.",
+      "descriptionPt": "Extensa região geográfica com invernos brutais, florestas de taiga e o profundo Lago Baikal.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 1,
+          "costScore": 7,
+          "recommendedScore": 4,
+          "weatherDesc": "Dangerously cold, heavy snow.",
+          "weatherDescPt": "Frio perigoso, muita neve.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Only for extreme winter survivalists.",
+          "whyVisitPt": "Apenas para sobreviventes extremos de inverno."
+        },
+        "2": {
+          "weatherScore": 1,
+          "costScore": 7,
+          "recommendedScore": 4,
+          "weatherDesc": "Dangerously cold, heavy snow.",
+          "weatherDescPt": "Frio perigoso, muita neve.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Only for extreme winter survivalists.",
+          "whyVisitPt": "Apenas para sobreviventes extremos de inverno."
+        },
+        "3": {
+          "weatherScore": 1,
+          "costScore": 7,
+          "recommendedScore": 4,
+          "weatherDesc": "Dangerously cold, heavy snow.",
+          "weatherDescPt": "Frio perigoso, muita neve.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Only for extreme winter survivalists.",
+          "whyVisitPt": "Apenas para sobreviventes extremos de inverno."
+        },
+        "4": {
+          "weatherScore": 4,
+          "costScore": 7,
+          "recommendedScore": 5,
+          "weatherDesc": "Cold but manageable.",
+          "weatherDescPt": "Frio, mas tolerável.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Great for nature and train journeys.",
+          "whyVisitPt": "Ótimo para natureza e viagens de trem."
+        },
+        "5": {
+          "weatherScore": 4,
+          "costScore": 7,
+          "recommendedScore": 5,
+          "weatherDesc": "Cold but manageable.",
+          "weatherDescPt": "Frio, mas tolerável.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Great for nature and train journeys.",
+          "whyVisitPt": "Ótimo para natureza e viagens de trem."
+        },
+        "6": {
+          "weatherScore": 7,
+          "costScore": 7,
+          "recommendedScore": 7,
+          "weatherDesc": "Surprisingly warm, mosquitoes.",
+          "weatherDescPt": "Surpreendentemente quente, mosquitos.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Great for nature and train journeys.",
+          "whyVisitPt": "Ótimo para natureza e viagens de trem."
+        },
+        "7": {
+          "weatherScore": 7,
+          "costScore": 7,
+          "recommendedScore": 7,
+          "weatherDesc": "Surprisingly warm, mosquitoes.",
+          "weatherDescPt": "Surpreendentemente quente, mosquitos.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Great for nature and train journeys.",
+          "whyVisitPt": "Ótimo para natureza e viagens de trem."
+        },
+        "8": {
+          "weatherScore": 7,
+          "costScore": 7,
+          "recommendedScore": 7,
+          "weatherDesc": "Surprisingly warm, mosquitoes.",
+          "weatherDescPt": "Surpreendentemente quente, mosquitos.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Great for nature and train journeys.",
+          "whyVisitPt": "Ótimo para natureza e viagens de trem."
+        },
+        "9": {
+          "weatherScore": 4,
+          "costScore": 7,
+          "recommendedScore": 5,
+          "weatherDesc": "Cold but manageable.",
+          "weatherDescPt": "Frio, mas tolerável.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Great for nature and train journeys.",
+          "whyVisitPt": "Ótimo para natureza e viagens de trem."
+        },
+        "10": {
+          "weatherScore": 4,
+          "costScore": 7,
+          "recommendedScore": 5,
+          "weatherDesc": "Cold but manageable.",
+          "weatherDescPt": "Frio, mas tolerável.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Great for nature and train journeys.",
+          "whyVisitPt": "Ótimo para natureza e viagens de trem."
+        },
+        "11": {
+          "weatherScore": 1,
+          "costScore": 7,
+          "recommendedScore": 4,
+          "weatherDesc": "Dangerously cold, heavy snow.",
+          "weatherDescPt": "Frio perigoso, muita neve.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Only for extreme winter survivalists.",
+          "whyVisitPt": "Apenas para sobreviventes extremos de inverno."
+        },
+        "12": {
+          "weatherScore": 1,
+          "costScore": 7,
+          "recommendedScore": 4,
+          "weatherDesc": "Dangerously cold, heavy snow.",
+          "weatherDescPt": "Frio perigoso, muita neve.",
+          "avgDailyCost": 60,
+          "highlights": [
+            "Trans-Siberian Railway",
+            "Lake Baikal",
+            "Taiga forests"
+          ],
+          "highlightsPt": [
+            "Rodovia Transiberiana",
+            "Lago Baikal",
+            "Florestas de taiga"
+          ],
+          "whyVisit": "Only for extreme winter survivalists.",
+          "whyVisitPt": "Apenas para sobreviventes extremos de inverno."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            60,
+            75
+          ],
+          [
+            150,
+            75
+          ],
+          [
+            150,
+            50
+          ],
+          [
+            60,
+            50
+          ],
+          [
+            60,
+            75
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-caribbean",
+      "name": "The Caribbean",
+      "namePt": "O Caribe",
+      "country": "Caribbean Islands",
+      "description": "A beautiful tropical paradise of islands featuring white-sand beaches, coral reefs, and a laid-back vibe.",
+      "descriptionPt": "Um paraíso tropical de ilhas com praias de areia branca, recifes de coral e um clima descontraído.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Perfect sunny, dry weather.",
+          "weatherDescPt": "Clima perfeito, ensolarado e seco.",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "2": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Perfect sunny, dry weather.",
+          "weatherDescPt": "Clima perfeito, ensolarado e seco.",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "3": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Perfect sunny, dry weather.",
+          "weatherDescPt": "Clima perfeito, ensolarado e seco.",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "4": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Perfect sunny, dry weather.",
+          "weatherDescPt": "Clima perfeito, ensolarado e seco.",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "5": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 7.5,
+          "weatherDesc": "Warm with occasional showers.",
+          "weatherDescPt": "Quente com chuvas ocasionais.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "6": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 7.5,
+          "weatherDesc": "Warm with occasional showers.",
+          "weatherDescPt": "Quente com chuvas ocasionais.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "7": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 7.5,
+          "weatherDesc": "Warm with occasional showers.",
+          "weatherDescPt": "Quente com chuvas ocasionais.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "8": {
+          "weatherScore": 3,
+          "costScore": 6,
+          "recommendedScore": 4,
+          "weatherDesc": "High risk of hurricanes and heavy rain.",
+          "weatherDescPt": "Alto risco de furacões e chuvas fortes.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Dangerous weather, but very cheap.",
+          "whyVisitPt": "Clima perigoso, mas muito barato."
+        },
+        "9": {
+          "weatherScore": 3,
+          "costScore": 6,
+          "recommendedScore": 4,
+          "weatherDesc": "High risk of hurricanes and heavy rain.",
+          "weatherDescPt": "Alto risco de furacões e chuvas fortes.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Dangerous weather, but very cheap.",
+          "whyVisitPt": "Clima perigoso, mas muito barato."
+        },
+        "10": {
+          "weatherScore": 3,
+          "costScore": 6,
+          "recommendedScore": 4,
+          "weatherDesc": "High risk of hurricanes and heavy rain.",
+          "weatherDescPt": "Alto risco de furacões e chuvas fortes.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Dangerous weather, but very cheap.",
+          "whyVisitPt": "Clima perigoso, mas muito barato."
+        },
+        "11": {
+          "weatherScore": 7,
+          "costScore": 6,
+          "recommendedScore": 7.5,
+          "weatherDesc": "Warm with occasional showers.",
+          "weatherDescPt": "Quente com chuvas ocasionais.",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        },
+        "12": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Perfect sunny, dry weather.",
+          "weatherDescPt": "Clima perfeito, ensolarado e seco.",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Snorkeling",
+            "Beach lounging",
+            "Sailing"
+          ],
+          "highlightsPt": [
+            "Mergulho com snorkel",
+            "Relaxar na praia",
+            "Velejar"
+          ],
+          "whyVisit": "Quintessential tropical getaway.",
+          "whyVisitPt": "O refúgio tropical por excelência."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -85,
+            25
+          ],
+          [
+            -60,
+            25
+          ],
+          [
+            -60,
+            10
+          ],
+          [
+            -85,
+            10
+          ],
+          [
+            -85,
+            25
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-patagonia",
+      "name": "Patagonia",
+      "namePt": "Patagônia",
+      "country": "Argentina & Chile",
+      "description": "A sparsely populated region located at the southern end of South America, known for its dramatic mountains, glaciers, and wind.",
+      "descriptionPt": "Região pouco povoada localizada no extremo sul da América do Sul, conhecida por suas montanhas dramáticas, geleiras e ventos fortes.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 7,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Cool and extremely windy.",
+          "weatherDescPt": "Frio e extremamente ventoso.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Incredible majestic mountain landscapes.",
+          "whyVisitPt": "Incríveis paisagens montanhosas."
+        },
+        "2": {
+          "weatherScore": 7,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Cool and extremely windy.",
+          "weatherDescPt": "Frio e extremamente ventoso.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Incredible majestic mountain landscapes.",
+          "whyVisitPt": "Incríveis paisagens montanhosas."
+        },
+        "3": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and extremely windy.",
+          "weatherDescPt": "Frio e extremamente ventoso.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Incredible majestic mountain landscapes.",
+          "whyVisitPt": "Incríveis paisagens montanhosas."
+        },
+        "4": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and extremely windy.",
+          "weatherDescPt": "Frio e extremamente ventoso.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Incredible majestic mountain landscapes.",
+          "whyVisitPt": "Incríveis paisagens montanhosas."
+        },
+        "5": {
+          "weatherScore": 2,
+          "costScore": 5,
+          "recommendedScore": 3,
+          "weatherDesc": "Freezing, many parks closed.",
+          "weatherDescPt": "Congelante, muitos parques fechados.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Only for extreme winter sports.",
+          "whyVisitPt": "Apenas para esportes radicais de inverno."
+        },
+        "6": {
+          "weatherScore": 2,
+          "costScore": 5,
+          "recommendedScore": 3,
+          "weatherDesc": "Freezing, many parks closed.",
+          "weatherDescPt": "Congelante, muitos parques fechados.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Only for extreme winter sports.",
+          "whyVisitPt": "Apenas para esportes radicais de inverno."
+        },
+        "7": {
+          "weatherScore": 2,
+          "costScore": 5,
+          "recommendedScore": 3,
+          "weatherDesc": "Freezing, many parks closed.",
+          "weatherDescPt": "Congelante, muitos parques fechados.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Only for extreme winter sports.",
+          "whyVisitPt": "Apenas para esportes radicais de inverno."
+        },
+        "8": {
+          "weatherScore": 2,
+          "costScore": 5,
+          "recommendedScore": 3,
+          "weatherDesc": "Freezing, many parks closed.",
+          "weatherDescPt": "Congelante, muitos parques fechados.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Only for extreme winter sports.",
+          "whyVisitPt": "Apenas para esportes radicais de inverno."
+        },
+        "9": {
+          "weatherScore": 2,
+          "costScore": 5,
+          "recommendedScore": 3,
+          "weatherDesc": "Freezing, many parks closed.",
+          "weatherDescPt": "Congelante, muitos parques fechados.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Only for extreme winter sports.",
+          "whyVisitPt": "Apenas para esportes radicais de inverno."
+        },
+        "10": {
+          "weatherScore": 5,
+          "costScore": 5,
+          "recommendedScore": 6,
+          "weatherDesc": "Cool and extremely windy.",
+          "weatherDescPt": "Frio e extremamente ventoso.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Incredible majestic mountain landscapes.",
+          "whyVisitPt": "Incríveis paisagens montanhosas."
+        },
+        "11": {
+          "weatherScore": 7,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Cool and extremely windy.",
+          "weatherDescPt": "Frio e extremamente ventoso.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Incredible majestic mountain landscapes.",
+          "whyVisitPt": "Incríveis paisagens montanhosas."
+        },
+        "12": {
+          "weatherScore": 7,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Cool and extremely windy.",
+          "weatherDescPt": "Frio e extremamente ventoso.",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Glacier hiking",
+            "Trekking Fitz Roy",
+            "Whale watching"
+          ],
+          "highlightsPt": [
+            "Caminhada em geleiras",
+            "Trekking no Fitz Roy",
+            "Observação de baleias"
+          ],
+          "whyVisit": "Incredible majestic mountain landscapes.",
+          "whyVisitPt": "Incríveis paisagens montanhosas."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -75,
+            -40
+          ],
+          [
+            -60,
+            -40
+          ],
+          [
+            -60,
+            -55
+          ],
+          [
+            -75,
+            -55
+          ],
+          [
+            -75,
+            -40
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-seasia",
+      "name": "Southeast Asia",
+      "namePt": "Sudeste Asiático",
+      "country": "SE Asia",
+      "description": "A diverse, tropical region featuring lush jungles, ancient temples, incredible street food, and pristine beaches.",
+      "descriptionPt": "Uma região tropical diversa com selvas exuberantes, templos antigos, incrível comida de rua e praias intocadas.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 8,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, lower humidity.",
+          "weatherDescPt": "Ensolarado, umidade mais baixa.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Peak backpacker paradise conditions.",
+          "whyVisitPt": "Condições perfeitas para mochileiros."
+        },
+        "2": {
+          "weatherScore": 8,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, lower humidity.",
+          "weatherDescPt": "Ensolarado, umidade mais baixa.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Peak backpacker paradise conditions.",
+          "whyVisitPt": "Condições perfeitas para mochileiros."
+        },
+        "3": {
+          "weatherScore": 8,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, lower humidity.",
+          "weatherDescPt": "Ensolarado, umidade mais baixa.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Peak backpacker paradise conditions.",
+          "whyVisitPt": "Condições perfeitas para mochileiros."
+        },
+        "4": {
+          "weatherScore": 8,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, lower humidity.",
+          "weatherDescPt": "Ensolarado, umidade mais baixa.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Peak backpacker paradise conditions.",
+          "whyVisitPt": "Condições perfeitas para mochileiros."
+        },
+        "5": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, humid, daily monsoon downpours.",
+          "weatherDescPt": "Quente, úmido, tempestades diárias de monção.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Very lush, fewer crowds, but very wet.",
+          "whyVisitPt": "Muito verde, menos multidões, mas muito chuvoso."
+        },
+        "6": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, humid, daily monsoon downpours.",
+          "weatherDescPt": "Quente, úmido, tempestades diárias de monção.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Very lush, fewer crowds, but very wet.",
+          "whyVisitPt": "Muito verde, menos multidões, mas muito chuvoso."
+        },
+        "7": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, humid, daily monsoon downpours.",
+          "weatherDescPt": "Quente, úmido, tempestades diárias de monção.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Very lush, fewer crowds, but very wet.",
+          "whyVisitPt": "Muito verde, menos multidões, mas muito chuvoso."
+        },
+        "8": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, humid, daily monsoon downpours.",
+          "weatherDescPt": "Quente, úmido, tempestades diárias de monção.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Very lush, fewer crowds, but very wet.",
+          "whyVisitPt": "Muito verde, menos multidões, mas muito chuvoso."
+        },
+        "9": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, humid, daily monsoon downpours.",
+          "weatherDescPt": "Quente, úmido, tempestades diárias de monção.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Very lush, fewer crowds, but very wet.",
+          "whyVisitPt": "Muito verde, menos multidões, mas muito chuvoso."
+        },
+        "10": {
+          "weatherScore": 4,
+          "costScore": 9,
+          "recommendedScore": 6,
+          "weatherDesc": "Hot, humid, daily monsoon downpours.",
+          "weatherDescPt": "Quente, úmido, tempestades diárias de monção.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Very lush, fewer crowds, but very wet.",
+          "whyVisitPt": "Muito verde, menos multidões, mas muito chuvoso."
+        },
+        "11": {
+          "weatherScore": 8,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, lower humidity.",
+          "weatherDescPt": "Ensolarado, umidade mais baixa.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Peak backpacker paradise conditions.",
+          "whyVisitPt": "Condições perfeitas para mochileiros."
+        },
+        "12": {
+          "weatherScore": 8,
+          "costScore": 9,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, lower humidity.",
+          "weatherDescPt": "Ensolarado, umidade mais baixa.",
+          "avgDailyCost": 40,
+          "highlights": [
+            "Temple hopping",
+            "Island boat tours",
+            "Street food"
+          ],
+          "highlightsPt": [
+            "Visitas a templos",
+            "Passeios de barco em ilhas",
+            "Comida de rua"
+          ],
+          "whyVisit": "Peak backpacker paradise conditions.",
+          "whyVisitPt": "Condições perfeitas para mochileiros."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            95,
+            20
+          ],
+          [
+            130,
+            20
+          ],
+          [
+            130,
+            -10
+          ],
+          [
+            95,
+            -10
+          ],
+          [
+            95,
+            20
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "reg-polynesia",
+      "name": "Polynesia",
+      "namePt": "Polinésia",
+      "country": "Pacific Islands",
+      "description": "A massive group of over 1000 islands scattered over the central and southern Pacific Ocean, famous for turquoise lagoons.",
+      "descriptionPt": "Um grupo de mais de 1000 ilhas espalhadas pelo Oceano Pacífico central e sul, famosas por lagoas azul-turquesa.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 6,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, humid, occasional storms.",
+          "weatherDescPt": "Quente, úmido, tempestades ocasionais.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "Slight risk of cyclones.",
+          "whyVisitPt": "Leve risco de ciclones."
+        },
+        "2": {
+          "weatherScore": 6,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, humid, occasional storms.",
+          "weatherDescPt": "Quente, úmido, tempestades ocasionais.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "Slight risk of cyclones.",
+          "whyVisitPt": "Leve risco de ciclones."
+        },
+        "3": {
+          "weatherScore": 6,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, humid, occasional storms.",
+          "weatherDescPt": "Quente, úmido, tempestades ocasionais.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "Slight risk of cyclones.",
+          "whyVisitPt": "Leve risco de ciclones."
+        },
+        "4": {
+          "weatherScore": 6,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, humid, occasional storms.",
+          "weatherDescPt": "Quente, úmido, tempestades ocasionais.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "Slight risk of cyclones.",
+          "whyVisitPt": "Leve risco de ciclones."
+        },
+        "5": {
+          "weatherScore": 9,
+          "costScore": 2,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Idyllic dry tropical weather.",
+          "weatherDescPt": "Clima tropical seco e idílico.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "The ultimate luxury island experience.",
+          "whyVisitPt": "A melhor experiência de luxo em ilhas."
+        },
+        "6": {
+          "weatherScore": 9,
+          "costScore": 2,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Idyllic dry tropical weather.",
+          "weatherDescPt": "Clima tropical seco e idílico.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "The ultimate luxury island experience.",
+          "whyVisitPt": "A melhor experiência de luxo em ilhas."
+        },
+        "7": {
+          "weatherScore": 9,
+          "costScore": 2,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Idyllic dry tropical weather.",
+          "weatherDescPt": "Clima tropical seco e idílico.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "The ultimate luxury island experience.",
+          "whyVisitPt": "A melhor experiência de luxo em ilhas."
+        },
+        "8": {
+          "weatherScore": 9,
+          "costScore": 2,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Idyllic dry tropical weather.",
+          "weatherDescPt": "Clima tropical seco e idílico.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "The ultimate luxury island experience.",
+          "whyVisitPt": "A melhor experiência de luxo em ilhas."
+        },
+        "9": {
+          "weatherScore": 9,
+          "costScore": 2,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Idyllic dry tropical weather.",
+          "weatherDescPt": "Clima tropical seco e idílico.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "The ultimate luxury island experience.",
+          "whyVisitPt": "A melhor experiência de luxo em ilhas."
+        },
+        "10": {
+          "weatherScore": 9,
+          "costScore": 2,
+          "recommendedScore": 8.5,
+          "weatherDesc": "Idyllic dry tropical weather.",
+          "weatherDescPt": "Clima tropical seco e idílico.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "The ultimate luxury island experience.",
+          "whyVisitPt": "A melhor experiência de luxo em ilhas."
+        },
+        "11": {
+          "weatherScore": 6,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, humid, occasional storms.",
+          "weatherDescPt": "Quente, úmido, tempestades ocasionais.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "Slight risk of cyclones.",
+          "whyVisitPt": "Leve risco de ciclones."
+        },
+        "12": {
+          "weatherScore": 6,
+          "costScore": 2,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, humid, occasional storms.",
+          "weatherDescPt": "Quente, úmido, tempestades ocasionais.",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Overwater bungalows",
+            "Scuba diving",
+            "Polynesian culture"
+          ],
+          "highlightsPt": [
+            "Bangalôs sobre a água",
+            "Mergulho",
+            "Cultura Polinésia"
+          ],
+          "whyVisit": "Slight risk of cyclones.",
+          "whyVisitPt": "Leve risco de ciclones."
+        }
+      }
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -170,
+            20
+          ],
+          [
+            -130,
+            20
+          ],
+          [
+            -130,
+            -30
+          ],
+          [
+            -170,
+            -30
+          ],
+          [
+            -170,
+            20
+          ]
+        ]
+      ]
+    }
+  }
+]

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MONTHS, type ViewMode } from "@/data/travelData";
-import { Sun, Moon, DollarSign, Star, ChevronLeft, ChevronRight, Map, Compass } from "lucide-react";
+import { MONTHS, POI_ICONS, type ViewMode } from "@/data/travelData";
+import { Sun, Moon, DollarSign, Star, ChevronLeft, ChevronRight, Map, Compass, Globe, Layers, Eye, EyeOff } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
-const viewModes: { key: ViewMode; label: string; icon: React.ReactNode; desc: string }[] = [
-  { key: "weather", label: "Weather", icon: <Sun className="w-4 h-4" />, desc: "Climate & vibe" },
-  { key: "cost", label: "Cost", icon: <DollarSign className="w-4 h-4" />, desc: "Budget guide" },
-  { key: "recommended", label: "Top Picks", icon: <Star className="w-4 h-4" />, desc: "Best overall" },
-] as const;
+const viewModes = (t: (k: string) => string) => [
+  { key: "weather" as ViewMode, label: t("map.weather"), icon: <Sun className="w-4 h-4" />, desc: t("map.weatherDesc") },
+  { key: "cost" as ViewMode, label: t("map.cost"), icon: <DollarSign className="w-4 h-4" />, desc: t("map.costDesc") },
+  { key: "recommended" as ViewMode, label: t("map.recommended"), icon: <Star className="w-4 h-4" />, desc: t("map.recommendedDesc") },
+];
 
 interface MapControlsProps {
   selectedMonth: number;
@@ -16,10 +17,15 @@ interface MapControlsProps {
   onViewModeChange: (mode: ViewMode) => void;
   theme: "light" | "dark";
   onToggleTheme: () => void;
+  poiFilters: string[];
+  showRegions: boolean;
+  onToggleRegions: () => void;
+  onTogglePoiFilter: (f: string) => void;
 }
 
-export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewModeChange, theme, onToggleTheme }: MapControlsProps) {
+export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewModeChange, theme, onToggleTheme, poiFilters, showRegions, onToggleRegions, onTogglePoiFilter }: MapControlsProps) {
   const [isExpanded, setIsExpanded] = useState(true);
+  const { t, locale, setLocale } = useTranslation();
 
   const prevMonth = () => onMonthChange(selectedMonth === 1 ? 12 : selectedMonth - 1);
   const nextMonth = () => onMonthChange(selectedMonth === 12 ? 1 : selectedMonth + 1);
@@ -34,12 +40,23 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
       {/* Header */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50">
         <Compass className="w-5 h-5 text-primary" />
-        <span className="font-display text-sm font-semibold text-foreground tracking-wide">WANDERLUST</span>
+        <span className="font-display text-sm font-semibold text-foreground tracking-wide flex items-center gap-2">
+          CARAIQBONITO
+          <span className="bg-primary/20 text-primary text-[9px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">BETA</span>
+        </span>
         <div className="ml-auto flex items-center gap-1">
+          <button
+            onClick={() => setLocale(locale === 'en' ? 'pt' : 'en')}
+            className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+            title="Toggle Language"
+          >
+            <Globe className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase">{locale}</span>
+          </button>
           <button
             onClick={onToggleTheme}
             className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
-            title={theme === "dark" ? "Modo claro" : "Modo escuro"}
+            title={theme === "dark" ? "Light Mode" : "Dark Mode"}
           >
             {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
@@ -62,7 +79,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
           >
             {/* Month Selector */}
             <div className="px-4 py-3 border-b border-border/50">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">Travel Month</p>
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.travelMonth")}</p>
               <div className="flex items-center gap-2">
                 <button
                   onClick={prevMonth}
@@ -72,7 +89,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                 </button>
                 <div className="flex-1 text-center">
                   <span className="font-display text-lg font-semibold text-primary">
-                    {MONTHS[selectedMonth - 1]}
+                    {t(`month.${MONTHS[selectedMonth - 1].toLowerCase()}`)}
                   </span>
                 </div>
                 <button
@@ -88,11 +105,10 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                   <button
                     key={i}
                     onClick={() => onMonthChange(i + 1)}
-                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                      i + 1 === selectedMonth
-                        ? "bg-primary scale-125"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${i + 1 === selectedMonth
+                      ? "bg-primary scale-125"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                      }`}
                   />
                 ))}
               </div>
@@ -100,17 +116,16 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
 
             {/* View Mode Toggle */}
             <div className="px-4 py-3">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">Data Layer</p>
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.dataLayer")}</p>
               <div className="space-y-1.5">
-                {viewModes.map((mode) => (
+                {viewModes(t).map((mode) => (
                   <button
                     key={mode.key}
                     onClick={() => onViewModeChange(mode.key)}
-                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
-                      viewMode === mode.key
-                        ? "bg-primary/15 text-primary border border-primary/30"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                    }`}
+                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 ${viewMode === mode.key
+                      ? "bg-primary/15 text-primary border border-primary/30"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                      }`}
                   >
                     {mode.icon}
                     <div className="text-left">
@@ -124,8 +139,45 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
 
             {/* Legend */}
             <div className="px-4 py-3 border-t border-border/50">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">Legend</p>
-              <Legend viewMode={viewMode} />
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.legendTitle")}</p>
+              <Legend viewMode={viewMode} t={t} />
+            </div>
+
+            {/* Region Visibility */}
+            <div className="px-4 py-3 border-t border-border/50">
+              <div className="flex items-center justify-between">
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{t("map.climateRegions")}</p>
+                <button
+                  onClick={onToggleRegions}
+                  className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs transition-colors ${showRegions
+                    ? "bg-primary/20 text-primary border border-primary/30"
+                    : "bg-secondary text-muted-foreground hover:bg-secondary/80 border border-transparent"
+                    }`}
+                >
+                  {showRegions ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
+                  <span>{showRegions ? t("map.visible") : t("map.hidden")}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* POI Filters */}
+            <div className="px-4 py-3 border-t border-border/50">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.poi")}</p>
+              <div className="flex flex-wrap gap-2">
+                {Object.keys(POI_ICONS).map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => onTogglePoiFilter(cat)}
+                    className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs transition-colors ${poiFilters.includes(cat)
+                      ? "bg-primary/20 text-primary border border-primary/30"
+                      : "bg-secondary text-muted-foreground hover:bg-secondary/80 border border-transparent"
+                      }`}
+                  >
+                    <span>{POI_ICONS[cat]}</span>
+                    <span>{t(`category.${cat}`)}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
@@ -134,24 +186,24 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
   );
 }
 
-function Legend({ viewMode }: { viewMode: ViewMode }) {
+function Legend({ viewMode, t }: { viewMode: ViewMode; t: (k: string) => string }) {
   const legends: Record<ViewMode, { color: string; label: string }[]> = {
     weather: [
-      { color: "bg-green-500", label: "Excellent" },
-      { color: "bg-lime-500", label: "Good" },
-      { color: "bg-yellow-400", label: "Fair" },
-      { color: "bg-orange-500", label: "Poor" },
-      { color: "bg-red-500", label: "Avoid" },
+      { color: "bg-green-500", label: t("legend.weather.excellent") },
+      { color: "bg-lime-500", label: t("legend.weather.good") },
+      { color: "bg-yellow-400", label: t("legend.weather.fair") },
+      { color: "bg-orange-500", label: t("legend.weather.poor") },
+      { color: "bg-red-500", label: t("legend.weather.avoid") },
     ],
     cost: [
-      { color: "bg-green-500", label: "Budget-friendly" },
-      { color: "bg-yellow-400", label: "Moderate" },
-      { color: "bg-red-500", label: "Expensive" },
+      { color: "bg-green-500", label: t("legend.cost.budget") },
+      { color: "bg-yellow-400", label: t("legend.cost.moderate") },
+      { color: "bg-red-500", label: t("legend.cost.expensive") },
     ],
     recommended: [
-      { color: "bg-primary", label: "Highly Recommended" },
-      { color: "bg-accent", label: "Good Option" },
-      { color: "bg-muted", label: "Consider Others" },
+      { color: "bg-emerald-500", label: t("legend.recommended.highly") },
+      { color: "bg-amber-500", label: t("legend.recommended.good") },
+      { color: "bg-red-500", label: t("legend.recommended.consider_others") },
     ],
   };
 

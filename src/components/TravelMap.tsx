@@ -9,21 +9,25 @@ import {
   type RegionProperties,
   type POIProperties,
 } from "@/data/travelData";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface TravelMapProps {
   selectedMonth: number;
   viewMode: ViewMode;
   theme: "light" | "dark";
+  poiFilters: string[];
+  showRegions: boolean;
   onRegionClick: (region: RegionProperties) => void;
   onPOIClick: (poi: POIProperties) => void;
 }
 
-export function TravelMap({ selectedMonth, viewMode, theme, onRegionClick, onPOIClick }: TravelMapProps) {
+export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegions, onRegionClick, onPOIClick }: TravelMapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const tileLayerRef = useRef<L.TileLayer | null>(null);
   const regionsLayerRef = useRef<L.GeoJSON | null>(null);
   const poisLayerRef = useRef<L.LayerGroup | null>(null);
+  const { t, locale } = useTranslation();
 
   // Initialize map
   useEffect(() => {
@@ -83,6 +87,8 @@ export function TravelMap({ selectedMonth, viewMode, theme, onRegionClick, onPOI
       map.removeLayer(regionsLayerRef.current);
     }
 
+    if (!showRegions) return;
+
     const layer = L.geoJSON(regionsGeoJSON, {
       style: (feature) => {
         if (!feature?.properties) return {};
@@ -97,7 +103,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, onRegionClick, onPOI
       },
       onEachFeature: (feature, layer) => {
         const props = feature.properties as RegionProperties;
-        
+
         layer.on({
           mouseover: (e) => {
             const l = e.target;
@@ -113,9 +119,10 @@ export function TravelMap({ selectedMonth, viewMode, theme, onRegionClick, onPOI
 
         // Tooltip
         const data = props.monthlyData[selectedMonth];
+        const name = locale === 'pt' && props.namePt ? props.namePt : props.name;
         if (data) {
           layer.bindTooltip(
-            `<div style="text-align:center"><strong>${props.name}</strong><br/><span style="font-size:11px;opacity:0.8">Score: ${data.recommendedScore}/10 · $${data.avgDailyCost}/day</span></div>`,
+            `<div style="text-align:center"><strong>${name}</strong><br/><span style="font-size:11px;opacity:0.8">${t("region.score")}: ${data.recommendedScore}/10 · $${data.avgDailyCost}/${t("region.day")}</span></div>`,
             { sticky: true, className: "custom-tooltip" }
           );
         }
@@ -124,7 +131,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, onRegionClick, onPOI
 
     layer.addTo(map);
     regionsLayerRef.current = layer;
-  }, [selectedMonth, viewMode, onRegionClick]);
+  }, [selectedMonth, viewMode, onRegionClick, showRegions, locale]);
 
   // Update POI markers
   useEffect(() => {
@@ -139,24 +146,34 @@ export function TravelMap({ selectedMonth, viewMode, theme, onRegionClick, onPOI
 
     poisGeoJSON.features.forEach((feature) => {
       const props = feature.properties;
+
+      if (props.category && !poiFilters.includes(props.category)) return;
+
       const [lng, lat] = feature.geometry.coordinates;
+
+      const customIconStr = POI_ICONS[props.category] || "📍";
+
+      const badgeHtml = props.caraiqbonito
+        ? `<div style="position:absolute; bottom:-4px; right:-4px; background:#3b82f6; color:white; border-radius:50%; width:16px; height:16px; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,0.5); font-size:10px; z-index:100;">✓</div>`
+        : '';
 
       const icon = L.divIcon({
         className: "poi-marker",
-        html: `<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));cursor:pointer;transition:transform 0.2s" onmouseenter="this.style.transform='scale(1.3)'" onmouseleave="this.style.transform='scale(1)'">${POI_ICONS[props.category] || "📍"}</div>`,
+        html: `<div style="position:relative; font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));cursor:pointer;transition:transform 0.2s" onmouseenter="this.style.transform='scale(1.3)'" onmouseleave="this.style.transform='scale(1)'">${customIconStr}${badgeHtml}</div>`,
         iconSize: [32, 32],
         iconAnchor: [16, 16],
       });
 
+      const name = locale === 'pt' && props.namePt ? props.namePt : props.name;
       const marker = L.marker([lat, lng], { icon });
-      marker.bindTooltip(props.name, { direction: "top", offset: [0, -12] });
+      marker.bindTooltip(name, { direction: "top", offset: [0, -12] });
       marker.on("click", () => onPOIClick(props));
       marker.addTo(poiGroup);
     });
 
     poiGroup.addTo(map);
     poisLayerRef.current = poiGroup;
-  }, [onPOIClick]);
+  }, [onPOIClick, poiFilters, locale, selectedMonth, viewMode, theme]);
 
   return <div ref={containerRef} className="w-full h-full" />;
 }
