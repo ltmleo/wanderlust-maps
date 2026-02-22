@@ -37,6 +37,7 @@ const Index = () => {
         theme={theme}
         poiFilters={poiFilters}
         showRegions={showRegions}
+        selectedRegion={selectedRegion}
         onRegionClick={handleRegionClick}
         onPOIClick={handlePOIClick}
       />

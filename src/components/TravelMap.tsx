@@ -17,11 +17,12 @@ interface TravelMapProps {
   theme: "light" | "dark";
   poiFilters: string[];
   showRegions: boolean;
+  selectedRegion: RegionProperties | null;
   onRegionClick: (region: RegionProperties) => void;
   onPOIClick: (poi: POIProperties) => void;
 }
 
-export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegions, onRegionClick, onPOIClick }: TravelMapProps) {
+export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegions, selectedRegion, onRegionClick, onPOIClick }: TravelMapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const tileLayerRef = useRef<L.TileLayer | null>(null);
@@ -96,9 +97,9 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
         return {
           fillColor: color,
           fillOpacity: 0.6,
-          color: "hsl(38, 60%, 55%)",
+          color: theme === 'dark' ? '#292524' : '#ffffff',
           weight: 1.5,
-          opacity: 0.6,
+          opacity: 0.8,
         };
       },
       onEachFeature: (feature, layer) => {
@@ -154,12 +155,12 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
       const customIconStr = POI_ICONS[props.category] || "📍";
 
       const badgeHtml = props.caraiqbonito
-        ? `<div style="position:absolute; bottom:-4px; right:-4px; background:#3b82f6; color:white; border-radius:50%; width:16px; height:16px; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,0.5); font-size:10px; z-index:100;">✓</div>`
+        ? `<div class="poi-badge">✓</div>`
         : '';
 
       const icon = L.divIcon({
         className: "poi-marker",
-        html: `<div style="position:relative; font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));cursor:pointer;transition:transform 0.2s" onmouseenter="this.style.transform='scale(1.3)'" onmouseleave="this.style.transform='scale(1)'">${customIconStr}${badgeHtml}</div>`,
+        html: `<div class="poi-marker-inner">${customIconStr}${badgeHtml}</div>`,
         iconSize: [32, 32],
         iconAnchor: [16, 16],
       });
@@ -174,6 +175,27 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
     poiGroup.addTo(map);
     poisLayerRef.current = poiGroup;
   }, [onPOIClick, poiFilters, locale, selectedMonth, viewMode, theme]);
+
+  // Fly to region when selected
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !selectedRegion) return;
+
+    const feature = regionsGeoJSON.features.find(
+      (f) => f.properties.id === selectedRegion.id
+    );
+
+    if (feature) {
+      const layer = L.geoJSON(feature);
+      const bounds = layer.getBounds();
+      map.flyToBounds(bounds, {
+        paddingTopLeft: [0, 0],
+        paddingBottomRight: [350, 0], // Offset for sidebar
+        duration: 1.2,
+        easeLinearity: 0.25,
+      });
+    }
+  }, [selectedRegion]);
 
   return <div ref={containerRef} className="w-full h-full" />;
 }

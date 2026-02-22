@@ -105,8 +105,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                   <button
                     key={i}
                     onClick={() => onMonthChange(i + 1)}
-                    className={`w-2 h-2 rounded-full transition-all duration-200 ${i + 1 === selectedMonth
-                      ? "bg-primary scale-125"
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${i + 1 === selectedMonth
+                      ? "bg-primary scale-150 shadow-[0_0_10px_rgba(250,204,21,0.5)]"
                       : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
                       }`}
                   />
