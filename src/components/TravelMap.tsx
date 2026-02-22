@@ -13,13 +13,15 @@ import {
 interface TravelMapProps {
   selectedMonth: number;
   viewMode: ViewMode;
+  theme: "light" | "dark";
   onRegionClick: (region: RegionProperties) => void;
   onPOIClick: (poi: POIProperties) => void;
 }
 
-export function TravelMap({ selectedMonth, viewMode, onRegionClick, onPOIClick }: TravelMapProps) {
+export function TravelMap({ selectedMonth, viewMode, theme, onRegionClick, onPOIClick }: TravelMapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const tileLayerRef = useRef<L.TileLayer | null>(null);
   const regionsLayerRef = useRef<L.GeoJSON | null>(null);
   const poisLayerRef = useRef<L.LayerGroup | null>(null);
 
@@ -37,20 +39,39 @@ export function TravelMap({ selectedMonth, viewMode, onRegionClick, onPOIClick }
       worldCopyJump: true,
     });
 
-    // Dark tile layer
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    // Tile layer added separately so it can be swapped on theme change
+    const tileUrl = theme === "dark"
+      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+      : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+
+    const tile = L.tileLayer(tileUrl, {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
       subdomains: "abcd",
       maxZoom: 19,
     }).addTo(map);
+
+    tileLayerRef.current = tile;
 
     mapRef.current = map;
 
     return () => {
       map.remove();
       mapRef.current = null;
+      tileLayerRef.current = null;
     };
   }, []);
+
+  // Update tile layer on theme change
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !tileLayerRef.current) return;
+
+    const tileUrl = theme === "dark"
+      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+      : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+
+    tileLayerRef.current.setUrl(tileUrl);
+  }, [theme]);
 
   // Update regions layer
   useEffect(() => {
