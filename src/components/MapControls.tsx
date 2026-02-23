@@ -24,7 +24,7 @@ interface MapControlsProps {
 }
 
 export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewModeChange, theme, onToggleTheme, poiFilters, showRegions, onToggleRegions, onTogglePoiFilter }: MapControlsProps) {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const { t, locale, setLocale } = useTranslation();
 
   const prevMonth = () => onMonthChange(selectedMonth === 1 ? 12 : selectedMonth - 1);
@@ -36,20 +36,20 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
     <>
     {/* Floating month scroller */}
     <motion.div
-      className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] glass-panel rounded-full px-1.5 py-1 shadow-lg flex items-center gap-1"
+      className="absolute top-3 left-1/2 -translate-x-1/2 z-[1000] glass-panel rounded-full px-1 py-0.5 sm:px-1.5 sm:py-1 shadow-lg flex items-center gap-0.5 sm:gap-1 max-w-[calc(100vw-2rem)]"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.1 }}
     >
-      <button onClick={prevMonth} className="p-1 rounded-full hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors flex-shrink-0">
-        <ChevronLeft className="w-3.5 h-3.5" />
+      <button onClick={prevMonth} className="p-0.5 sm:p-1 rounded-full hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors flex-shrink-0">
+        <ChevronLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
       </button>
       <div className="flex items-center gap-0.5 overflow-x-auto scrollbar-hidden">
         {shortMonths.map((m, i) => (
           <button
             key={i}
             onClick={() => onMonthChange(i + 1)}
-            className={`text-[10px] px-2 py-1 rounded-full font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+            className={`text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
               i + 1 === selectedMonth
                 ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
@@ -59,14 +59,14 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
           </button>
         ))}
       </div>
-      <button onClick={nextMonth} className="p-1 rounded-full hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors flex-shrink-0">
-        <ChevronRight className="w-3.5 h-3.5" />
+      <button onClick={nextMonth} className="p-0.5 sm:p-1 rounded-full hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors flex-shrink-0">
+        <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
       </button>
     </motion.div>
 
     <motion.div
-      className="absolute top-4 left-4 z-[1000] glass-panel rounded-2xl overflow-hidden shadow-xl"
-      style={{ maxWidth: isExpanded ? 280 : 52 }}
+      className="absolute top-12 sm:top-4 left-2 sm:left-4 z-[1000] glass-panel rounded-2xl overflow-hidden shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hidden"
+      style={{ maxWidth: isExpanded ? 280 : 44 }}
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4 }}
