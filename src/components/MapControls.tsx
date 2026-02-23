@@ -33,6 +33,37 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
   const shortMonths = MONTHS.map((m) => t(`month.${m.toLowerCase()}`).substring(0, 3));
 
   return (
+    <>
+    {/* Floating month scroller */}
+    <motion.div
+      className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] glass-panel rounded-full px-1.5 py-1 shadow-lg flex items-center gap-1"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.1 }}
+    >
+      <button onClick={prevMonth} className="p-1 rounded-full hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors flex-shrink-0">
+        <ChevronLeft className="w-3.5 h-3.5" />
+      </button>
+      <div className="flex items-center gap-0.5 overflow-x-auto scrollbar-hidden">
+        {shortMonths.map((m, i) => (
+          <button
+            key={i}
+            onClick={() => onMonthChange(i + 1)}
+            className={`text-[10px] px-2 py-1 rounded-full font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+              i + 1 === selectedMonth
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
+            }`}
+          >
+            {m}
+          </button>
+        ))}
+      </div>
+      <button onClick={nextMonth} className="p-1 rounded-full hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors flex-shrink-0">
+        <ChevronRight className="w-3.5 h-3.5" />
+      </button>
+    </motion.div>
+
     <motion.div
       className="absolute top-4 left-4 z-[1000] glass-panel rounded-2xl overflow-hidden shadow-xl"
       style={{ maxWidth: isExpanded ? 280 : 52 }}
@@ -190,6 +221,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
         )}
       </AnimatePresence>
     </motion.div>
+    </>
   );
 }
 
