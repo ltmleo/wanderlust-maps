@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MONTHS, POI_ICONS, type ViewMode } from "@/data/travelData";
-import { Sun, Moon, DollarSign, Star, ChevronLeft, ChevronRight, Map, Compass, Globe, Layers, Eye, EyeOff } from "lucide-react";
+import { Sun, Moon, DollarSign, Star, ChevronLeft, ChevronRight, Compass, Globe, Eye, EyeOff, Cloud, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 
 const viewModes = (t: (k: string) => string) => [
@@ -30,41 +30,51 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
   const prevMonth = () => onMonthChange(selectedMonth === 1 ? 12 : selectedMonth - 1);
   const nextMonth = () => onMonthChange(selectedMonth === 12 ? 1 : selectedMonth + 1);
 
+  const shortMonths = MONTHS.map((m) => t(`month.${m.toLowerCase()}`).substring(0, 3));
+
   return (
     <motion.div
-      className="absolute top-4 left-4 z-[1000] glass-panel rounded-xl overflow-hidden"
+      className="absolute top-4 left-4 z-[1000] glass-panel rounded-2xl overflow-hidden shadow-xl"
+      style={{ maxWidth: isExpanded ? 280 : 52 }}
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4 }}
     >
       {/* Header */}
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50">
-        <Compass className="w-5 h-5 text-primary" />
-        <span className="font-display text-sm font-semibold text-foreground tracking-wide flex items-center gap-2">
-          CARAIQBONITO
-          <span className="bg-primary/20 text-primary text-[9px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">BETA</span>
-        </span>
-        <div className="ml-auto flex items-center gap-1">
-          <button
-            onClick={() => setLocale(locale === 'en' ? 'pt' : 'en')}
-            className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
-            title="Toggle Language"
-          >
-            <Globe className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase">{locale}</span>
-          </button>
-          <button
-            onClick={onToggleTheme}
-            className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
-            title={theme === "dark" ? "Light Mode" : "Dark Mode"}
-          >
-            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
+      <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border/30">
+        {isExpanded && (
+          <motion.div className="flex items-center gap-2 flex-1 min-w-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <Compass className="w-4 h-4 text-primary flex-shrink-0" />
+            <span className="font-display text-xs font-semibold text-foreground tracking-wide truncate">
+              CARAIQBONITO
+            </span>
+            <span className="bg-primary/20 text-primary text-[8px] px-1 py-0.5 rounded uppercase font-bold tracking-wider flex-shrink-0">BETA</span>
+          </motion.div>
+        )}
+        <div className={`flex items-center gap-0.5 ${!isExpanded ? 'flex-col' : 'ml-auto'}`}>
+          {isExpanded && (
+            <>
+              <button
+                onClick={() => setLocale(locale === 'en' ? 'pt' : 'en')}
+                className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
+                title="Toggle Language"
+              >
+                <Globe className="w-3.5 h-3.5" />
+              </button>
+              <button
+                onClick={onToggleTheme}
+                className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
+                title={theme === "dark" ? "Light Mode" : "Dark Mode"}
+              >
+                {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+              </button>
+            </>
+          )}
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Map className="w-4 h-4" />
+            {isExpanded ? <PanelLeftClose className="w-3.5 h-3.5" /> : <PanelLeftOpen className="w-3.5 h-3.5" />}
           </button>
         </div>
       </div>
@@ -76,61 +86,60 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
+            className="overflow-hidden"
           >
-            {/* Month Selector */}
-            <div className="px-4 py-3 border-b border-border/50">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.travelMonth")}</p>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={prevMonth}
-                  className="p-1.5 rounded-lg bg-secondary/50 hover:bg-secondary text-foreground transition-colors"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <div className="flex-1 text-center">
-                  <span className="font-display text-lg font-semibold text-primary">
+            {/* Month Selector - Grid style */}
+            <div className="px-3 py-3 border-b border-border/30">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold">{t("map.travelMonth")}</p>
+                <div className="flex items-center gap-1">
+                  <button onClick={prevMonth} className="p-1 rounded-md hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors">
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="font-display text-sm font-bold text-primary min-w-[80px] text-center">
                     {t(`month.${MONTHS[selectedMonth - 1].toLowerCase()}`)}
                   </span>
+                  <button onClick={nextMonth} className="p-1 rounded-md hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors">
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-                <button
-                  onClick={nextMonth}
-                  className="p-1.5 rounded-lg bg-secondary/50 hover:bg-secondary text-foreground transition-colors"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
-              {/* Month dots */}
-              <div className="flex justify-center gap-1 mt-2">
-                {MONTHS.map((_, i) => (
+              {/* Month grid */}
+              <div className="grid grid-cols-6 gap-1">
+                {shortMonths.map((m, i) => (
                   <button
                     key={i}
                     onClick={() => onMonthChange(i + 1)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${i + 1 === selectedMonth
-                      ? "bg-primary scale-150 shadow-[0_0_10px_rgba(250,204,21,0.5)]"
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-                      }`}
-                  />
+                    className={`text-[10px] py-1 rounded-md font-medium transition-all duration-200 ${
+                      i + 1 === selectedMonth
+                        ? "bg-primary text-primary-foreground shadow-sm"
+                        : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
+                    }`}
+                  >
+                    {m}
+                  </button>
                 ))}
               </div>
             </div>
 
             {/* View Mode Toggle */}
-            <div className="px-4 py-3">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.dataLayer")}</p>
-              <div className="space-y-1.5">
+            <div className="px-3 py-3 border-b border-border/30">
+              <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold mb-2">{t("map.dataLayer")}</p>
+              <div className="space-y-1">
                 {viewModes(t).map((mode) => (
                   <button
                     key={mode.key}
                     onClick={() => onViewModeChange(mode.key)}
-                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 ${viewMode === mode.key
-                      ? "bg-primary/15 text-primary border border-primary/30"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                      }`}
+                    className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs transition-all duration-200 ${
+                      viewMode === mode.key
+                        ? "bg-primary/15 text-primary border border-primary/30"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+                    }`}
                   >
                     {mode.icon}
                     <div className="text-left">
-                      <div className="font-medium">{mode.label}</div>
-                      <div className="text-[10px] opacity-60">{mode.desc}</div>
+                      <div className="font-medium leading-tight">{mode.label}</div>
+                      <div className="text-[9px] opacity-60 leading-tight">{mode.desc}</div>
                     </div>
                   </button>
                 ))}
@@ -138,42 +147,40 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
             </div>
 
             {/* Legend */}
-            <div className="px-4 py-3 border-t border-border/50">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.legendTitle")}</p>
+            <div className="px-3 py-2.5 border-b border-border/30">
               <Legend viewMode={viewMode} t={t} />
             </div>
 
-            {/* Region Visibility */}
-            <div className="px-4 py-3 border-t border-border/50">
-              <div className="flex items-center justify-between">
-                <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{t("map.climateRegions")}</p>
+            {/* Region Visibility & POI Filters combined */}
+            <div className="px-3 py-2.5">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold">{t("map.climateRegions")}</p>
                 <button
                   onClick={onToggleRegions}
-                  className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs transition-colors ${showRegions
-                    ? "bg-primary/20 text-primary border border-primary/30"
-                    : "bg-secondary text-muted-foreground hover:bg-secondary/80 border border-transparent"
-                    }`}
+                  className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] transition-colors ${
+                    showRegions
+                      ? "bg-primary/20 text-primary"
+                      : "bg-secondary/50 text-muted-foreground"
+                  }`}
                 >
                   {showRegions ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
                   <span>{showRegions ? t("map.visible") : t("map.hidden")}</span>
                 </button>
               </div>
-            </div>
 
-            {/* POI Filters */}
-            <div className="px-4 py-3 border-t border-border/50">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">{t("map.poi")}</p>
-              <div className="flex flex-wrap gap-2">
+              <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold mb-1.5 mt-2">{t("map.poi")}</p>
+              <div className="flex flex-wrap gap-1">
                 {Object.keys(POI_ICONS).map(cat => (
                   <button
                     key={cat}
                     onClick={() => onTogglePoiFilter(cat)}
-                    className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs transition-colors ${poiFilters.includes(cat)
-                      ? "bg-primary/20 text-primary border border-primary/30"
-                      : "bg-secondary text-muted-foreground hover:bg-secondary/80 border border-transparent"
-                      }`}
+                    className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] transition-colors ${
+                      poiFilters.includes(cat)
+                        ? "bg-primary/20 text-primary border border-primary/30"
+                        : "bg-secondary/40 text-muted-foreground hover:bg-secondary/60 border border-transparent"
+                    }`}
                   >
-                    <span>{POI_ICONS[cat]}</span>
+                    <span className="text-xs">{POI_ICONS[cat]}</span>
                     <span>{t(`category.${cat}`)}</span>
                   </button>
                 ))}
@@ -208,11 +215,11 @@ function Legend({ viewMode, t }: { viewMode: ViewMode; t: (k: string) => string 
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-x-3 gap-y-1">
       {legends[viewMode].map((item) => (
-        <div key={item.label} className="flex items-center gap-1.5">
-          <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
-          <span className="text-[10px] text-muted-foreground">{item.label}</span>
+        <div key={item.label} className="flex items-center gap-1">
+          <div className={`w-2 h-2 rounded-full ${item.color}`} />
+          <span className="text-[9px] text-muted-foreground">{item.label}</span>
         </div>
       ))}
     </div>

@@ -64,7 +64,7 @@ function localCrudPlugin() {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/wanderlust-maps/",
+  base: process.env.GITHUB_ACTIONS ? undefined : "/",
   server: {
     host: "::",
     port: 8080,
