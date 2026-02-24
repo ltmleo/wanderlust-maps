@@ -11,7 +11,7 @@ interface RegionSidebarProps {
 }
 
 export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarProps) {
-  const { t, locale } = useTranslation();
+  const { t, locale, formatCurrency } = useTranslation();
 
   if (!region) return null;
 
@@ -75,7 +75,7 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
       {/* Cost */}
       <div className="px-5 py-3 border-b border-border/50">
         <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Average Daily Cost</p>
-        <p className="text-2xl font-display font-bold text-primary">${data.avgDailyCost}<span className="text-xs text-muted-foreground font-body font-normal">/{t("region.day")}</span></p>
+        <p className="text-2xl font-display font-bold text-primary">{formatCurrency(data.avgDailyCost)}<span className="text-xs text-muted-foreground font-body font-normal">/{t("region.day")}</span></p>
       </div>
 
       {/* Highlights */}

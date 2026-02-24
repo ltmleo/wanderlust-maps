@@ -28,7 +28,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
   const tileLayerRef = useRef<L.TileLayer | null>(null);
   const regionsLayerRef = useRef<L.GeoJSON | null>(null);
   const poisLayerRef = useRef<L.LayerGroup | null>(null);
-  const { t, locale } = useTranslation();
+  const { t, locale, formatCurrency } = useTranslation();
 
   // Initialize map
   useEffect(() => {
@@ -123,7 +123,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
         const name = locale === 'pt' && props.namePt ? props.namePt : props.name;
         if (data) {
           layer.bindTooltip(
-            `<div style="text-align:center"><strong>${name}</strong><br/><span style="font-size:11px;opacity:0.8">${t("region.score")}: ${data.recommendedScore}/10 · $${data.avgDailyCost}/${t("region.day")}</span></div>`,
+            `<div style="text-align:center"><strong>${name}</strong><br/><span style="font-size:11px;opacity:0.8">${t("region.score")}: ${data.recommendedScore}/10 · ${formatCurrency(data.avgDailyCost)}/${t("region.day")}</span></div>`,
             { sticky: true, className: "custom-tooltip" }
           );
         }
@@ -132,7 +132,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
 
     layer.addTo(map);
     regionsLayerRef.current = layer;
-  }, [selectedMonth, viewMode, onRegionClick, showRegions, locale]);
+  }, [selectedMonth, viewMode, onRegionClick, showRegions, locale, formatCurrency]);
 
   // Update POI markers
   useEffect(() => {

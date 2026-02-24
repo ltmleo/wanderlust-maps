@@ -248,8 +248,8 @@
           ]
         }
       },
-      "namePt": "Europa Ocidental",
-      "descriptionPt": "Tropical paradise with stunning beaches, vibrant culture, and year-round warmth. Home to Salvador, Recife, and the stunning Lençóis Maranhenses dunes."
+      "namePt": "Nordeste do Brasil",
+      "descriptionPt": "Paraíso tropical com praias deslumbrantes, cultura vibrante e calor o ano todo. Lar de Salvador, Recife e as impressionantes dunas dos Lençóis Maranhenses."
     },
     "geometry": {
       "type": "Polygon",
@@ -544,8 +544,8 @@
           ]
         }
       },
-      "namePt": "Europa Ocidental",
-      "descriptionPt": "European-influenced region with temperate climate, wine country, dramatic canyons, and the thundering Iguazu Falls."
+      "namePt": "Sul do Brasil",
+      "descriptionPt": "Região com influência europeia, clima temperado, região vinícola, cânions dramáticos e as estrondosas Cataratas do Iguaçu."
     },
     "geometry": {
       "type": "Polygon",
@@ -836,8 +836,8 @@
           ]
         }
       },
-      "namePt": "Europa Ocidental",
-      "descriptionPt": "The sun-drenched Mediterranean coast spanning Spain, southern France, Italy, and Greece. Ancient ruins, world-class cuisine, and azure seas."
+      "namePt": "Europa do Sul",
+      "descriptionPt": "A ensolarada costa do Mediterrâneo abrangendo Espanha, sul da França, Itália e Grécia. Ruínas antigas, culinária de classe mundial e mares azuis."
     },
     "geometry": {
       "type": "Polygon",
@@ -1144,8 +1144,8 @@
           ]
         }
       },
-      "namePt": "Europa Ocidental",
-      "descriptionPt": "From California's Pacific coast to the Grand Canyon, Yellowstone, and the Rocky Mountains. Epic road trip territory."
+      "namePt": "Oeste dos EUA",
+      "descriptionPt": "Da costa do Pacífico da Califórnia ao Grand Canyon, Yellowstone e as Montanhas Rochosas. Território épico para road trips."
     },
     "geometry": {
       "type": "Polygon",
@@ -1432,8 +1432,8 @@
           ]
         }
       },
-      "namePt": "Europa Ocidental",
-      "descriptionPt": "A mesmerizing blend of ancient traditions and futuristic cities. Cherry blossoms, hot springs, incredible cuisine, and serene temples."
+      "namePt": "Japão",
+      "descriptionPt": "Uma mistura hipnotizante de tradições antigas e cidades futuristas. Flores de cerejeira, fontes termais, culinária incrível e templos serenos."
     },
     "geometry": {
       "type": "Polygon",
@@ -1744,8 +1744,8 @@
           ]
         }
       },
-      "namePt": "Europa Ocidental",
-      "descriptionPt": "The ultimate safari destination. Witness the Great Migration, climb Kilimanjaro, and experience diverse wildlife on the Serengeti plains."
+      "namePt": "África Oriental",
+      "descriptionPt": "O destino definitivo de safári. Testemunhe a Grande Migração, escale o Kilimanjaro e experimente a diversidade da vida selvagem nas planícies do Serengeti."
     },
     "geometry": {
       "type": "Polygon",

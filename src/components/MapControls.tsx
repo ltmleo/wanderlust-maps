@@ -25,7 +25,7 @@ interface MapControlsProps {
 
 export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewModeChange, theme, onToggleTheme, poiFilters, showRegions, onToggleRegions, onTogglePoiFilter }: MapControlsProps) {
   const [isExpanded, setIsExpanded] = useState(true);
-  const { t, locale, setLocale } = useTranslation();
+  const { t, locale, setLocale, currency, setCurrency } = useTranslation();
 
   const prevMonth = () => onMonthChange(selectedMonth === 1 ? 12 : selectedMonth - 1);
   const nextMonth = () => onMonthChange(selectedMonth === 12 ? 1 : selectedMonth + 1);
@@ -52,6 +52,14 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
           >
             <Globe className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase">{locale}</span>
+          </button>
+          <button
+            onClick={() => setCurrency(currency === 'USD' ? 'BRL' : 'USD')}
+            className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+            title="Toggle Currency"
+          >
+            <DollarSign className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase">{currency}</span>
           </button>
           <button
             onClick={onToggleTheme}
