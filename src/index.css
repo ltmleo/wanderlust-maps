@@ -185,6 +185,14 @@
     @apply bg-primary/40;
   }
 
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
   .glass-panel {
     background: hsl(var(--glass-bg));
     backdrop-filter: blur(24px);

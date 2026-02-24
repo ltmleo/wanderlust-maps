@@ -30,7 +30,6 @@ const Index = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-background">
-      {/* Map */}
       <TravelMap
         selectedMonth={selectedMonth}
         viewMode={viewMode}
@@ -42,7 +41,6 @@ const Index = () => {
         onPOIClick={handlePOIClick}
       />
 
-      {/* Controls */}
       <MapControls
         selectedMonth={selectedMonth}
         onMonthChange={setSelectedMonth}
@@ -56,7 +54,6 @@ const Index = () => {
         onTogglePoiFilter={(f) => setPoiFilters(prev => prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f])}
       />
 
-      {/* Region Sidebar */}
       <AnimatePresence>
         {selectedRegion && (
           <RegionSidebar
@@ -67,14 +64,12 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      {/* POI Modal */}
       <AnimatePresence>
         {selectedPOI && (
           <POIModal poi={selectedPOI} onClose={() => setSelectedPOI(null)} />
         )}
       </AnimatePresence>
 
-      {/* Roadmap Modal */}
       <AnimatePresence>
         <RoadmapModal isOpen={showRoadmap} onClose={() => setShowRoadmap(false)} />
       </AnimatePresence>
@@ -82,10 +77,10 @@ const Index = () => {
       {/* Roadmap button */}
       <button
         onClick={() => setShowRoadmap(true)}
-        className="absolute bottom-4 right-4 z-[1000] glass-panel rounded-xl px-4 py-2.5 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        className="absolute bottom-4 right-4 z-[1000] glass-panel rounded-full px-4 py-2 flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-all hover:shadow-lg"
       >
-        <Rocket className="w-4 h-4 text-primary" />
-        <span>Roadmap</span>
+        <Rocket className="w-3.5 h-3.5 text-primary" />
+        <span className="font-medium">Roadmap</span>
       </button>
     </div>
   );
