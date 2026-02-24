@@ -36,39 +36,48 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
     <>
       {/* Floating month scroller */}
       <motion.div
-        className="absolute top-3 left-1 right-1 sm:left-auto sm:right-auto sm:left-1/2 sm:-translate-x-1/2 z-[1000] glass-panel rounded-2xl px-0.5 py-1 sm:px-2 sm:py-1.5 shadow-xl flex items-center gap-0"
+        className="absolute top-3 left-2 right-2 sm:left-auto sm:right-auto sm:left-1/2 sm:-translate-x-1/2 z-[1000] glass-panel rounded-2xl px-1 py-1 sm:px-2 sm:py-1.5 shadow-xl flex items-center gap-0"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
+        transition={{ duration: 0.4, delay: 0.1, type: "spring", damping: 20 }}
       >
         <button onClick={prevMonth} className="p-1 sm:p-1.5 rounded-xl hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-all active:scale-90 flex-shrink-0">
-          <ChevronLeft className="w-3.5 h-3.5" />
+          <ChevronLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
         </button>
-        <div className="flex items-center gap-[2px] sm:gap-0.5 flex-1 justify-center overflow-x-auto scrollbar-hidden">
+        <div className="flex items-center gap-[1px] sm:gap-0.5 flex-1 justify-center min-w-0">
           {shortMonths.map((m, i) => (
-            <button
+            <motion.button
               key={i}
               onClick={() => onMonthChange(i + 1)}
-              className={`text-[8px] sm:text-[11px] px-[3px] sm:px-2 py-0.5 sm:py-1.5 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${i + 1 === selectedMonth
-                  ? "bg-primary text-primary-foreground shadow-md scale-105"
-                  : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
-                }`}
+              className={`text-[7px] sm:text-[11px] px-[3px] sm:px-2.5 py-0.5 sm:py-1.5 rounded-lg font-semibold transition-colors duration-200 whitespace-nowrap flex-shrink-0 relative ${
+                i + 1 === selectedMonth
+                  ? "text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              whileTap={{ scale: 0.9 }}
             >
-              {m}
-            </button>
+              {i + 1 === selectedMonth && (
+                <motion.div
+                  className="absolute inset-0 bg-primary rounded-lg shadow-md"
+                  layoutId="month-indicator"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{m}</span>
+            </motion.button>
           ))}
         </div>
         <button onClick={nextMonth} className="p-1 sm:p-1.5 rounded-xl hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-all active:scale-90 flex-shrink-0">
-          <ChevronRight className="w-3.5 h-3.5" />
+          <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
         </button>
       </motion.div>
 
       <motion.div
-        className="absolute top-12 sm:top-4 left-2 sm:left-4 z-[1000] glass-panel rounded-2xl overflow-hidden shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hidden"
+        className="absolute top-14 sm:top-4 left-2 sm:left-4 z-[1000] glass-panel rounded-2xl overflow-hidden shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto scrollbar-hidden"
         style={{ maxWidth: isExpanded ? 280 : 44 }}
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, type: "spring", damping: 20 }}
       >
         {/* Header */}
         <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border/30">
@@ -78,7 +87,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
               <span className="font-display text-xs font-semibold text-foreground tracking-wide truncate">
                 CARAIQBONITO
               </span>
-              <span className="bg-primary/20 text-primary text-[8px] px-1 py-0.5 rounded uppercase font-bold tracking-wider flex-shrink-0">BETA</span>
+              <span className="bg-primary/20 text-primary text-[8px] px-1.5 py-0.5 rounded-full uppercase font-bold tracking-wider flex-shrink-0">BETA</span>
             </motion.div>
           )}
           <div className={`flex items-center gap-0.5 ${!isExpanded ? 'flex-col' : 'ml-auto'}`}>
@@ -86,7 +95,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
               <>
                 <button
                   onClick={() => setLocale(locale === 'en' ? 'pt' : 'en')}
-                  className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                  className="p-1.5 rounded-xl hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
                   title="Toggle Language"
                 >
                   <Globe className="w-3.5 h-3.5" />
@@ -94,7 +103,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                 </button>
                 <button
                   onClick={() => setCurrency(currency === 'USD' ? 'BRL' : 'USD')}
-                  className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                  className="p-1.5 rounded-xl hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
                   title="Toggle Currency"
                 >
                   <DollarSign className="w-3.5 h-3.5" />
@@ -102,7 +111,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                 </button>
                 <button
                   onClick={onToggleTheme}
-                  className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
+                  className="p-1.5 rounded-xl hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
                   title={theme === "dark" ? "Light Mode" : "Dark Mode"}
                 >
                   {theme === "dark" ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
@@ -111,7 +120,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
             )}
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
+              className="p-1.5 rounded-xl hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors"
             >
               {isExpanded ? <PanelLeftClose className="w-3.5 h-3.5" /> : <PanelLeftOpen className="w-3.5 h-3.5" />}
             </button>
@@ -124,7 +133,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
               className="overflow-hidden"
             >
               {/* Month Selector - Grid style */}
@@ -132,13 +141,13 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold">{t("map.travelMonth")}</p>
                   <div className="flex items-center gap-1">
-                    <button onClick={prevMonth} className="p-1 rounded-md hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors">
+                    <button onClick={prevMonth} className="p-1 rounded-lg hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors">
                       <ChevronLeft className="w-3.5 h-3.5" />
                     </button>
                     <span className="font-display text-sm font-bold text-primary min-w-[80px] text-center">
                       {t(`month.${MONTHS[selectedMonth - 1].toLowerCase()}`)}
                     </span>
-                    <button onClick={nextMonth} className="p-1 rounded-md hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors">
+                    <button onClick={nextMonth} className="p-1 rounded-lg hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors">
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -149,7 +158,7 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                     <button
                       key={i}
                       onClick={() => onMonthChange(i + 1)}
-                      className={`text-[10px] py-1 rounded-md font-medium transition-all duration-200 ${i + 1 === selectedMonth
+                      className={`text-[10px] py-1 rounded-lg font-medium transition-all duration-200 ${i + 1 === selectedMonth
                           ? "bg-primary text-primary-foreground shadow-sm"
                           : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
                         }`}
@@ -168,8 +177,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                     <button
                       key={mode.key}
                       onClick={() => onViewModeChange(mode.key)}
-                      className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs transition-all duration-200 ${viewMode === mode.key
-                          ? "bg-primary/15 text-primary border border-primary/30"
+                      className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs transition-all duration-200 ${viewMode === mode.key
+                          ? "bg-primary/15 text-primary ring-1 ring-primary/30"
                           : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
                         }`}
                     >
@@ -194,8 +203,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                   <p className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold">{t("map.climateRegions")}</p>
                   <button
                     onClick={onToggleRegions}
-                    className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] transition-colors ${showRegions
-                        ? "bg-primary/20 text-primary"
+                    className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] transition-all ${showRegions
+                        ? "bg-primary/20 text-primary ring-1 ring-primary/20"
                         : "bg-secondary/50 text-muted-foreground"
                       }`}
                   >
@@ -210,9 +219,9 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                     <button
                       key={cat}
                       onClick={() => onTogglePoiFilter(cat)}
-                      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] transition-colors ${poiFilters.includes(cat)
-                          ? "bg-primary/20 text-primary border border-primary/30"
-                          : "bg-secondary/40 text-muted-foreground hover:bg-secondary/60 border border-transparent"
+                      className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] transition-all duration-200 ${poiFilters.includes(cat)
+                          ? "bg-primary/20 text-primary ring-1 ring-primary/20"
+                          : "bg-secondary/40 text-muted-foreground hover:bg-secondary/60"
                         }`}
                     >
                       <span className="text-xs">{POI_ICONS[cat]}</span>
@@ -253,8 +262,8 @@ function Legend({ viewMode, t }: { viewMode: ViewMode; t: (k: string) => string 
   return (
     <div className="flex flex-wrap gap-x-3 gap-y-1">
       {legends[viewMode].map((item) => (
-        <div key={item.label} className="flex items-center gap-1">
-          <div className={`w-2 h-2 rounded-full ${item.color}`} />
+        <div key={item.label} className="flex items-center gap-1.5">
+          <div className={`w-2.5 h-2.5 rounded-full ${item.color} ring-1 ring-black/5`} />
           <span className="text-[9px] text-muted-foreground">{item.label}</span>
         </div>
       ))}

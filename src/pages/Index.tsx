@@ -8,6 +8,7 @@ import { RoadmapModal } from "@/components/RoadmapModal";
 import { useTheme } from "@/hooks/useTheme";
 import type { ViewMode, RegionProperties, POIProperties } from "@/data/travelData";
 import { Rocket } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Index = () => {
   const { theme, toggleTheme } = useTheme();
@@ -54,9 +55,10 @@ const Index = () => {
         onTogglePoiFilter={(f) => setPoiFilters(prev => prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f])}
       />
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedRegion && (
           <RegionSidebar
+            key="region-sidebar"
             region={selectedRegion}
             selectedMonth={selectedMonth}
             onClose={() => setSelectedRegion(null)}
@@ -64,24 +66,31 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedPOI && (
-          <POIModal poi={selectedPOI} onClose={() => setSelectedPOI(null)} />
+          <POIModal key="poi-modal" poi={selectedPOI} onClose={() => setSelectedPOI(null)} />
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
-        <RoadmapModal isOpen={showRoadmap} onClose={() => setShowRoadmap(false)} />
+      <AnimatePresence mode="wait">
+        {showRoadmap && (
+          <RoadmapModal key="roadmap-modal" isOpen={showRoadmap} onClose={() => setShowRoadmap(false)} />
+        )}
       </AnimatePresence>
 
       {/* Roadmap button */}
-      <button
+      <motion.button
         onClick={() => setShowRoadmap(true)}
-        className="absolute bottom-4 right-4 z-[1000] glass-panel rounded-full px-4 py-2 flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-all hover:shadow-lg"
+        className="absolute bottom-4 right-4 z-[1000] glass-panel rounded-full px-4 py-2.5 flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-all group"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.4 }}
+        whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(0,0,0,0.15)" }}
+        whileTap={{ scale: 0.95 }}
       >
-        <Rocket className="w-3.5 h-3.5 text-primary" />
-        <span className="font-medium">Roadmap</span>
-      </button>
+        <Rocket className="w-3.5 h-3.5 text-primary group-hover:rotate-12 transition-transform duration-300" />
+        <span className="font-semibold">Roadmap</span>
+      </motion.button>
     </div>
   );
 };
