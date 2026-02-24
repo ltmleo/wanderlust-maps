@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Rocket, Plane, Hotel, Cloud, Users } from "lucide-react";
+import { Rocket, Plane, Hotel, Cloud, Users, X } from "lucide-react";
 
 interface RoadmapModalProps {
   isOpen: boolean;
@@ -43,35 +43,49 @@ export function RoadmapModal({ isOpen, onClose }: RoadmapModalProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" onClick={onClose} />
+      <motion.div
+        className="absolute inset-0 bg-background/60 backdrop-blur-sm"
+        onClick={onClose}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      />
       <motion.div
         className="relative glass-panel rounded-2xl w-full max-w-lg overflow-hidden"
-        initial={{ scale: 0.9, y: 20 }}
-        animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.9, y: 20 }}
+        initial={{ scale: 0.9, y: 30, opacity: 0 }}
+        animate={{ scale: 1, y: 0, opacity: 1 }}
+        exit={{ scale: 0.9, y: 30, opacity: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
       >
-        <div className="h-2 bg-gradient-to-r from-primary via-accent to-primary" />
+        <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary rounded-t-2xl" />
         <div className="p-6">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-primary/15 text-primary">
-              <Rocket className="w-6 h-6" />
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-primary/15 text-primary">
+                <Rocket className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="font-display text-xl font-bold text-foreground">Future Roadmap</h2>
+                <p className="text-xs text-muted-foreground">What's coming next to Caraiqbonito</p>
+              </div>
             </div>
-            <div>
-              <h2 className="font-display text-xl font-bold text-foreground">Future Roadmap</h2>
-              <p className="text-xs text-muted-foreground">What's coming next to Caraiqbonito</p>
-            </div>
+            <button
+              onClick={onClose}
+              className="p-2 rounded-xl hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-all hover:rotate-90 duration-300"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {roadmapItems.map((item, i) => (
               <motion.div
                 key={i}
-                className="flex gap-3 p-3 rounded-lg bg-secondary/20 border border-border/30"
-                initial={{ opacity: 0, y: 10 }}
+                className="flex gap-3 p-3.5 rounded-xl bg-secondary/15 border border-border/20 hover:bg-secondary/25 transition-colors"
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: 0.1 + i * 0.08, type: "spring", damping: 20 }}
               >
-                <div className="p-2 rounded-lg bg-primary/10 text-primary h-fit">{item.icon}</div>
+                <div className="p-2 rounded-xl bg-primary/10 text-primary h-fit">{item.icon}</div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
@@ -84,13 +98,6 @@ export function RoadmapModal({ isOpen, onClose }: RoadmapModalProps) {
               </motion.div>
             ))}
           </div>
-
-          <button
-            onClick={onClose}
-            className="mt-6 w-full py-2.5 rounded-lg bg-secondary/50 hover:bg-secondary text-sm text-foreground transition-colors"
-          >
-            Close
-          </button>
         </div>
       </motion.div>
     </motion.div>
