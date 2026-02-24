@@ -58,7 +58,7 @@ export function RoadmapModal({ isOpen, onClose }: RoadmapModalProps) {
             </div>
             <div>
               <h2 className="font-display text-xl font-bold text-foreground">Future Roadmap</h2>
-              <p className="text-xs text-muted-foreground">What's coming next to Wanderlust</p>
+              <p className="text-xs text-muted-foreground">What's coming next to Caraiqbonito</p>
             </div>
           </div>
 

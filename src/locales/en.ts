@@ -1,5 +1,5 @@
 export const en: Record<string, string> = {
-    "map.title": "Wanderlust Maps",
+    "map.title": "Caraiqbonito Maps",
     "map.weather": "Weather",
     "map.cost": "Cost",
     "map.recommended": "Recommended",
