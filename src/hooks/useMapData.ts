@@ -11,44 +11,61 @@ export interface MapBounds {
     zoom: number;
 }
 
+let cachedRegions: any[] | null = null;
+let cachedMonthlyData: any[] | null = null;
+
 export function useMapData(bounds: MapBounds | null) {
+    // Arredondar os limites (bounds) para criar um grid de cache.
+    // Isso evita requests no banco(Supabase) a cada pequeno movimento no mapa.
+    const roundedBounds = bounds ? {
+        minLat: Math.floor(bounds.minLat * 2) / 2, // blocos de 0.5 graus
+        maxLat: Math.ceil(bounds.maxLat * 2) / 2,
+        minLng: Math.floor(bounds.minLng * 2) / 2,
+        maxLng: Math.ceil(bounds.maxLng * 2) / 2,
+        zoom: Math.round(bounds.zoom)
+    } : null;
+
     return useQuery({
-        queryKey: ['mapData', bounds],
+        queryKey: ['mapData', roundedBounds],
         queryFn: async () => {
             // Fetch POIs (with spatial Bounding Box if provided)
             let poisQuery = supabase.from('pois').select('*');
 
-            if (bounds) {
-                // Leaflet can sometimes wrap lng to < -180 or > 180, but let's keep it simple
-                // We add a little padding in the map component to pre-load POIs just outside view
+            if (roundedBounds) {
+                // Expanding the bounding box slightly helps pre-load POIs just outside view
                 poisQuery = poisQuery
-                    .gte('lat', bounds.minLat)
-                    .lte('lat', bounds.maxLat)
-                    .gte('lng', bounds.minLng)
-                    .lte('lng', bounds.maxLng);
+                    .gte('lat', roundedBounds.minLat)
+                    .lte('lat', roundedBounds.maxLat)
+                    .gte('lng', roundedBounds.minLng)
+                    .lte('lng', roundedBounds.maxLng);
 
                 // Zoom-based importance filtering:
-                // Priority Ranking (0 = Global, 5 = Medium, >5 = Local)
-                if (bounds.zoom <= 3) {
+                if (roundedBounds.zoom <= 3) {
                     poisQuery = poisQuery.lte('priority', 0); // Only massive global highlights
-                } else if (bounds.zoom <= 5) {
+                } else if (roundedBounds.zoom <= 5) {
                     poisQuery = poisQuery.lte('priority', 2); // High priority highlights
-                } else if (bounds.zoom <= 8) {
+                } else if (roundedBounds.zoom <= 8) {
                     poisQuery = poisQuery.lte('priority', 5); // Medium priorities
                 }
-                // Zoom > 8 brings all POIs (no filter)
+                // Zoom > 8 brings all POIs
             }
 
             const { data: pois, error: poisError } = await poisQuery;
             if (poisError) throw poisError;
 
-            // Fetch Regions
-            const { data: regions, error: regionsError } = await supabase.from('regions').select('*');
-            if (regionsError) throw regionsError;
+            // Fetch Regions - Cached in memory
+            if (!cachedRegions) {
+                const { data: regions, error: regionsError } = await supabase.from('regions').select('*');
+                if (regionsError) throw regionsError;
+                cachedRegions = regions;
+            }
 
-            // Fetch Region Monthly Data
-            const { data: monthlyData, error: monthlyError } = await supabase.from('region_monthly_data').select('*');
-            if (monthlyError) throw monthlyError;
+            // Fetch Region Monthly Data - Cached in memory
+            if (!cachedMonthlyData) {
+                const { data: monthlyData, error: monthlyError } = await supabase.from('region_monthly_data').select('*');
+                if (monthlyError) throw monthlyError;
+                cachedMonthlyData = monthlyData;
+            }
 
             // Build POIs GeoJSON
             const poiFeatures: Feature<Point, POIProperties>[] = pois.map(poi => ({
@@ -79,9 +96,9 @@ export function useMapData(bounds: MapBounds | null) {
             };
 
             // Build Regions GeoJSON
-            const regionFeatures: Feature<Polygon, RegionProperties>[] = regions.map(region => {
+            const regionFeatures: Feature<Polygon, RegionProperties>[] = cachedRegions.map(region => {
                 // Find monthly data for this region
-                const rmd = monthlyData.filter(m => m.region_id === region.id);
+                const rmd = cachedMonthlyData!.filter(m => m.region_id === region.id);
                 const monthlyDataObj: Record<number, any> = {};
 
                 for (const data of rmd) {
@@ -124,6 +141,9 @@ export function useMapData(bounds: MapBounds | null) {
                 regionsGeoJSON
             };
         },
-        staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+        staleTime: 1000 * 60 * 60, // Aumentado para 1 hora de cache (React Query)
+        refetchOnWindowFocus: false, // Evita requests ao mudar de aba
+        refetchOnMount: false,
+        refetchOnReconnect: false
     });
 }
