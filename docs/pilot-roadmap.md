@@ -5,16 +5,16 @@ This document outlines the long-term roadmap to evolve the current POC into a fu
 ## Phase 1: Foundation, Database & Map Performance
 **Goal:** Move away from static `.json` files to a scalable, performant map system and establish user accounts.
 
-- [ ] **Spatial Database:** Migrate mapping data (`regions.json`, `pois.json`) to a Spatial Database (e.g., Supabase with PostGIS).
-- [ ] **Dynamic Fetching:** Implement backend API for dynamic data fetching based on Map Bounding Box (load data as user pans/zooms, utilize geographic caching).
-- [ ] **Smart Clustering:** Setup Map Clustering on the frontend to improve render performance when zoomed out. *Crucial detail: The cluster icon should visually represent or highlight the most important POI in that region instead of just a generic number.*
-- [ ] **Auth & DB Setup:** Set up the Backend for User Accounts.
-- [ ] **Schema Design:** Design Database Schema (Users, Travel History, Saved Itineraries, Places, Reviews).
+- [x] **Spatial Database:** Migrate mapping data (`regions.json`, `pois.json`) to a Spatial Database (e.g., Supabase with PostGIS).
+- [x] **Dynamic Fetching:** Implement backend API for dynamic data fetching based on Map Bounding Box (load data as user pans/zooms, utilize geographic caching).
+- [x] **Smart Clustering:** Setup Map Clustering on the frontend to improve render performance when zoomed out. *Crucial detail: The cluster icon should visually represent or highlight the most important POI in that region instead of just a generic number.*
+- [x] **Auth & DB Setup:** Set up the Backend for User Accounts.
+- [x] **Schema Design:** Design Database Schema (Users, Travel History, Saved Itineraries, Places, Reviews).
 
 ## Phase 2: Real Experience Layer (Social & History)
 **Goal:** Make the map feel "alive" with real user experiences and social proof.
 
-- [ ] **User Authentication:** Implement functional Login/Signup flows.
+- [x] **User Authentication:** Implement functional Login/Signup flows.
 - [ ] **Digital Passport:** Build "My Travels" profile section where users can log previous trips and the dates they visited. Data feeds into personalized recommendations.
 - [ ] **Social Media Integration:** Integrate TikTok / Instagram Reels embeds into POI Modals to give a fast, real feel of the place.
 - [ ] **Real Tips:** Allow users to leave short "real" tips or reviews on places they've visited.

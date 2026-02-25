@@ -1,5 +1,8 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import L from "leaflet";
+import "leaflet.markercluster";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import type { FeatureCollection, Polygon, Point } from "geojson";
 import {
   getRegionColor,
@@ -64,7 +67,10 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
     // Trigger bounds updates 
     const triggerBoundsChange = () => {
       if (!onBoundsChange) return;
+
       const bounds = map.getBounds();
+      if (!bounds || !bounds.isValid()) return;
+
       // Add padding: ~5 degrees (~500km) to pre-load POIs outside viewport for better UX when dragging
       const pad = 5;
       onBoundsChange({
@@ -166,7 +172,38 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
       map.removeLayer(poisLayerRef.current);
     }
 
-    const poiGroup = L.layerGroup();
+    // Override the default icon cluster to show the highest priority POI icon
+    const poiGroup = (L as any).markerClusterGroup({
+      showCoverageOnHover: false,
+      maxClusterRadius: 40,
+      iconCreateFunction: function (cluster: any) {
+        const markers = cluster.getAllChildMarkers();
+        let highestPriority = -999;
+        let bestProps: POIProperties | null = null;
+
+        markers.forEach((marker: any) => {
+          const props = marker.options.poiProps as POIProperties;
+          if (props && (props.priority || 0) > highestPriority) {
+            highestPriority = props.priority || 0;
+            bestProps = props;
+          }
+        });
+
+        const customIconStr = bestProps ? (POI_ICONS[bestProps.category] || "📍") : "📍";
+
+        return L.divIcon({
+          html: `<div class="poi-marker-inner" style="position: relative;">
+                   ${customIconStr}
+                   <div style="position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; border: 2px solid white;">
+                     ${markers.length}
+                   </div>
+                 </div>`,
+          className: "poi-marker cluster-marker",
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+        });
+      }
+    });
 
     poisGeoJSON.features.forEach((feature) => {
       const props = feature.properties;
@@ -189,7 +226,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
       });
 
       const name = locale === 'pt' && props.namePt ? props.namePt : props.name;
-      const marker = L.marker([lat, lng], { icon });
+      const marker = L.marker([lat, lng], { icon, poiProps: props } as any);
       marker.bindTooltip(name, { direction: "top", offset: [0, -12] });
       marker.on("click", () => onPOIClick(props));
       marker.addTo(poiGroup);
