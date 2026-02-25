@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
+import Profile from "./pages/Profile";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import { TranslationProvider } from "./hooks/useTranslation";
@@ -30,6 +31,14 @@ const App = () => (
                 element={
                   <ProtectedRoute>
                     <Admin />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
                   </ProtectedRoute>
                 }
               />

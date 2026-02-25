@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { TravelMap } from "@/components/TravelMap";
 import { MapControls } from "@/components/MapControls";
@@ -8,7 +9,7 @@ import { RoadmapModal } from "@/components/RoadmapModal";
 import { useTheme } from "@/hooks/useTheme";
 import { useMapData, type MapBounds } from "@/hooks/useMapData";
 import type { ViewMode, RegionProperties, POIProperties } from "@/data/travelData";
-import { Rocket, Loader2 } from "lucide-react";
+import { Rocket, Loader2, User } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Index = () => {
@@ -114,6 +115,21 @@ const Index = () => {
         <Rocket className="w-3.5 h-3.5 text-primary group-hover:rotate-12 transition-transform duration-300" />
         <span className="font-semibold">Roadmap</span>
       </motion.button>
+
+      {/* Profile button */}
+      <Link to="/profile">
+        <motion.button
+          className="absolute bottom-4 left-4 z-[1000] glass-panel rounded-full px-4 py-2.5 flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-all group"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.4 }}
+          whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(0,0,0,0.15)" }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <User className="w-3.5 h-3.5 text-primary transition-transform duration-300 group-hover:scale-110" />
+          <span className="font-semibold">Passport</span>
+        </motion.button>
+      </Link>
     </div>
   );
 };

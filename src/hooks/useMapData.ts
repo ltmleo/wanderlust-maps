@@ -85,6 +85,7 @@ export function useMapData(bounds: MapBounds | null) {
                     category: poi.category as any,
                     imageUrl: poi.image_url || undefined,
                     imageGallery: poi.image_gallery || undefined,
+                    socialVideoUrl: poi.social_video_url || undefined,
                     caraiqbonito: poi.caraiqbonito,
                     priority: poi.priority
                 }

@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import type { POIProperties } from "@/data/travelData";
-import { X, Clock, MapPin } from "lucide-react";
+import { X, Clock, MapPin, Star, Send, Loader2 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
+import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
+
+interface Review {
+  id: string;
+  user_id: string;
+  rating: number;
+  content: string;
+  created_at: string;
+  user_email?: string;
+}
 
 interface POIModalProps {
   poi: POIProperties | null;
@@ -27,7 +39,73 @@ const categoryColors: Record<string, string> = {
 
 export function POIModal({ poi, onClose }: POIModalProps) {
   const { t, locale } = useTranslation();
+  const { user } = useAuth();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Reviews state
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [loadingReviews, setLoadingReviews] = useState(false);
+  const [reviewText, setReviewText] = useState("");
+  const [reviewRating, setReviewRating] = useState(5);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (poi) {
+      fetchReviews();
+    }
+  }, [poi]);
+
+  const fetchReviews = async () => {
+    if (!poi) return;
+    try {
+      setLoadingReviews(true);
+      const { data, error } = await supabase
+        .from('poi_reviews')
+        .select(`
+          id, user_id, rating, content, created_at,
+          users:auth.users ( email )
+        `)
+        .eq('poi_id', poi.id)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setReviews((data as any) || []);
+    } catch (err) {
+      console.error("Error fetching reviews", err);
+    } finally {
+      setLoadingReviews(false);
+    }
+  };
+
+  const submitReview = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!user) {
+      toast.error("You must be logged in to leave a tip.");
+      return;
+    }
+    if (!reviewText.trim()) return;
+
+    try {
+      setIsSubmitting(true);
+      const { error } = await supabase.from('poi_reviews').insert({
+        user_id: user.id,
+        poi_id: poi!.id,
+        rating: reviewRating,
+        content: reviewText
+      });
+
+      if (error) throw error;
+      toast.success("Tip added successfully!");
+      setReviewText("");
+      setReviewRating(5);
+      fetchReviews();
+    } catch (err: any) {
+      console.error("Error submitting review", err);
+      toast.error("Failed to add tip.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (!poi) return null;
 
@@ -116,10 +194,29 @@ export function POIModal({ poi, onClose }: POIModalProps) {
               </motion.div>
             )}
 
-            {/* Image Gallery */}
-            {poi.imageGallery && poi.imageGallery.length > 0 && (
+            {/* Social Video or Image Gallery */}
+            {poi.socialVideoUrl ? (
               <motion.div
-                className="mt-4"
+                className="mt-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.35 }}
+              >
+                <h3 className="text-sm font-semibold mb-2 text-foreground flex items-center gap-2">
+                  <span className="text-pink-500">▶</span> Video Reel
+                </h3>
+                <div className="rounded-xl overflow-hidden aspect-[9/16] bg-black/5 flex items-center justify-center border border-white/10">
+                  <iframe
+                    src={poi.socialVideoUrl}
+                    className="w-full h-full border-0"
+                    allow="encrypted-media;"
+                    allowFullScreen
+                  />
+                </div>
+              </motion.div>
+            ) : poi.imageGallery && poi.imageGallery.length > 0 && (
+              <motion.div
+                className="mt-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.35 }}
@@ -139,11 +236,92 @@ export function POIModal({ poi, onClose }: POIModalProps) {
               </motion.div>
             )}
 
-            {(!poi.imageUrl && (!poi.imageGallery || poi.imageGallery.length === 0)) && (
+            {(!poi.imageUrl && !poi.socialVideoUrl && (!poi.imageGallery || poi.imageGallery.length === 0)) && (
               <div className="mt-4 rounded-xl bg-secondary/20 border border-dashed border-border/50 h-32 flex items-center justify-center">
                 <p className="text-xs text-muted-foreground">{t("poi.noPhotos")}</p>
               </div>
             )}
+
+            <hr className="my-6 border-white/10" />
+
+            {/* Real Tips (Reviews) Section */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <h3 className="text-lg font-semibold mb-4 text-foreground flex items-center gap-2">
+                <Star className="w-5 h-5 text-amber-500" />
+                Real Tips
+              </h3>
+
+              {/* Tips List */}
+              <div className="space-y-4 mb-6">
+                {loadingReviews ? (
+                  <div className="flex justify-center p-4">
+                    <Loader2 className="w-5 h-5 animate-spin text-primary" />
+                  </div>
+                ) : reviews.length === 0 ? (
+                  <p className="text-sm text-muted-foreground italic">No tips yet. Be the first to share your experience!</p>
+                ) : (
+                  reviews.map((rev) => (
+                    <div key={rev.id} className="bg-primary/5 p-4 rounded-xl border border-white/5">
+                      <div className="flex justify-between items-start mb-2">
+                        <div className="text-xs font-medium text-foreground opacity-80">
+                          {rev.user_email || "Verified Traveler"}
+                        </div>
+                        <div className="flex text-amber-500">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className={`w-3 h-3 ${i < rev.rating ? "fill-current" : "opacity-30"}`} />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-sm text-foreground/90">{rev.content}</p>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {/* Submit Tip Form */}
+              {user ? (
+                <form onSubmit={submitReview} className="bg-background/40 p-4 rounded-xl border border-white/10">
+                  <h4 className="text-sm font-medium mb-3">Leave a Tip</h4>
+                  <div className="flex gap-1 mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        type="button"
+                        key={star}
+                        onClick={() => setReviewRating(star)}
+                        className={`p-1 transition-colors ${reviewRating >= star ? "text-amber-500" : "text-muted-foreground hover:text-amber-500/50"}`}
+                      >
+                        <Star className={`w-5 h-5 ${reviewRating >= star ? "fill-current" : ""}`} />
+                      </button>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Share a tip about this place..."
+                      className="flex-1 bg-background/50 border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                      value={reviewText}
+                      onChange={(e) => setReviewText(e.target.value)}
+                      required
+                    />
+                    <button
+                      type="submit"
+                      disabled={isSubmitting || !reviewText.trim()}
+                      className="bg-primary text-primary-foreground p-2 rounded-lg hover:bg-primary/90 disabled:opacity-50 transition-colors"
+                    >
+                      {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <div className="text-center p-4 bg-background/40 rounded-xl border border-white/10">
+                  <p className="text-sm text-muted-foreground">Log in to leave a tip for other travelers.</p>
+                </div>
+              )}
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>

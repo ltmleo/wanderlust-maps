@@ -32,6 +32,7 @@ export interface POIProperties {
   category: "landmark" | "nature" | "culture" | "beach" | "city" | "wonder" | "natural_wonder";
   imageUrl?: string;
   imageGallery?: string[];
+  socialVideoUrl?: string;
   caraiqbonito?: boolean;
   priority?: number;
 }

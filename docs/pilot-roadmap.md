@@ -15,9 +15,9 @@ This document outlines the long-term roadmap to evolve the current POC into a fu
 **Goal:** Make the map feel "alive" with real user experiences and social proof.
 
 - [x] **User Authentication:** Implement functional Login/Signup flows.
-- [ ] **Digital Passport:** Build "My Travels" profile section where users can log previous trips and the dates they visited. Data feeds into personalized recommendations.
-- [ ] **Social Media Integration:** Integrate TikTok / Instagram Reels embeds into POI Modals to give a fast, real feel of the place.
-- [ ] **Real Tips:** Allow users to leave short "real" tips or reviews on places they've visited.
+- [x] **Digital Passport:** Build "My Travels" profile section where users can log previous trips and the dates they visited. Data feeds into personalized recommendations.
+- [x] **Social Media Integration:** Integrate TikTok / Instagram Reels embeds into POI Modals to give a fast, real feel of the place.
+- [x] **Real Tips:** Allow users to leave short "real" tips or reviews on places they've visited.
 
 ## Phase 3: AI Travel Agent & Itineraries
 **Goal:** Provide guided, intelligent travel planning directly on the map.
