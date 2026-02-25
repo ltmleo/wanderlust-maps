@@ -3,12 +3,43 @@ import { supabase } from '../lib/supabase';
 import type { FeatureCollection, Feature, Polygon, Point } from 'geojson';
 import type { RegionProperties, POIProperties } from '../data/travelData';
 
-export function useMapData() {
+export interface MapBounds {
+    minLat: number;
+    maxLat: number;
+    minLng: number;
+    maxLng: number;
+    zoom: number;
+}
+
+export function useMapData(bounds: MapBounds | null) {
     return useQuery({
-        queryKey: ['mapData'],
+        queryKey: ['mapData', bounds],
         queryFn: async () => {
-            // Fetch POIs
-            const { data: pois, error: poisError } = await supabase.from('pois').select('*');
+            // Fetch POIs (with spatial Bounding Box if provided)
+            let poisQuery = supabase.from('pois').select('*');
+
+            if (bounds) {
+                // Leaflet can sometimes wrap lng to < -180 or > 180, but let's keep it simple
+                // We add a little padding in the map component to pre-load POIs just outside view
+                poisQuery = poisQuery
+                    .gte('lat', bounds.minLat)
+                    .lte('lat', bounds.maxLat)
+                    .gte('lng', bounds.minLng)
+                    .lte('lng', bounds.maxLng);
+
+                // Zoom-based importance filtering:
+                // Priority Ranking (0 = Global, 5 = Medium, >5 = Local)
+                if (bounds.zoom <= 3) {
+                    poisQuery = poisQuery.lte('priority', 0); // Only massive global highlights
+                } else if (bounds.zoom <= 5) {
+                    poisQuery = poisQuery.lte('priority', 2); // High priority highlights
+                } else if (bounds.zoom <= 8) {
+                    poisQuery = poisQuery.lte('priority', 5); // Medium priorities
+                }
+                // Zoom > 8 brings all POIs (no filter)
+            }
+
+            const { data: pois, error: poisError } = await poisQuery;
             if (poisError) throw poisError;
 
             // Fetch Regions
@@ -37,7 +68,8 @@ export function useMapData() {
                     category: poi.category as any,
                     imageUrl: poi.image_url || undefined,
                     imageGallery: poi.image_gallery || undefined,
-                    caraiqbonito: poi.caraiqbonito
+                    caraiqbonito: poi.caraiqbonito,
+                    priority: poi.priority
                 }
             }));
 

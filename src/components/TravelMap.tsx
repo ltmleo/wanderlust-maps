@@ -9,6 +9,7 @@ import {
   type POIProperties,
 } from "@/data/travelData";
 import { useTranslation } from "@/hooks/useTranslation";
+import type { MapBounds } from "@/hooks/useMapData";
 
 interface TravelMapProps {
   selectedMonth: number;
@@ -21,9 +22,10 @@ interface TravelMapProps {
   onPOIClick: (poi: POIProperties) => void;
   regionsGeoJSON: FeatureCollection<Polygon, RegionProperties>;
   poisGeoJSON: FeatureCollection<Point, POIProperties>;
+  onBoundsChange?: (bounds: MapBounds) => void;
 }
 
-export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegions, selectedRegion, onRegionClick, onPOIClick, regionsGeoJSON, poisGeoJSON }: TravelMapProps) {
+export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegions, selectedRegion, onRegionClick, onPOIClick, regionsGeoJSON, poisGeoJSON, onBoundsChange }: TravelMapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const tileLayerRef = useRef<L.TileLayer | null>(null);
@@ -57,8 +59,28 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
     }).addTo(map);
 
     tileLayerRef.current = tile;
-
     mapRef.current = map;
+
+    // Trigger bounds updates 
+    const triggerBoundsChange = () => {
+      if (!onBoundsChange) return;
+      const bounds = map.getBounds();
+      // Add padding: ~5 degrees (~500km) to pre-load POIs outside viewport for better UX when dragging
+      const pad = 5;
+      onBoundsChange({
+        minLat: bounds.getSouth() - pad,
+        maxLat: bounds.getNorth() + pad,
+        minLng: bounds.getWest() - pad,
+        maxLng: bounds.getEast() + pad,
+        zoom: map.getZoom(),
+      });
+    };
+
+    map.on('moveend', triggerBoundsChange);
+    map.on('zoomend', triggerBoundsChange);
+
+    // Initial fetch bounds after a tiny delay to ensure map container has initialized size
+    setTimeout(triggerBoundsChange, 100);
 
     return () => {
       map.remove();
@@ -133,7 +155,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
 
     layer.addTo(map);
     regionsLayerRef.current = layer;
-  }, [selectedMonth, viewMode, onRegionClick, showRegions, locale, formatCurrency]);
+  }, [selectedMonth, viewMode, onRegionClick, showRegions, locale, formatCurrency, regionsGeoJSON, theme]);
 
   // Update POI markers
   useEffect(() => {
@@ -175,7 +197,7 @@ export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegi
 
     poiGroup.addTo(map);
     poisLayerRef.current = poiGroup;
-  }, [onPOIClick, poiFilters, locale, selectedMonth, viewMode, theme]);
+  }, [onPOIClick, poiFilters, locale, selectedMonth, viewMode, theme, poisGeoJSON]);
 
   // Fly to region when selected
   useEffect(() => {

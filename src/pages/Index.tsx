@@ -6,7 +6,7 @@ import { RegionSidebar } from "@/components/RegionSidebar";
 import { POIModal } from "@/components/POIModal";
 import { RoadmapModal } from "@/components/RoadmapModal";
 import { useTheme } from "@/hooks/useTheme";
-import { useMapData } from "@/hooks/useMapData";
+import { useMapData, type MapBounds } from "@/hooks/useMapData";
 import type { ViewMode, RegionProperties, POIProperties } from "@/data/travelData";
 import { Rocket, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -20,9 +20,10 @@ const Index = () => {
   const [showRoadmap, setShowRoadmap] = useState(false);
   const [poiFilters, setPoiFilters] = useState<string[]>(["landmark", "nature", "culture", "beach", "city", "wonder", "natural_wonder"]);
   const [showRegions, setShowRegions] = useState(true);
+  const [mapBounds, setMapBounds] = useState<MapBounds | null>(null);
 
   // Fetch geographical data
-  const { data: mapData, isLoading, error } = useMapData();
+  const { data: mapData, isLoading, error } = useMapData(mapBounds);
 
   const handleRegionClick = useCallback((region: RegionProperties) => {
     setSelectedRegion(region);
@@ -32,15 +33,6 @@ const Index = () => {
   const handlePOIClick = useCallback((poi: POIProperties) => {
     setSelectedPOI(poi);
   }, []);
-
-  if (isLoading || !mapData) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-background">
-        <Loader2 className="w-8 h-8 animate-spin text-primary mb-4" />
-        <p className="text-muted-foreground font-medium">Buscando regiões e locais no mundo todo...</p>
-      </div>
-    );
-  }
 
   if (error) {
     return (
@@ -52,6 +44,13 @@ const Index = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-background">
+      {isLoading && (
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 z-[2000] glass-panel px-4 py-2 rounded-full flex items-center gap-2 shadow-lg animate-in fade-in slide-in-from-top-4">
+          <Loader2 className="w-4 h-4 animate-spin text-primary" />
+          <span className="text-xs font-semibold text-foreground">Buscando mapa...</span>
+        </div>
+      )}
+
       <TravelMap
         selectedMonth={selectedMonth}
         viewMode={viewMode}
@@ -61,8 +60,9 @@ const Index = () => {
         selectedRegion={selectedRegion}
         onRegionClick={handleRegionClick}
         onPOIClick={handlePOIClick}
-        regionsGeoJSON={mapData.regionsGeoJSON}
-        poisGeoJSON={mapData.poisGeoJSON}
+        regionsGeoJSON={mapData?.regionsGeoJSON || { type: "FeatureCollection", features: [] }}
+        poisGeoJSON={mapData?.poisGeoJSON || { type: "FeatureCollection", features: [] }}
+        onBoundsChange={setMapBounds}
       />
 
       <MapControls

@@ -33,6 +33,7 @@ export interface POIProperties {
   imageUrl?: string;
   imageGallery?: string[];
   caraiqbonito?: boolean;
+  priority?: number;
 }
 
 // Helper to compute recommended score

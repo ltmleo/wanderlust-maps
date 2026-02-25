@@ -98,7 +98,8 @@ async function seedData() {
                 lng: lng,
                 image_url: props.imageUrl || null,
                 image_gallery: props.imageGallery || [],
-                caraiqbonito: props.caraiqbonito || false
+                caraiqbonito: props.caraiqbonito || false,
+                priority: props.priority !== undefined ? props.priority : (props.caraiqbonito ? 0 : 5)
             });
         }
 
