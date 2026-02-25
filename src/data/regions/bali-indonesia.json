@@ -1,0 +1,362 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            114.4126778,
+            -8.1675452
+          ],
+          [
+            114.4238367,
+            -8.3178517
+          ],
+          [
+            114.5538044,
+            -8.5152306
+          ],
+          [
+            114.7752986,
+            -8.6401244
+          ],
+          [
+            114.8705548,
+            -8.8705793
+          ],
+          [
+            114.8854965,
+            -8.9067149
+          ],
+          [
+            114.9324661,
+            -9.0301357
+          ],
+          [
+            115.0936645,
+            -9.0471826
+          ],
+          [
+            115.1671144,
+            -9.0502287
+          ],
+          [
+            115.1913168,
+            -9.049793
+          ],
+          [
+            115.3498782,
+            -9.0374877
+          ],
+          [
+            115.4521505,
+            -9.0295506
+          ],
+          [
+            115.5700063,
+            -9.0204038
+          ],
+          [
+            115.6762677,
+            -8.9060885
+          ],
+          [
+            115.6953052,
+            -8.772238
+          ],
+          [
+            115.7011663,
+            -8.7307964
+          ],
+          [
+            115.7143427,
+            -8.6376154
+          ],
+          [
+            115.8200787,
+            -8.473547
+          ],
+          [
+            115.8257992,
+            -8.3037709
+          ],
+          [
+            115.8324222,
+            -7.9398045
+          ],
+          [
+            115.749401,
+            -7.6632429
+          ],
+          [
+            115.6975688,
+            -7.5120245
+          ],
+          [
+            114.9405777,
+            -7.4627963
+          ],
+          [
+            114.6404548,
+            -7.7458479
+          ],
+          [
+            114.4932807,
+            -8.0329896
+          ],
+          [
+            114.4506244,
+            -8.0658685
+          ],
+          [
+            114.43095,
+            -8.0839225
+          ],
+          [
+            114.4218326,
+            -8.1057762
+          ],
+          [
+            114.4151272,
+            -8.1510197
+          ],
+          [
+            114.4126778,
+            -8.1675452
+          ]
+        ]
+      ]
+    },
+    "properties": {
+      "id": "bali-indonesia",
+      "name": "Bali",
+      "namePt": "Bali",
+      "country": "Indonesia",
+      "description": "Bali, known as the 'Island of the Gods,' is a tropical paradise in Indonesia famous for its volcanic mountains, iconic rice paddies, beaches, and coral reefs. It is home to religious sites such as the cliffside Uluwatu Temple and offers spiritual retreats, yoga, and surfing.",
+      "descriptionPt": "Bali, conhecida como a 'Ilha dos Deuses', é um paraíso tropical na Indonésia famosa por suas montanhas vulcânicas, icônicos arrozais, praias e recifes de coral. Abriga locais religiosos como o Templo de Uluwatu à beira do penhasco e oferece retiros espirituais, yoga e surf.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 6,
+          "costScore": 7,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, wet season",
+          "weatherDescPt": "Quente, estação chuvosa",
+          "avgDailyCost": 85,
+          "highlights": [
+            "Lush landscapes",
+            "Cultural events"
+          ],
+          "highlightsPt": [
+            "Paisagens exuberantes",
+            "Eventos culturais"
+          ],
+          "whyVisit": "Fewer crowds, vibrant nature",
+          "whyVisitPt": "Menos multidões, natureza vibrante"
+        },
+        "2": {
+          "weatherScore": 6,
+          "costScore": 7,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, wet season",
+          "weatherDescPt": "Quente, estação chuvosa",
+          "avgDailyCost": 80,
+          "highlights": [
+            "Surfing (east coast)",
+            "Yoga retreats"
+          ],
+          "highlightsPt": [
+            "Surf (costa leste)",
+            "Retiros de yoga"
+          ],
+          "whyVisit": "Good for surfing, spiritual practices",
+          "whyVisitPt": "Bom para surf, práticas espirituais"
+        },
+        "3": {
+          "weatherScore": 7,
+          "costScore": 7,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, humid",
+          "weatherDescPt": "Quente, úmido",
+          "avgDailyCost": 85,
+          "highlights": [
+            "Temples",
+            "Waterfalls"
+          ],
+          "highlightsPt": [
+            "Templos",
+            "Cachoeiras"
+          ],
+          "whyVisit": "Transition month, greener scenery",
+          "whyVisitPt": "Mês de transição, paisagens mais verdes"
+        },
+        "4": {
+          "weatherScore": 8,
+          "costScore": 7,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm, start of dry season",
+          "weatherDescPt": "Quente, início da estação seca",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Beaches",
+            "Diving",
+            "Snorkeling"
+          ],
+          "highlightsPt": [
+            "Praias",
+            "Mergulho",
+            "Snorkeling"
+          ],
+          "whyVisit": "Excellent weather, pre-peak season",
+          "whyVisitPt": "Clima excelente, antes da alta temporada"
+        },
+        "5": {
+          "weatherScore": 9,
+          "costScore": 6,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, pleasant",
+          "weatherDescPt": "Ensolarado, agradável",
+          "avgDailyCost": 95,
+          "highlights": [
+            "Surfing",
+            "Rice paddies",
+            "Ubud culture"
+          ],
+          "highlightsPt": [
+            "Surf",
+            "Arrozais",
+            "Cultura de Ubud"
+          ],
+          "whyVisit": "Ideal weather for all activities",
+          "whyVisitPt": "Clima ideal para todas as atividades"
+        },
+        "6": {
+          "weatherScore": 9,
+          "costScore": 6,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, dry",
+          "weatherDescPt": "Ensolarado, seco",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Beach clubs",
+            "Sunset views"
+          ],
+          "highlightsPt": [
+            "Clubes de praia",
+            "Vistas do pôr do sol"
+          ],
+          "whyVisit": "Perfect beach weather, vibrant atmosphere",
+          "whyVisitPt": "Clima perfeito para praia, atmosfera vibrante"
+        },
+        "7": {
+          "weatherScore": 9,
+          "costScore": 5,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, cool evenings",
+          "weatherDescPt": "Ensolarado, noites frescas",
+          "avgDailyCost": 110,
+          "highlights": [
+            "Festivals",
+            "Island hopping"
+          ],
+          "highlightsPt": [
+            "Festivais",
+            "Passeios pelas ilhas"
+          ],
+          "whyVisit": "Peak season, lively events",
+          "whyVisitPt": "Alta temporada, eventos animados"
+        },
+        "8": {
+          "weatherScore": 9,
+          "costScore": 5,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, dry",
+          "weatherDescPt": "Ensolarado, seco",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Water sports",
+            "Yoga retreats"
+          ],
+          "highlightsPt": [
+            "Esportes aquáticos",
+            "Retiros de yoga"
+          ],
+          "whyVisit": "Best weather, popular for holidays",
+          "whyVisitPt": "Melhor clima, popular para férias"
+        },
+        "9": {
+          "weatherScore": 9,
+          "costScore": 6,
+          "recommendedScore": 9,
+          "weatherDesc": "Sunny, pleasant",
+          "weatherDescPt": "Ensolarado, agradável",
+          "avgDailyCost": 110,
+          "highlights": [
+            "Cultural tours",
+            "Hiking"
+          ],
+          "highlightsPt": [
+            "Passeios culturais",
+            "Caminhadas"
+          ],
+          "whyVisit": "Continues excellent weather, slightly fewer crowds",
+          "whyVisitPt": "Clima continua excelente, um pouco menos multidões"
+        },
+        "10": {
+          "weatherScore": 8,
+          "costScore": 6,
+          "recommendedScore": 8,
+          "weatherDesc": "Warm, end of dry season",
+          "weatherDescPt": "Quente, fim da estação seca",
+          "avgDailyCost": 100,
+          "highlights": [
+            "Sunset beaches",
+            "Spa treatments"
+          ],
+          "highlightsPt": [
+            "Praias ao pôr do sol",
+            "Tratamentos de spa"
+          ],
+          "whyVisit": "Good weather before the rain, quieter",
+          "whyVisitPt": "Bom tempo antes da chuva, mais tranquilo"
+        },
+        "11": {
+          "weatherScore": 7,
+          "costScore": 7,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, start of wet season",
+          "weatherDescPt": "Quente, início da estação chuvosa",
+          "avgDailyCost": 90,
+          "highlights": [
+            "Green landscapes",
+            "Cooking classes"
+          ],
+          "highlightsPt": [
+            "Paisagens verdes",
+            "Aulas de culinária"
+          ],
+          "whyVisit": "More rain, but lush and fewer tourists",
+          "whyVisitPt": "Mais chuva, mas exuberante e menos turistas"
+        },
+        "12": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Warm, wet season",
+          "weatherDescPt": "Quente, estação chuvosa",
+          "avgDailyCost": 105,
+          "highlights": [
+            "Christmas/New Year celebrations",
+            "Surfing (west coast)"
+          ],
+          "highlightsPt": [
+            "Celebrações de Natal/Ano Novo",
+            "Surf (costa oeste)"
+          ],
+          "whyVisit": "Holiday season, festive atmosphere",
+          "whyVisitPt": "Temporada de férias, atmosfera festiva"
+        }
+      }
+    }
+  }
+]

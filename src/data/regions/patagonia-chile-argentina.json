@@ -1,0 +1,258 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -68.0619779,
+        -38.9602535
+      ]
+    },
+    "properties": {
+      "id": "patagonia-chile-argentina",
+      "name": "Patagonia",
+      "namePt": "Patagônia",
+      "country": "Chile/Argentina",
+      "description": "A vast, sparsely populated region at the southern end of South America, shared by Argentina and Chile, known for its stunning mountains, glaciers, and diverse wildlife. Ideal for hiking, wildlife spotting, and adventure sports.",
+      "descriptionPt": "Uma vasta e escassamente povoada região no extremo sul da América do Sul, compartilhada por Argentina e Chile, conhecida por suas montanhas deslumbrantes, geleiras e vida selvagem diversificada. Ideal para caminhadas, observação da vida selvagem e esportes de aventura.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 9,
+          "weatherDesc": "Warmest, windy, ideal for hiking",
+          "weatherDescPt": "Mais quente, ventoso, ideal para caminhadas",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Hiking",
+            "Glacier tours",
+            "Wildlife"
+          ],
+          "highlightsPt": [
+            "Caminhada",
+            "Passeios de geleira",
+            "Vida selvagem"
+          ],
+          "whyVisit": "Prime hiking conditions, stunning landscapes",
+          "whyVisitPt": "Condições ideais para caminhadas, paisagens deslumbrantes"
+        },
+        "2": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 9,
+          "weatherDesc": "Warm, windy, great for outdoor activities",
+          "weatherDescPt": "Quente, ventoso, ótimo para atividades ao ar livre",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Hiking",
+            "Kayaking",
+            "Photography"
+          ],
+          "highlightsPt": [
+            "Caminhada",
+            "Caiaque",
+            "Fotografia"
+          ],
+          "whyVisit": "Excellent weather for exploration",
+          "whyVisitPt": "Clima excelente para exploração"
+        },
+        "3": {
+          "weatherScore": 8,
+          "costScore": 4,
+          "recommendedScore": 8,
+          "weatherDesc": "Cooler, pleasant, changing foliage",
+          "weatherDescPt": "Mais fresco, agradável, folhagem em mudança",
+          "avgDailyCost": 220,
+          "highlights": [
+            "Autumn colors",
+            "Fewer crowds",
+            "Wildlife migration"
+          ],
+          "highlightsPt": [
+            "Cores de outono",
+            "Menos multidões",
+            "Migração da vida selvagem"
+          ],
+          "whyVisit": "Beautiful scenery, less busy",
+          "whyVisitPt": "Cenário bonito, menos movimentado"
+        },
+        "4": {
+          "weatherScore": 7,
+          "costScore": 5,
+          "recommendedScore": 7,
+          "weatherDesc": "Cool, crisp, vivid autumn colors",
+          "weatherDescPt": "Fresco, nítido, cores de outono vívidas",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Photography",
+            "Quiet trails",
+            "Forest walks"
+          ],
+          "highlightsPt": [
+            "Fotografia",
+            "Trilhas tranquilas",
+            "Caminhadas na floresta"
+          ],
+          "whyVisit": "Stunning fall foliage, peaceful",
+          "whyVisitPt": "Folhagem de outono deslumbrante, tranquilo"
+        },
+        "5": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 6,
+          "weatherDesc": "Cold, potential for early snow, rainy",
+          "weatherDescPt": "Frio, potencial para neve precoce, chuvoso",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Off-season discounts",
+            "Wildlife spotting (certain areas)"
+          ],
+          "highlightsPt": [
+            "Descontos na baixa temporada",
+            "Observação da vida selvagem (certas áreas)"
+          ],
+          "whyVisit": "Lower prices, solitude",
+          "whyVisitPt": "Preços mais baixos, solidão"
+        },
+        "6": {
+          "weatherScore": 4,
+          "costScore": 7,
+          "recommendedScore": 5,
+          "weatherDesc": "Cold, snowy, icy roads",
+          "weatherDescPt": "Frio, com neve, estradas geladas",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Skiing (Bariloche, Cerro Castor)",
+            "Snowshoeing"
+          ],
+          "highlightsPt": [
+            "Esqui (Bariloche, Cerro Castor)",
+            "Caminhada na neve"
+          ],
+          "whyVisit": "Winter sports, quiet landscapes",
+          "whyVisitPt": "Esportes de inverno, paisagens tranquilas"
+        },
+        "7": {
+          "weatherScore": 4,
+          "costScore": 7,
+          "recommendedScore": 5,
+          "weatherDesc": "Very cold, heavy snow, short days",
+          "weatherDescPt": "Muito frio, neve pesada, dias curtos",
+          "avgDailyCost": 150,
+          "highlights": [
+            "Skiing",
+            "Winter festivals",
+            "Cozy stays"
+          ],
+          "highlightsPt": [
+            "Esqui",
+            "Festivais de inverno",
+            "Estadias aconchegantes"
+          ],
+          "whyVisit": "Winter activities, magical snowy scenery",
+          "whyVisitPt": "Atividades de inverno, cenário nevado mágico"
+        },
+        "8": {
+          "weatherScore": 5,
+          "costScore": 7,
+          "recommendedScore": 5,
+          "weatherDesc": "Cold, still snowy, beginning to lengthen days",
+          "weatherDescPt": "Frio, ainda com neve, dias começando a alongar",
+          "avgDailyCost": 160,
+          "highlights": [
+            "Skiing",
+            "Snowboarding",
+            "Wildlife returning"
+          ],
+          "highlightsPt": [
+            "Esqui",
+            "Snowboard",
+            "Retorno da vida selvagem"
+          ],
+          "whyVisit": "Last chance for winter sports",
+          "whyVisitPt": "Última chance para esportes de inverno"
+        },
+        "9": {
+          "weatherScore": 6,
+          "costScore": 6,
+          "recommendedScore": 7,
+          "weatherDesc": "Cool, windy, melting snow, wildflowers",
+          "weatherDescPt": "Fresco, ventoso, neve derretendo, flores silvestres",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Wildflowers",
+            "Pristine nature",
+            "Birdwatching"
+          ],
+          "highlightsPt": [
+            "Flores silvestres",
+            "Natureza intocada",
+            "Observação de pássaros"
+          ],
+          "whyVisit": "Nature awakening, fewer tourists",
+          "whyVisitPt": "Natureza despertando, menos turistas"
+        },
+        "10": {
+          "weatherScore": 7,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Mild, windy, blooming landscapes",
+          "weatherDescPt": "Ameno, ventoso, paisagens em flor",
+          "avgDailyCost": 200,
+          "highlights": [
+            "Hiking (some trails opening)",
+            "Whale watching (Atlantic coast)",
+            "Wildlife"
+          ],
+          "highlightsPt": [
+            "Caminhada (algumas trilhas abrindo)",
+            "Observação de baleias (costa atlântica)",
+            "Vida selvagem"
+          ],
+          "whyVisit": "Mild weather, wildlife opportunities",
+          "whyVisitPt": "Clima ameno, oportunidades de vida selvagem"
+        },
+        "11": {
+          "weatherScore": 8,
+          "costScore": 4,
+          "recommendedScore": 8,
+          "weatherDesc": "Mild to warm, very windy, longer days",
+          "weatherDescPt": "Ameno a quente, muito ventoso, dias mais longos",
+          "avgDailyCost": 220,
+          "highlights": [
+            "Full hiking season begins",
+            "Penguin colonies",
+            "Pristine nature"
+          ],
+          "highlightsPt": [
+            "Início da temporada de caminhadas",
+            "Colônias de pinguins",
+            "Natureza intocada"
+          ],
+          "whyVisit": "Preparation for summer, pleasant weather",
+          "whyVisitPt": "Preparação para o verão, clima agradável"
+        },
+        "12": {
+          "weatherScore": 9,
+          "costScore": 3,
+          "recommendedScore": 9,
+          "weatherDesc": "Warm, very windy, longest days, peak season",
+          "weatherDescPt": "Quente, muito ventoso, dias mais longos, alta temporada",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Hiking",
+            "Glacier tours",
+            "National Parks"
+          ],
+          "highlightsPt": [
+            "Caminhada",
+            "Passeios de geleira",
+            "Parques Nacionais"
+          ],
+          "whyVisit": "Excellent for outdoor adventures, long daylight hours",
+          "whyVisitPt": "Excelente para aventuras ao ar livre, longas horas de luz do dia"
+        }
+      }
+    }
+  }
+]

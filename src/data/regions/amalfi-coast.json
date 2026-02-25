@@ -1,0 +1,252 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        14.7213286,
+        40.6681641
+      ]
+    },
+    "properties": {
+      "id": "amalfi-coast",
+      "name": "Amalfi Coast",
+      "namePt": "Costa Amalfitana",
+      "country": "Italy",
+      "description": "The Amalfi Coast is a stunning stretch of coastline in southern Italy, renowned for its dramatic cliffs, picturesque towns like Positano and Ravello, azure waters, and vibrant lemon groves. It's a UNESCO World Heritage site known for its unique beauty and charm.",
+      "descriptionPt": "A Costa Amalfitana é um deslumbrante trecho de litoral no sul da Itália, conhecido por suas falésias dramáticas, cidades pitorescas como Positano e Ravello, águas azuis e vibrantes pomares de limão. É um Patrimônio Mundial da UNESCO, famoso por sua beleza e charme únicos.",
+      "monthlyData": {
+        "1": {
+          "weatherScore": 5,
+          "costScore": 3,
+          "recommendedScore": 4,
+          "weatherDesc": "Cool, mild winter",
+          "weatherDescPt": "Fresco, inverno ameno",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Tranquility",
+            "Local cuisine"
+          ],
+          "highlightsPt": [
+            "Tranquilidade",
+            "Culinária local"
+          ],
+          "whyVisit": "Peaceful atmosphere, lower prices",
+          "whyVisitPt": "Ambiente tranquilo, preços mais baixos"
+        },
+        "2": {
+          "weatherScore": 5,
+          "costScore": 3,
+          "recommendedScore": 4,
+          "weatherDesc": "Cool, chilly",
+          "weatherDescPt": "Fresco, frio",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Fewer tourists",
+            "Local festivals"
+          ],
+          "highlightsPt": [
+            "Menos turistas",
+            "Festivais locais"
+          ],
+          "whyVisit": "Authentic experience, good for budget travelers",
+          "whyVisitPt": "Experiência autêntica, bom para viajantes com orçamento limitado"
+        },
+        "3": {
+          "weatherScore": 6,
+          "costScore": 4,
+          "recommendedScore": 6,
+          "weatherDesc": "Mild, freshening",
+          "weatherDescPt": "Suave, refrescante",
+          "avgDailyCost": 140,
+          "highlights": [
+            "Early blossoms",
+            "Hiking trails open"
+          ],
+          "highlightsPt": [
+            "Primeiras flores",
+            "Trilhas abertas"
+          ],
+          "whyVisit": "Blooming landscapes, pleasant walks",
+          "whyVisitPt": "Paisagens floridas, passeios agradáveis"
+        },
+        "4": {
+          "weatherScore": 8,
+          "costScore": 5,
+          "recommendedScore": 8,
+          "weatherDesc": "Mild, sunny",
+          "weatherDescPt": "Suave, ensolarado",
+          "avgDailyCost": 180,
+          "highlights": [
+            "Flowers in bloom",
+            "Boat tours begin"
+          ],
+          "highlightsPt": [
+            "Flores em flor",
+            "Passeios de barco começam"
+          ],
+          "whyVisit": "Ideal weather, fewer crowds than summer",
+          "whyVisitPt": "Clima ideal, menos multidões que no verão"
+        },
+        "5": {
+          "weatherScore": 9,
+          "costScore": 7,
+          "recommendedScore": 9,
+          "weatherDesc": "Warm, sunny",
+          "weatherDescPt": "Quente, ensolarado",
+          "avgDailyCost": 220,
+          "highlights": [
+            "Swimming",
+            "Boat trips",
+            "Vibrant atmosphere"
+          ],
+          "highlightsPt": [
+            "Natação",
+            "Passeios de barco",
+            "Atmosfera vibrante"
+          ],
+          "whyVisit": "Perfect balance of weather and activity before peak crowds",
+          "whyVisitPt": "Equilíbrio perfeito de clima e atividades antes das multidões de pico"
+        },
+        "6": {
+          "weatherScore": 9,
+          "costScore": 8,
+          "recommendedScore": 9,
+          "weatherDesc": "Hot, sunny",
+          "weatherDescPt": "Quente, ensolarado",
+          "avgDailyCost": 280,
+          "highlights": [
+            "Beaches",
+            "Swimming",
+            "Nightlife"
+          ],
+          "highlightsPt": [
+            "Praias",
+            "Natação",
+            "Vida noturna"
+          ],
+          "whyVisit": "Summer fun, warm waters, lively towns",
+          "whyVisitPt": "Diversão de verão, águas quentes, cidades animadas"
+        },
+        "7": {
+          "weatherScore": 10,
+          "costScore": 9,
+          "recommendedScore": 8,
+          "weatherDesc": "Very hot, sunny",
+          "weatherDescPt": "Muito quente, ensolarado",
+          "avgDailyCost": 320,
+          "highlights": [
+            "Beaches",
+            "Boat tours",
+            "Lively nightlife"
+          ],
+          "highlightsPt": [
+            "Praias",
+            "Passeios de barco",
+            "Vida noturna animada"
+          ],
+          "whyVisit": "Peak summer, vibrant atmosphere (expect crowds)",
+          "whyVisitPt": "Verão de pico, atmosfera vibrante (espere multidões)"
+        },
+        "8": {
+          "weatherScore": 10,
+          "costScore": 10,
+          "recommendedScore": 7,
+          "weatherDesc": "Very hot, sunny",
+          "weatherDescPt": "Muito quente, ensolarado",
+          "avgDailyCost": 350,
+          "highlights": [
+            "Beaches",
+            "Festivals",
+            "Swimming"
+          ],
+          "highlightsPt": [
+            "Praias",
+            "Festivais",
+            "Natação"
+          ],
+          "whyVisit": "Warmest waters, lively peak season if you don't mind crowds",
+          "whyVisitPt": "Águas mais quentes, temporada de pico animada se você não se importa com multidões"
+        },
+        "9": {
+          "weatherScore": 9,
+          "costScore": 7,
+          "recommendedScore": 9,
+          "weatherDesc": "Warm, pleasant",
+          "weatherDescPt": "Quente, agradável",
+          "avgDailyCost": 250,
+          "highlights": [
+            "Still warm for swimming",
+            "Grape harvest",
+            "Fewer crowds"
+          ],
+          "highlightsPt": [
+            "Ainda quente para nadar",
+            "Colheita da uva",
+            "Menos multidões"
+          ],
+          "whyVisit": "Excellent weather, less crowded than August",
+          "whyVisitPt": "Clima excelente, menos lotado que agosto"
+        },
+        "10": {
+          "weatherScore": 8,
+          "costScore": 6,
+          "recommendedScore": 8,
+          "weatherDesc": "Mild, cool evenings",
+          "weatherDescPt": "Suave, noites frescas",
+          "avgDailyCost": 190,
+          "highlights": [
+            "Hiking",
+            "Food festivals",
+            "Local culture"
+          ],
+          "highlightsPt": [
+            "Caminhadas",
+            "Festivais gastronômicos",
+            "Cultura local"
+          ],
+          "whyVisit": "Autumn colors, pleasant temperatures, good value",
+          "whyVisitPt": "Cores de outono, temperaturas agradáveis, bom custo-benefício"
+        },
+        "11": {
+          "weatherScore": 6,
+          "costScore": 4,
+          "recommendedScore": 5,
+          "weatherDesc": "Cool, rainy possible",
+          "weatherDescPt": "Fresco, possível chuva",
+          "avgDailyCost": 130,
+          "highlights": [
+            "Tranquility",
+            "Local life",
+            "Fewer tourists"
+          ],
+          "highlightsPt": [
+            "Tranquilidade",
+            "Vida local",
+            "Menos turistas"
+          ],
+          "whyVisit": "Peace and quiet, lower prices before holiday season",
+          "whyVisitPt": "Paz e sossego, preços mais baixos antes da temporada de férias"
+        },
+        "12": {
+          "weatherScore": 5,
+          "costScore": 3,
+          "recommendedScore": 4,
+          "weatherDesc": "Cool, chilly",
+          "weatherDescPt": "Fresco, frio",
+          "avgDailyCost": 120,
+          "highlights": [
+            "Christmas decorations",
+            "Local traditions"
+          ],
+          "highlightsPt": [
+            "Decorações de Natal",
+            "Tradições locais"
+          ],
+          "whyVisit": "Festive atmosphere without crowds, lower prices",
+          "whyVisitPt": "Atmosfera festiva sem multidões, preços mais baixos"
+        }
+      }
+    }
+  }
+]

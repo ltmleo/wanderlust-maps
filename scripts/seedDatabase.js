@@ -30,12 +30,28 @@ async function seedData() {
     console.log('Starting data migration to Supabase...');
 
     try {
-        // 1. Read local JSON files
-        const regionsRaw = fs.readFileSync(path.resolve(__dirname, '../src/data/regions.json'), 'utf8');
-        const poisRaw = fs.readFileSync(path.resolve(__dirname, '../src/data/pois.json'), 'utf8');
+        // 1. Read local JSON files from directories
+        const regionsDir = path.resolve(__dirname, '../src/data/regions');
+        const poisDir = path.resolve(__dirname, '../src/data/pois');
 
-        const regionsData = JSON.parse(regionsRaw);
-        const poisData = JSON.parse(poisRaw);
+        let regionsData = [];
+        let poisData = [];
+
+        if (fs.existsSync(regionsDir)) {
+            const regionFiles = fs.readdirSync(regionsDir).filter(f => f.endsWith('.json'));
+            for (const file of regionFiles) {
+                const content = fs.readFileSync(path.join(regionsDir, file), 'utf8');
+                regionsData = regionsData.concat(JSON.parse(content));
+            }
+        }
+
+        if (fs.existsSync(poisDir)) {
+            const poiFiles = fs.readdirSync(poisDir).filter(f => f.endsWith('.json'));
+            for (const file of poiFiles) {
+                const content = fs.readFileSync(path.join(poisDir, file), 'utf8');
+                poisData = poisData.concat(JSON.parse(content));
+            }
+        }
 
         // 2. Process Regions and Monthly Data
         console.log(`Found ${regionsData.length} predefined regions. Formatting for DB...`);
