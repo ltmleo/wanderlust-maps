@@ -39,6 +39,9 @@ jobs:
       - name: Build project
         # Adicionamos a flag --base para garantir que os caminhos dos assets funcionem corretamente se for publicado em um subdiretório (ex: usuario.github.io/repo)
         run: npm run build -- --base=/${{ github.event.repository.name }}/
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

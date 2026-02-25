@@ -1,8 +1,7 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import L from "leaflet";
+import type { FeatureCollection, Polygon, Point } from "geojson";
 import {
-  regionsGeoJSON,
-  poisGeoJSON,
   getRegionColor,
   POI_ICONS,
   type ViewMode,
@@ -20,9 +19,11 @@ interface TravelMapProps {
   selectedRegion: RegionProperties | null;
   onRegionClick: (region: RegionProperties) => void;
   onPOIClick: (poi: POIProperties) => void;
+  regionsGeoJSON: FeatureCollection<Polygon, RegionProperties>;
+  poisGeoJSON: FeatureCollection<Point, POIProperties>;
 }
 
-export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegions, selectedRegion, onRegionClick, onPOIClick }: TravelMapProps) {
+export function TravelMap({ selectedMonth, viewMode, theme, poiFilters, showRegions, selectedRegion, onRegionClick, onPOIClick, regionsGeoJSON, poisGeoJSON }: TravelMapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const tileLayerRef = useRef<L.TileLayer | null>(null);

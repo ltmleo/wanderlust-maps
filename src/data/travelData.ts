@@ -39,25 +39,6 @@ export interface POIProperties {
 const computeRecommended = (weather: number, cost: number) =>
   Math.round((weather * 0.6 + cost * 0.4) * 10) / 10;
 
-import regionsData from './regions.json';
-import poisData from './pois.json';
-
-// --- REGIONS ---
-const regionFeatures: Feature<Polygon, RegionProperties>[] = regionsData as Feature<Polygon, RegionProperties>[];
-
-// --- POINTS OF INTEREST ---
-const poiFeatures: Feature<Point, POIProperties>[] = poisData as Feature<Point, POIProperties>[];
-
-export const regionsGeoJSON: FeatureCollection<Polygon, RegionProperties> = {
-  type: "FeatureCollection",
-  features: regionFeatures,
-};
-
-export const poisGeoJSON: FeatureCollection<Point, POIProperties> = {
-  type: "FeatureCollection",
-  features: poiFeatures,
-};
-
 export type ViewMode = "weather" | "cost" | "recommended";
 
 export const MONTHS = [

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MONTHS, POI_ICONS, type ViewMode } from "@/data/travelData";
-import { Sun, Moon, DollarSign, Star, ChevronLeft, ChevronRight, Compass, Globe, Eye, EyeOff, Cloud, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { Sun, Moon, DollarSign, Star, ChevronLeft, ChevronRight, Compass, Globe, Eye, EyeOff, Cloud, PanelLeftClose, PanelLeftOpen, User, LogOut } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const viewModes = (t: (k: string) => string) => [
   { key: "weather" as ViewMode, label: t("map.weather"), icon: <Sun className="w-4 h-4" />, desc: t("map.weatherDesc") },
@@ -26,11 +28,22 @@ interface MapControlsProps {
 export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewModeChange, theme, onToggleTheme, poiFilters, showRegions, onToggleRegions, onTogglePoiFilter }: MapControlsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const { t, locale, setLocale, currency, setCurrency } = useTranslation();
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   const prevMonth = () => onMonthChange(selectedMonth === 1 ? 12 : selectedMonth - 1);
   const nextMonth = () => onMonthChange(selectedMonth === 12 ? 1 : selectedMonth + 1);
 
   const shortMonths = MONTHS.map((m) => t(`month.${m.toLowerCase()}`).substring(0, 3));
+
+  const handleUserClick = () => {
+    if (user) {
+      // Just log out for now or show a dropdown menu in future
+      signOut();
+    } else {
+      navigate('/auth');
+    }
+  };
 
   return (
     <>
@@ -50,8 +63,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
               key={i}
               onClick={() => onMonthChange(i + 1)}
               className={`text-[8px] sm:text-[11px] px-[3px] sm:px-2 py-0.5 sm:py-1.5 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${i + 1 === selectedMonth
-                  ? "bg-primary text-primary-foreground shadow-md scale-105"
-                  : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
+                ? "bg-primary text-primary-foreground shadow-md scale-105"
+                : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
                 }`}
             >
               {m}
@@ -84,6 +97,13 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
           <div className={`flex items-center gap-0.5 ${!isExpanded ? 'flex-col' : 'ml-auto'}`}>
             {isExpanded && (
               <>
+                <button
+                  onClick={handleUserClick}
+                  className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                  title={user ? "Sair" : "Entrar / Cadastrar"}
+                >
+                  {user ? <LogOut className="w-3.5 h-3.5 text-red-500" /> : <User className="w-3.5 h-3.5" />}
+                </button>
                 <button
                   onClick={() => setLocale(locale === 'en' ? 'pt' : 'en')}
                   className="p-1.5 rounded-lg hover:bg-secondary/50 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
@@ -150,8 +170,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                       key={i}
                       onClick={() => onMonthChange(i + 1)}
                       className={`text-[10px] py-1 rounded-md font-medium transition-all duration-200 ${i + 1 === selectedMonth
-                          ? "bg-primary text-primary-foreground shadow-sm"
-                          : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
+                        ? "bg-primary text-primary-foreground shadow-sm"
+                        : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
                         }`}
                     >
                       {m}
@@ -169,8 +189,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                       key={mode.key}
                       onClick={() => onViewModeChange(mode.key)}
                       className={`w-full flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs transition-all duration-200 ${viewMode === mode.key
-                          ? "bg-primary/15 text-primary border border-primary/30"
-                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+                        ? "bg-primary/15 text-primary border border-primary/30"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
                         }`}
                     >
                       {mode.icon}
@@ -195,8 +215,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                   <button
                     onClick={onToggleRegions}
                     className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] transition-colors ${showRegions
-                        ? "bg-primary/20 text-primary"
-                        : "bg-secondary/50 text-muted-foreground"
+                      ? "bg-primary/20 text-primary"
+                      : "bg-secondary/50 text-muted-foreground"
                       }`}
                   >
                     {showRegions ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
@@ -211,8 +231,8 @@ export function MapControls({ selectedMonth, onMonthChange, viewMode, onViewMode
                       key={cat}
                       onClick={() => onTogglePoiFilter(cat)}
                       className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] transition-colors ${poiFilters.includes(cat)
-                          ? "bg-primary/20 text-primary border border-primary/30"
-                          : "bg-secondary/40 text-muted-foreground hover:bg-secondary/60 border border-transparent"
+                        ? "bg-primary/20 text-primary border border-primary/30"
+                        : "bg-secondary/40 text-muted-foreground hover:bg-secondary/60 border border-transparent"
                         }`}
                     >
                       <span className="text-xs">{POI_ICONS[cat]}</span>

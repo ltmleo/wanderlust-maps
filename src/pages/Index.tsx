@@ -6,8 +6,9 @@ import { RegionSidebar } from "@/components/RegionSidebar";
 import { POIModal } from "@/components/POIModal";
 import { RoadmapModal } from "@/components/RoadmapModal";
 import { useTheme } from "@/hooks/useTheme";
+import { useMapData } from "@/hooks/useMapData";
 import type { ViewMode, RegionProperties, POIProperties } from "@/data/travelData";
-import { Rocket } from "lucide-react";
+import { Rocket, Loader2 } from "lucide-react";
 
 const Index = () => {
   const { theme, toggleTheme } = useTheme();
@@ -19,6 +20,9 @@ const Index = () => {
   const [poiFilters, setPoiFilters] = useState<string[]>(["landmark", "nature", "culture", "beach", "city", "wonder", "natural_wonder"]);
   const [showRegions, setShowRegions] = useState(true);
 
+  // Fetch geographical data
+  const { data: mapData, isLoading, error } = useMapData();
+
   const handleRegionClick = useCallback((region: RegionProperties) => {
     setSelectedRegion(region);
     setSelectedPOI(null);
@@ -27,6 +31,23 @@ const Index = () => {
   const handlePOIClick = useCallback((poi: POIProperties) => {
     setSelectedPOI(poi);
   }, []);
+
+  if (isLoading || !mapData) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-background">
+        <Loader2 className="w-8 h-8 animate-spin text-primary mb-4" />
+        <p className="text-muted-foreground font-medium">Buscando regiões e locais no mundo todo...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-background text-red-500">
+        <p>Houve um erro ao carregar o mapa. Verifique sua conexão com o banco de dados.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-background">
@@ -39,6 +60,8 @@ const Index = () => {
         selectedRegion={selectedRegion}
         onRegionClick={handleRegionClick}
         onPOIClick={handlePOIClick}
+        regionsGeoJSON={mapData.regionsGeoJSON}
+        poisGeoJSON={mapData.poisGeoJSON}
       />
 
       <MapControls
