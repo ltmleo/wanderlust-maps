@@ -12,6 +12,8 @@ interface Review {
   user_id: string;
   rating: number;
   content: string;
+  social_video_url?: string;
+  social_image_url?: string;
   created_at: string;
   user_email?: string;
 }
@@ -46,6 +48,8 @@ export function POIModal({ poi, onClose }: POIModalProps) {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loadingReviews, setLoadingReviews] = useState(false);
   const [reviewText, setReviewText] = useState("");
+  const [reviewVideoUrl, setReviewVideoUrl] = useState("");
+  const [reviewImageUrl, setReviewImageUrl] = useState("");
   const [reviewRating, setReviewRating] = useState(5);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -62,7 +66,7 @@ export function POIModal({ poi, onClose }: POIModalProps) {
       const { data, error } = await supabase
         .from('poi_reviews')
         .select(`
-          id, user_id, rating, content, created_at,
+          id, user_id, rating, content, social_video_url, social_image_url, created_at,
           users:auth.users ( email )
         `)
         .eq('poi_id', poi.id)
@@ -91,12 +95,16 @@ export function POIModal({ poi, onClose }: POIModalProps) {
         user_id: user.id,
         poi_id: poi!.id,
         rating: reviewRating,
-        content: reviewText
+        content: reviewText,
+        social_video_url: reviewVideoUrl || null,
+        social_image_url: reviewImageUrl || null
       });
 
       if (error) throw error;
       toast.success("Tip added successfully!");
       setReviewText("");
+      setReviewVideoUrl("");
+      setReviewImageUrl("");
       setReviewRating(5);
       fetchReviews();
     } catch (err: any) {
@@ -277,6 +285,22 @@ export function POIModal({ poi, onClose }: POIModalProps) {
                         </div>
                       </div>
                       <p className="text-sm text-foreground/90">{rev.content}</p>
+                      {rev.social_video_url && (
+                        <div className="mt-3 rounded-xl overflow-hidden aspect-[9/16] bg-black/10 max-w-[200px] border border-white/5">
+                          <iframe
+                            src={rev.social_video_url}
+                            className="w-full h-full border-0"
+                            allow="encrypted-media;"
+                            allowFullScreen
+                          />
+                        </div>
+                      )}
+                      {rev.social_image_url && (
+                        <div className="mt-3 rounded-xl overflow-hidden cursor-pointer w-full max-h-48"
+                          onClick={() => setSelectedImage(rev.social_image_url!)}>
+                          <img src={rev.social_image_url} alt="User tip photo" className="w-full h-full object-cover" />
+                        </div>
+                      )}
                     </div>
                   ))
                 )}
@@ -305,15 +329,31 @@ export function POIModal({ poi, onClose }: POIModalProps) {
                       className="flex-1 bg-background/50 border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary/50 transition-colors"
                       value={reviewText}
                       onChange={(e) => setReviewText(e.target.value)}
-                      required
                     />
                     <button
                       type="submit"
-                      disabled={isSubmitting || !reviewText.trim()}
+                      disabled={isSubmitting || (!reviewText.trim() && !reviewVideoUrl && !reviewImageUrl)}
                       className="bg-primary text-primary-foreground p-2 rounded-lg hover:bg-primary/90 disabled:opacity-50 transition-colors"
                     >
                       {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                     </button>
+                  </div>
+                  <div className="mt-2 text-xs text-muted-foreground">Optional Media:</div>
+                  <div className="flex flex-col gap-2 mt-1">
+                    <input
+                      type="url"
+                      placeholder="Social Video URL (e.g. TikTok, Instagram Reel)"
+                      className="bg-background/50 border border-white/10 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary/50 transition-colors"
+                      value={reviewVideoUrl}
+                      onChange={(e) => setReviewVideoUrl(e.target.value)}
+                    />
+                    <input
+                      type="url"
+                      placeholder="Image URL"
+                      className="bg-background/50 border border-white/10 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-primary/50 transition-colors"
+                      value={reviewImageUrl}
+                      onChange={(e) => setReviewImageUrl(e.target.value)}
+                    />
                   </div>
                 </form>
               ) : (

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, Plus, Trash2, Loader2 } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Plus, Trash2, Loader2, Star } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -27,6 +27,20 @@ interface Region {
     name_pt: string | null;
 }
 
+interface PassportStamp {
+    id: string;
+    rating: number;
+    content: string | null;
+    social_video_url: string | null;
+    social_image_url: string | null;
+    created_at: string;
+    pois: {
+        id: string;
+        name: string;
+        name_pt: string | null;
+    };
+}
+
 const Profile = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
@@ -34,6 +48,7 @@ const Profile = () => {
     const [loading, setLoading] = useState(true);
     const [trips, setTrips] = useState<Trip[]>([]);
     const [regions, setRegions] = useState<Region[]>([]);
+    const [stamps, setStamps] = useState<PassportStamp[]>([]);
 
     // Form State
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,6 +80,19 @@ const Profile = () => {
             // Fix types since supabase returns an array for joins sometimes depending on the schema,
             // but here it's a many-to-one so it should be a single object.
             setTrips((userTrips as any) || []);
+
+            // Fetch user's reviews/stamps
+            const { data: userStamps, error: stampsError } = await supabase
+                .from("poi_reviews")
+                .select(`
+                  id, rating, content, social_video_url, social_image_url, created_at,
+                  pois (id, name, name_pt)
+                `)
+                .eq("user_id", user?.id)
+                .order("created_at", { ascending: false });
+
+            if (stampsError) throw stampsError;
+            setStamps((userStamps as any) || []);
 
             // Fetch all regions for the dropdown
             const { data: allRegions, error: regionsError } = await supabase
@@ -271,6 +299,84 @@ const Profile = () => {
                                     >
                                         <Trash2 className="w-4 h-4" />
                                     </button>
+                                </motion.div>
+                            ))}
+                        </div>
+                    )}
+                </section>
+
+                {/* My Passport Stamps Section */}
+                <section>
+                    <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span className="text-2xl">🛂</span>
+                        My Passport Stamps ({stamps.length})
+                    </h2>
+
+                    {stamps.length === 0 ? (
+                        <div className="text-center py-10 px-4 glass-panel rounded-2xl border border-white/5 border-dashed">
+                            <span className="text-4xl mb-4 block">📸</span>
+                            <h3 className="text-lg font-medium text-foreground mb-1">No stamps yet!</h3>
+                            <p className="text-sm text-muted-foreground">Visit places on the map and leave tips with your photos or videos to collect stamps.</p>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {stamps.map((stamp) => (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    key={stamp.id}
+                                    className="glass-panel p-5 rounded-xl border border-white/5 flex flex-col gap-3 group hover:border-white/20 transition-colors"
+                                >
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <h3 className="font-semibold text-lg text-primary">
+                                                {locale === 'pt' ? (stamp.pois?.name_pt || stamp.pois?.name) : stamp.pois?.name}
+                                            </h3>
+                                            <div className="flex items-center text-xs text-muted-foreground gap-1.5 mt-0.5">
+                                                <Calendar className="w-3.5 h-3.5" />
+                                                {formatDate(stamp.created_at)}
+                                            </div>
+                                        </div>
+                                        <div className="flex text-amber-500">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star key={i} className={`w-3 h-3 ${i < stamp.rating ? "fill-current" : "opacity-30"}`} />
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {stamp.content && (
+                                        <p className="text-sm italic text-foreground/80 border-l-2 border-primary/30 pl-2">
+                                            "{stamp.content}"
+                                        </p>
+                                    )}
+
+                                    <div className="mt-auto pt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-hidden">
+                                        {stamp.social_video_url && (
+                                            <div className="shrink-0 w-24 h-36 rounded-lg overflow-hidden bg-black/20 border border-white/10 relative">
+                                                <div className="absolute top-1 right-1 text-[10px] bg-pink-500 text-white px-1.5 rounded-full z-10">Video</div>
+                                                <iframe
+                                                    src={stamp.social_video_url}
+                                                    className="w-full h-full border-0 absolute inset-0 pointer-events-none"
+                                                    allow="encrypted-media;"
+                                                />
+                                            </div>
+                                        )}
+                                        {stamp.social_image_url && (
+                                            <div className="shrink-0 w-24 h-36 rounded-lg overflow-hidden bg-black/20 border border-white/10 relative">
+                                                <div className="absolute top-1 right-1 text-[10px] bg-blue-500 text-white px-1.5 rounded-full z-10">Photo</div>
+                                                <img
+                                                    src={stamp.social_image_url}
+                                                    alt="Memory"
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        )}
+                                        {(!stamp.social_video_url && !stamp.social_image_url) && (
+                                            <div className="w-full text-center py-2 text-xs text-muted-foreground bg-primary/5 rounded-lg border border-primary/10">
+                                                No media attached
+                                            </div>
+                                        )}
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>
