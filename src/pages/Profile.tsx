@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/lib/supabase";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, Plus, Trash2, Loader2, Star } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, Plus, Trash2, Loader2, Star, Plane, Users, FileText, Tag } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Trip {
     id: string;
@@ -16,14 +16,11 @@ interface Trip {
     poi_id: string | null;
     start_date: string;
     end_date: string;
-    regions?: {
-        name: string;
-        name_pt: string | null;
-    };
-    pois?: {
-        name: string;
-        name_pt: string | null;
-    };
+    notes?: string | null;
+    companions?: string | null;
+    trip_type?: string | null;
+    regions?: { name: string; name_pt: string | null };
+    pois?: { name: string; name_pt: string | null };
 }
 
 interface Region {
@@ -39,11 +36,7 @@ interface PassportStamp {
     social_video_url: string | null;
     social_image_url: string | null;
     created_at: string;
-    pois: {
-        id: string;
-        name: string;
-        name_pt: string | null;
-    };
+    pois: { id: string; name: string; name_pt: string | null };
 }
 
 interface ProfileData {
@@ -54,6 +47,7 @@ interface ProfileData {
     avatar_url: string | null;
 }
 
+const tripTypes = ["leisure", "adventure", "business", "cultural", "romantic"] as const;
 
 const Profile = () => {
     const { user } = useAuth();
@@ -66,79 +60,57 @@ const Profile = () => {
     const [profile, setProfile] = useState<ProfileData | null>(null);
     const [isEditingProfile, setIsEditingProfile] = useState(false);
     const [editProfileData, setEditProfileData] = useState<ProfileData | null>(null);
+    const [showTripForm, setShowTripForm] = useState(false);
 
     // Form State
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
+    const [notes, setNotes] = useState("");
+    const [companions, setCompanions] = useState("");
+    const [tripType, setTripType] = useState("");
 
     useEffect(() => {
-        if (user) {
-            loadData();
-        }
+        if (user) loadData();
     }, [user]);
 
     const loadData = async () => {
         try {
             setLoading(true);
-            // Fetch user's trips
             const { data: userTrips, error: tripsError } = await supabase
                 .from("user_trips")
-                .select(`
-          id, region_id, poi_id, start_date, end_date,
-          regions (name, name_pt),
-          pois (name, name_pt)
-        `)
+                .select(`id, region_id, poi_id, start_date, end_date, notes, companions, trip_type, regions (name, name_pt), pois (name, name_pt)`)
                 .eq("user_id", user?.id)
                 .order("start_date", { ascending: false });
-
             if (tripsError) throw tripsError;
-
-            // Fix types since supabase returns an array for joins sometimes depending on the schema,
-            // but here it's a many-to-one so it should be a single object.
             setTrips((userTrips as any) || []);
 
-            // Fetch user's reviews/stamps
             const { data: userStamps, error: stampsError } = await supabase
                 .from("poi_reviews")
-                .select(`
-                  id, rating, content, social_video_url, social_image_url, created_at,
-                  pois (id, name, name_pt)
-                `)
+                .select(`id, rating, content, social_video_url, social_image_url, created_at, pois (id, name, name_pt)`)
                 .eq("user_id", user?.id)
                 .order("created_at", { ascending: false });
-
             if (stampsError) throw stampsError;
             setStamps((userStamps as any) || []);
 
-            // Fetch user's profile
             const { data: userProfile, error: profileError } = await supabase
                 .from("profiles")
                 .select("full_name, nickname, country, bio, avatar_url")
                 .eq("id", user?.id)
                 .single();
-
             if (profileError && profileError.code !== 'PGRST116') throw profileError;
             if (userProfile) {
                 setProfile(userProfile);
-                setEditProfileData({
-                    full_name: userProfile.full_name || '',
-                    nickname: userProfile.nickname || '',
-                    country: userProfile.country || '',
-                    bio: userProfile.bio || '',
-                    avatar_url: userProfile.avatar_url || '',
-                });
+                setEditProfileData({ full_name: userProfile.full_name || '', nickname: userProfile.nickname || '', country: userProfile.country || '', bio: userProfile.bio || '', avatar_url: userProfile.avatar_url || '' });
             } else {
                 setEditProfileData({ full_name: '', nickname: '', country: '', bio: '', avatar_url: '' });
             }
 
-            // Fetch all regions for the dropdown
             const { data: allRegions, error: regionsError } = await supabase
                 .from("regions")
                 .select("id, name, name_pt")
                 .order("name", { ascending: true });
-
             if (regionsError) throw regionsError;
             setRegions(allRegions || []);
         } catch (error: any) {
@@ -152,15 +124,13 @@ const Profile = () => {
     const handleLogTrip = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!selectedRegion || !startDate || !endDate) {
-            toast.error("Please fill all fields");
+            toast.error("Please fill all required fields");
             return;
         }
-
         if (new Date(startDate) > new Date(endDate)) {
             toast.error("End date cannot be before start date");
             return;
         }
-
         try {
             setIsSubmitting(true);
             const { error } = await supabase
@@ -170,14 +140,14 @@ const Profile = () => {
                     region_id: selectedRegion,
                     start_date: startDate,
                     end_date: endDate,
+                    notes: notes || null,
+                    companions: companions || null,
+                    trip_type: tripType || null,
                 });
-
             if (error) throw error;
-
             toast.success("Trip logged successfully!");
-            setSelectedRegion("");
-            setStartDate("");
-            setEndDate("");
+            setSelectedRegion(""); setStartDate(""); setEndDate(""); setNotes(""); setCompanions(""); setTripType("");
+            setShowTripForm(false);
             loadData();
         } catch (error: any) {
             console.error("Error logging trip:", error.message);
@@ -192,14 +162,8 @@ const Profile = () => {
             setIsSubmitting(true);
             const { error } = await supabase
                 .from("profiles")
-                .update({
-                    full_name: editProfileData?.full_name,
-                    nickname: editProfileData?.nickname,
-                    country: editProfileData?.country,
-                    bio: editProfileData?.bio,
-                })
+                .update({ full_name: editProfileData?.full_name, nickname: editProfileData?.nickname, country: editProfileData?.country, bio: editProfileData?.bio })
                 .eq("id", user?.id);
-
             if (error) throw error;
             setProfile(editProfileData);
             setIsEditingProfile(false);
@@ -214,11 +178,7 @@ const Profile = () => {
 
     const handleDeleteTrip = async (tripId: string) => {
         try {
-            const { error } = await supabase
-                .from("user_trips")
-                .delete()
-                .eq("id", tripId);
-
+            const { error } = await supabase.from("user_trips").delete().eq("id", tripId);
             if (error) throw error;
             toast.success("Trip deleted");
             loadData();
@@ -229,10 +189,7 @@ const Profile = () => {
     };
 
     const formatDate = (dateString: string) => {
-        return new Intl.DateTimeFormat(locale === "pt" ? "pt-BR" : "en-US", {
-            month: "short",
-            year: "numeric"
-        }).format(new Date(dateString));
+        return new Intl.DateTimeFormat(locale === "pt" ? "pt-BR" : "en-US", { month: "short", year: "numeric" }).format(new Date(dateString));
     };
 
     if (loading) {
@@ -245,15 +202,12 @@ const Profile = () => {
 
     return (
         <div className="min-h-screen bg-background text-foreground pb-20">
-            <header className="sticky top-0 z-50 glass-panel border-b border-white/10 px-6 py-4 flex items-center shadow-sm">
-                <button
-                    onClick={() => navigate(-1)}
-                    className="p-2 -ml-2 hover:bg-white/10 rounded-full transition-colors mr-4"
-                >
+            <header className="sticky top-0 z-50 glass-panel border-b border-border/50 px-6 py-4 flex items-center shadow-sm">
+                <button onClick={() => navigate(-1)} className="p-2 -ml-2 hover:bg-accent rounded-full transition-colors mr-4">
                     <ArrowLeft className="w-5 h-5" />
                 </button>
                 <div>
-                    <h1 className="text-xl font-bold tracking-tight">Digital Passport</h1>
+                    <h1 className="text-xl font-bold tracking-tight">{t("passport.title")}</h1>
                     <p className="text-xs text-muted-foreground">{user?.email}</p>
                 </div>
             </header>
@@ -261,8 +215,8 @@ const Profile = () => {
             <main className="max-w-3xl mx-auto p-6 space-y-10 mt-4">
 
                 {/* Profile Section */}
-                <section className="glass-panel p-6 rounded-2xl border border-white/10 shadow-lg relative overflow-hidden flex flex-col items-center">
-                    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-primary/40 to-indigo-600/40 opacity-70"></div>
+                <section className="glass-panel p-6 rounded-2xl border border-border/50 shadow-lg relative overflow-hidden flex flex-col items-center">
+                    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-primary/40 to-primary/10 opacity-70" />
                     <div className="relative z-10 w-24 h-24 rounded-full border-4 border-background overflow-hidden bg-primary/20 flex items-center justify-center mt-2 shadow-xl">
                         {profile?.avatar_url ? (
                             <img src={profile.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
@@ -275,146 +229,185 @@ const Profile = () => {
                         <div className="w-full mt-6 space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <Label htmlFor="full_name">Full Name</Label>
-                                    <Input
-                                        id="full_name"
-                                        value={editProfileData?.full_name || ''}
-                                        onChange={e => setEditProfileData(prev => ({ ...prev!, full_name: e.target.value }))}
-                                        className="bg-background/50 mt-1"
-                                    />
+                                    <Label htmlFor="full_name">{t("passport.fullName")}</Label>
+                                    <Input id="full_name" value={editProfileData?.full_name || ''} onChange={e => setEditProfileData(prev => ({ ...prev!, full_name: e.target.value }))} className="bg-background/50 mt-1" />
                                 </div>
                                 <div>
-                                    <Label htmlFor="nickname">Nickname</Label>
-                                    <Input
-                                        id="nickname"
-                                        value={editProfileData?.nickname || ''}
-                                        onChange={e => setEditProfileData(prev => ({ ...prev!, nickname: e.target.value }))}
-                                        className="bg-background/50 mt-1"
-                                    />
+                                    <Label htmlFor="nickname">{t("passport.nickname")}</Label>
+                                    <Input id="nickname" value={editProfileData?.nickname || ''} onChange={e => setEditProfileData(prev => ({ ...prev!, nickname: e.target.value }))} className="bg-background/50 mt-1" />
                                 </div>
                                 <div>
-                                    <Label htmlFor="country">Country of Origin</Label>
-                                    <Input
-                                        id="country"
-                                        value={editProfileData?.country || ''}
-                                        onChange={e => setEditProfileData(prev => ({ ...prev!, country: e.target.value }))}
-                                        className="bg-background/50 mt-1"
-                                    />
+                                    <Label htmlFor="country">{t("passport.country")}</Label>
+                                    <Input id="country" value={editProfileData?.country || ''} onChange={e => setEditProfileData(prev => ({ ...prev!, country: e.target.value }))} className="bg-background/50 mt-1" />
                                 </div>
                             </div>
                             <div>
-                                <Label htmlFor="bio">Bio</Label>
-                                <textarea
-                                    id="bio"
-                                    rows={3}
-                                    value={editProfileData?.bio || ''}
-                                    onChange={e => setEditProfileData(prev => ({ ...prev!, bio: e.target.value }))}
-                                    className="flex w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1"
-                                    placeholder="Tell us about yourself..."
+                                <Label htmlFor="bio">{t("passport.bio")}</Label>
+                                <textarea id="bio" rows={3} value={editProfileData?.bio || ''} onChange={e => setEditProfileData(prev => ({ ...prev!, bio: e.target.value }))}
+                                    className="flex w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 mt-1"
+                                    placeholder={t("passport.bioPlaceholder")}
                                 />
                             </div>
                             <div className="flex justify-end gap-2 mt-6">
-                                <Button className="bg-transparent text-foreground hover:bg-white/10" onClick={() => { setIsEditingProfile(false); setEditProfileData(profile || { full_name: '', nickname: '', country: '', bio: '', avatar_url: '' }); }}>Cancel</Button>
+                                <Button className="bg-transparent text-foreground hover:bg-accent" onClick={() => { setIsEditingProfile(false); setEditProfileData(profile || { full_name: '', nickname: '', country: '', bio: '', avatar_url: '' }); }}>{t("passport.cancel")}</Button>
                                 <Button onClick={handleSaveProfile} disabled={isSubmitting}>
-                                    {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null} Save Profile
+                                    {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null} {t("passport.saveProfile")}
                                 </Button>
                             </div>
                         </div>
                     ) : (
                         <div className="text-center mt-4 relative z-10">
                             <h2 className="text-2xl font-bold tracking-tight">{profile?.full_name || profile?.nickname || user?.email?.split('@')[0]}</h2>
-                            {(profile?.full_name && profile?.nickname) && (
-                                <p className="text-muted-foreground pt-0.5 text-sm">@{profile.nickname}</p>
-                            )}
-                            {profile?.country && (
-                                <p className="text-sm pt-2 flex items-center justify-center gap-1 text-muted-foreground">
-                                    <MapPin className="w-3.5 h-3.5" /> {profile.country}
-                                </p>
-                            )}
+                            {(profile?.full_name && profile?.nickname) && <p className="text-muted-foreground pt-0.5 text-sm">@{profile.nickname}</p>}
+                            {profile?.country && <p className="text-sm pt-2 flex items-center justify-center gap-1 text-muted-foreground"><MapPin className="w-3.5 h-3.5" /> {profile.country}</p>}
                             {profile?.bio ? (
                                 <p className="mt-5 text-sm max-w-sm mx-auto text-foreground/80 leading-relaxed">{profile.bio}</p>
                             ) : (
-                                <p className="mt-5 text-sm max-w-sm mx-auto text-muted-foreground italic">No bio added yet.</p>
+                                <p className="mt-5 text-sm max-w-sm mx-auto text-muted-foreground italic">{t("passport.noBio")}</p>
                             )}
                             <Button className="mt-6 rounded-full px-6 bg-transparent border border-input hover:bg-accent hover:text-accent-foreground h-9" onClick={() => setIsEditingProfile(true)}>
-                                Edit Profile
+                                {t("passport.editProfile")}
                             </Button>
                         </div>
                     )}
                 </section>
 
                 {/* Log a Trip Section */}
-                <section className="glass-panel p-6 rounded-2xl border border-white/10 shadow-lg relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
-                    <h2 className="text-lg font-semibold flex items-center gap-2 mb-6">
-                        <Plus className="w-5 h-5 text-indigo-400" />
-                        Log a Past Trip
-                    </h2>
+                <section className="glass-panel rounded-2xl border border-border/50 shadow-lg relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/50" />
 
-                    <form onSubmit={handleLogTrip} className="space-y-4">
-                        <div>
-                            <Label htmlFor="region">Destination</Label>
-                            <select
-                                id="region"
-                                value={selectedRegion}
-                                onChange={(e) => setSelectedRegion(e.target.value)}
-                                className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1.5"
-                                required
+                    <button
+                        onClick={() => setShowTripForm(!showTripForm)}
+                        className="w-full p-6 flex items-center justify-between hover:bg-accent/30 transition-colors"
+                    >
+                        <h2 className="text-lg font-semibold flex items-center gap-2">
+                            <Plus className={`w-5 h-5 text-primary transition-transform duration-300 ${showTripForm ? 'rotate-45' : ''}`} />
+                            {t("passport.logTrip")}
+                        </h2>
+                        <Plane className="w-5 h-5 text-muted-foreground" />
+                    </button>
+
+                    <AnimatePresence>
+                        {showTripForm && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="overflow-hidden"
                             >
-                                <option value="" disabled>Select a region travelled to</option>
-                                {regions.map(r => (
-                                    <option key={r.id} value={r.id}>
-                                        {locale === 'pt' ? (r.name_pt || r.name) : r.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                                <form onSubmit={handleLogTrip} className="px-6 pb-6 space-y-5">
+                                    {/* Destination */}
+                                    <div>
+                                        <Label htmlFor="region" className="flex items-center gap-1.5 mb-1.5">
+                                            <MapPin className="w-3.5 h-3.5 text-primary" />
+                                            {t("passport.destination")}
+                                        </Label>
+                                        <select
+                                            id="region"
+                                            value={selectedRegion}
+                                            onChange={(e) => setSelectedRegion(e.target.value)}
+                                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                                            required
+                                        >
+                                            <option value="" disabled>{t("passport.selectRegion")}</option>
+                                            {regions.map(r => (
+                                                <option key={r.id} value={r.id}>
+                                                    {locale === 'pt' ? (r.name_pt || r.name) : r.name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
 
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <Label htmlFor="startDate">Start Date</Label>
-                                <Input
-                                    id="startDate"
-                                    type="date"
-                                    value={startDate}
-                                    onChange={(e) => setStartDate(e.target.value)}
-                                    required
-                                    className="mt-1.5 bg-background/50"
-                                    max={new Date().toISOString().split("T")[0]}
-                                />
-                            </div>
-                            <div>
-                                <Label htmlFor="endDate">End Date</Label>
-                                <Input
-                                    id="endDate"
-                                    type="date"
-                                    value={endDate}
-                                    onChange={(e) => setEndDate(e.target.value)}
-                                    required
-                                    className="mt-1.5 bg-background/50"
-                                    max={new Date().toISOString().split("T")[0]}
-                                />
-                            </div>
-                        </div>
+                                    {/* Dates */}
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <Label htmlFor="startDate" className="flex items-center gap-1.5 mb-1.5">
+                                                <Calendar className="w-3.5 h-3.5 text-primary" />
+                                                {t("passport.startDate")}
+                                            </Label>
+                                            <Input id="startDate" type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} required max={new Date().toISOString().split("T")[0]} />
+                                        </div>
+                                        <div>
+                                            <Label htmlFor="endDate" className="flex items-center gap-1.5 mb-1.5">
+                                                <Calendar className="w-3.5 h-3.5 text-primary" />
+                                                {t("passport.endDate")}
+                                            </Label>
+                                            <Input id="endDate" type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} required max={new Date().toISOString().split("T")[0]} />
+                                        </div>
+                                    </div>
 
-                        <Button type="submit" className="w-full mt-2" disabled={isSubmitting}>
-                            {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save to Passport"}
-                        </Button>
-                    </form>
+                                    {/* Trip Type */}
+                                    <div>
+                                        <Label className="flex items-center gap-1.5 mb-2">
+                                            <Tag className="w-3.5 h-3.5 text-primary" />
+                                            {t("passport.tripType")}
+                                        </Label>
+                                        <div className="flex flex-wrap gap-2">
+                                            {tripTypes.map(type => (
+                                                <button
+                                                    key={type}
+                                                    type="button"
+                                                    onClick={() => setTripType(tripType === type ? "" : type)}
+                                                    className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200 ${
+                                                        tripType === type
+                                                            ? 'bg-primary text-primary-foreground border-primary shadow-md'
+                                                            : 'bg-background border-input text-muted-foreground hover:border-primary/50 hover:text-foreground'
+                                                    }`}
+                                                >
+                                                    {t(`passport.tripTypes.${type}`)}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Companions */}
+                                    <div>
+                                        <Label htmlFor="companions" className="flex items-center gap-1.5 mb-1.5">
+                                            <Users className="w-3.5 h-3.5 text-primary" />
+                                            {t("passport.companions")}
+                                        </Label>
+                                        <Input id="companions" value={companions} onChange={(e) => setCompanions(e.target.value)} placeholder={t("passport.companionsPlaceholder")} />
+                                    </div>
+
+                                    {/* Notes */}
+                                    <div>
+                                        <Label htmlFor="notes" className="flex items-center gap-1.5 mb-1.5">
+                                            <FileText className="w-3.5 h-3.5 text-primary" />
+                                            {t("passport.notes")}
+                                        </Label>
+                                        <textarea
+                                            id="notes"
+                                            rows={3}
+                                            value={notes}
+                                            onChange={(e) => setNotes(e.target.value)}
+                                            className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                                            placeholder={t("passport.notesPlaceholder")}
+                                        />
+                                    </div>
+
+                                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                                        {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Plus className="w-4 h-4 mr-2" />}
+                                        {t("passport.save")}
+                                    </Button>
+                                </form>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </section>
 
                 {/* My Travels Section */}
                 <section>
                     <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
                         <MapPin className="w-6 h-6 text-primary" />
-                        My Travels ({trips.length})
+                        {t("passport.myTravels")} ({trips.length})
                     </h2>
 
                     {trips.length === 0 ? (
-                        <div className="text-center py-10 px-4 glass-panel rounded-2xl border border-white/5 border-dashed">
+                        <div className="text-center py-10 px-4 glass-panel rounded-2xl border border-border/50 border-dashed">
                             <span className="text-4xl mb-4 block">✈️</span>
-                            <h3 className="text-lg font-medium text-foreground mb-1">Your passport is empty!</h3>
-                            <p className="text-sm text-muted-foreground">Log your past trips above to start building your personalized travel history.</p>
+                            <h3 className="text-lg font-medium text-foreground mb-1">{t("passport.emptyTitle")}</h3>
+                            <p className="text-sm text-muted-foreground">{t("passport.emptyDesc")}</p>
                         </div>
                     ) : (
                         <div className="space-y-4">
@@ -423,31 +416,50 @@ const Profile = () => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     key={trip.id}
-                                    className="glass-panel p-5 rounded-xl border border-white/5 flex items-center justify-between group hover:border-white/20 transition-colors"
+                                    className="glass-panel p-5 rounded-xl border border-border/50 group hover:border-primary/30 transition-colors"
                                 >
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                            <MapPin className="w-6 h-6" />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold text-lg">
-                                                {trip.poi_id
-                                                    ? (locale === 'pt' ? (trip.pois?.name_pt || trip.pois?.name) : trip.pois?.name)
-                                                    : (locale === 'pt' ? (trip.regions?.name_pt || trip.regions?.name) : trip.regions?.name)}
-                                            </h3>
-                                            <div className="flex items-center text-xs text-muted-foreground gap-1.5 mt-1">
-                                                <Calendar className="w-3.5 h-3.5" />
-                                                {formatDate(trip.start_date)} - {formatDate(trip.end_date)}
+                                    <div className="flex items-start justify-between">
+                                        <div className="flex items-start gap-4">
+                                            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                                <MapPin className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold text-lg">
+                                                    {trip.poi_id
+                                                        ? (locale === 'pt' ? (trip.pois?.name_pt || trip.pois?.name) : trip.pois?.name)
+                                                        : (locale === 'pt' ? (trip.regions?.name_pt || trip.regions?.name) : trip.regions?.name)}
+                                                </h3>
+                                                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mt-1">
+                                                    <span className="flex items-center gap-1">
+                                                        <Calendar className="w-3.5 h-3.5" />
+                                                        {formatDate(trip.start_date)} – {formatDate(trip.end_date)}
+                                                    </span>
+                                                    {trip.trip_type && (
+                                                        <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold uppercase">
+                                                            {t(`passport.tripTypes.${trip.trip_type}`)}
+                                                        </span>
+                                                    )}
+                                                    {trip.companions && (
+                                                        <span className="flex items-center gap-1">
+                                                            <Users className="w-3 h-3" /> {trip.companions}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                {trip.notes && (
+                                                    <p className="mt-2 text-sm text-foreground/70 italic border-l-2 border-primary/20 pl-2">
+                                                        {trip.notes}
+                                                    </p>
+                                                )}
                                             </div>
                                         </div>
+                                        <button
+                                            onClick={() => handleDeleteTrip(trip.id)}
+                                            className="p-2 text-destructive opacity-0 group-hover:opacity-100 hover:bg-destructive/10 rounded-full transition-all shrink-0"
+                                            title="Remove trip"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
                                     </div>
-                                    <button
-                                        onClick={() => handleDeleteTrip(trip.id)}
-                                        className="p-2 text-red-400 opacity-0 group-hover:opacity-100 hover:bg-red-400/10 rounded-full transition-all"
-                                        title="Remove trip"
-                                    >
-                                        <Trash2 className="w-4 h-4" />
-                                    </button>
                                 </motion.div>
                             ))}
                         </div>
@@ -458,14 +470,14 @@ const Profile = () => {
                 <section>
                     <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
                         <span className="text-2xl">🛂</span>
-                        My Passport Stamps ({stamps.length})
+                        {t("passport.stamps")} ({stamps.length})
                     </h2>
 
                     {stamps.length === 0 ? (
-                        <div className="text-center py-10 px-4 glass-panel rounded-2xl border border-white/5 border-dashed">
+                        <div className="text-center py-10 px-4 glass-panel rounded-2xl border border-border/50 border-dashed">
                             <span className="text-4xl mb-4 block">📸</span>
-                            <h3 className="text-lg font-medium text-foreground mb-1">No stamps yet!</h3>
-                            <p className="text-sm text-muted-foreground">Visit places on the map and leave tips with your photos or videos to collect stamps.</p>
+                            <h3 className="text-lg font-medium text-foreground mb-1">{t("passport.stampsEmptyTitle")}</h3>
+                            <p className="text-sm text-muted-foreground">{t("passport.stampsEmptyDesc")}</p>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -474,7 +486,7 @@ const Profile = () => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     key={stamp.id}
-                                    className="glass-panel p-5 rounded-xl border border-white/5 flex flex-col gap-3 group hover:border-white/20 transition-colors"
+                                    className="glass-panel p-5 rounded-xl border border-border/50 flex flex-col gap-3 group hover:border-primary/30 transition-colors"
                                 >
                                     <div className="flex justify-between items-start">
                                         <div>
@@ -492,32 +504,20 @@ const Profile = () => {
                                             ))}
                                         </div>
                                     </div>
-
                                     {stamp.content && (
-                                        <p className="text-sm italic text-foreground/80 border-l-2 border-primary/30 pl-2">
-                                            "{stamp.content}"
-                                        </p>
+                                        <p className="text-sm italic text-foreground/80 border-l-2 border-primary/30 pl-2">"{stamp.content}"</p>
                                     )}
-
                                     <div className="mt-auto pt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-hidden">
                                         {stamp.social_video_url && (
-                                            <div className="shrink-0 w-24 h-36 rounded-lg overflow-hidden bg-black/20 border border-white/10 relative">
+                                            <div className="shrink-0 w-24 h-36 rounded-lg overflow-hidden bg-muted border border-border/50 relative">
                                                 <div className="absolute top-1 right-1 text-[10px] bg-pink-500 text-white px-1.5 rounded-full z-10">Video</div>
-                                                <iframe
-                                                    src={stamp.social_video_url}
-                                                    className="w-full h-full border-0 absolute inset-0 pointer-events-none"
-                                                    allow="encrypted-media;"
-                                                />
+                                                <iframe src={stamp.social_video_url} className="w-full h-full border-0 absolute inset-0 pointer-events-none" allow="encrypted-media;" />
                                             </div>
                                         )}
                                         {stamp.social_image_url && (
-                                            <div className="shrink-0 w-24 h-36 rounded-lg overflow-hidden bg-black/20 border border-white/10 relative">
+                                            <div className="shrink-0 w-24 h-36 rounded-lg overflow-hidden bg-muted border border-border/50 relative">
                                                 <div className="absolute top-1 right-1 text-[10px] bg-blue-500 text-white px-1.5 rounded-full z-10">Photo</div>
-                                                <img
-                                                    src={stamp.social_image_url}
-                                                    alt="Memory"
-                                                    className="w-full h-full object-cover"
-                                                />
+                                                <img src={stamp.social_image_url} alt="Memory" className="w-full h-full object-cover" />
                                             </div>
                                         )}
                                         {(!stamp.social_video_url && !stamp.social_image_url) && (
@@ -531,7 +531,6 @@ const Profile = () => {
                         </div>
                     )}
                 </section>
-
             </main>
         </div>
     );
