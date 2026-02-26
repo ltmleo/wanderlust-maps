@@ -12,10 +12,15 @@ import { motion } from "framer-motion";
 
 interface Trip {
     id: string;
-    region_id: string;
+    region_id: string | null;
+    poi_id: string | null;
     start_date: string;
     end_date: string;
-    regions: {
+    regions?: {
+        name: string;
+        name_pt: string | null;
+    };
+    pois?: {
         name: string;
         name_pt: string | null;
     };
@@ -41,6 +46,15 @@ interface PassportStamp {
     };
 }
 
+interface ProfileData {
+    full_name: string | null;
+    nickname: string | null;
+    country: string | null;
+    bio: string | null;
+    avatar_url: string | null;
+}
+
+
 const Profile = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
@@ -49,6 +63,9 @@ const Profile = () => {
     const [trips, setTrips] = useState<Trip[]>([]);
     const [regions, setRegions] = useState<Region[]>([]);
     const [stamps, setStamps] = useState<PassportStamp[]>([]);
+    const [profile, setProfile] = useState<ProfileData | null>(null);
+    const [isEditingProfile, setIsEditingProfile] = useState(false);
+    const [editProfileData, setEditProfileData] = useState<ProfileData | null>(null);
 
     // Form State
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -69,8 +86,9 @@ const Profile = () => {
             const { data: userTrips, error: tripsError } = await supabase
                 .from("user_trips")
                 .select(`
-          id, region_id, start_date, end_date,
-          regions (name, name_pt)
+          id, region_id, poi_id, start_date, end_date,
+          regions (name, name_pt),
+          pois (name, name_pt)
         `)
                 .eq("user_id", user?.id)
                 .order("start_date", { ascending: false });
@@ -93,6 +111,27 @@ const Profile = () => {
 
             if (stampsError) throw stampsError;
             setStamps((userStamps as any) || []);
+
+            // Fetch user's profile
+            const { data: userProfile, error: profileError } = await supabase
+                .from("profiles")
+                .select("full_name, nickname, country, bio, avatar_url")
+                .eq("id", user?.id)
+                .single();
+
+            if (profileError && profileError.code !== 'PGRST116') throw profileError;
+            if (userProfile) {
+                setProfile(userProfile);
+                setEditProfileData({
+                    full_name: userProfile.full_name || '',
+                    nickname: userProfile.nickname || '',
+                    country: userProfile.country || '',
+                    bio: userProfile.bio || '',
+                    avatar_url: userProfile.avatar_url || '',
+                });
+            } else {
+                setEditProfileData({ full_name: '', nickname: '', country: '', bio: '', avatar_url: '' });
+            }
 
             // Fetch all regions for the dropdown
             const { data: allRegions, error: regionsError } = await supabase
@@ -148,6 +187,31 @@ const Profile = () => {
         }
     };
 
+    const handleSaveProfile = async () => {
+        try {
+            setIsSubmitting(true);
+            const { error } = await supabase
+                .from("profiles")
+                .update({
+                    full_name: editProfileData?.full_name,
+                    nickname: editProfileData?.nickname,
+                    country: editProfileData?.country,
+                    bio: editProfileData?.bio,
+                })
+                .eq("id", user?.id);
+
+            if (error) throw error;
+            setProfile(editProfileData);
+            setIsEditingProfile(false);
+            toast.success("Profile updated successfully!");
+        } catch (error: any) {
+            console.error("Error updating profile:", error.message);
+            toast.error(error.message);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     const handleDeleteTrip = async (tripId: string) => {
         try {
             const { error } = await supabase
@@ -195,6 +259,89 @@ const Profile = () => {
             </header>
 
             <main className="max-w-3xl mx-auto p-6 space-y-10 mt-4">
+
+                {/* Profile Section */}
+                <section className="glass-panel p-6 rounded-2xl border border-white/10 shadow-lg relative overflow-hidden flex flex-col items-center">
+                    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-primary/40 to-indigo-600/40 opacity-70"></div>
+                    <div className="relative z-10 w-24 h-24 rounded-full border-4 border-background overflow-hidden bg-primary/20 flex items-center justify-center mt-2 shadow-xl">
+                        {profile?.avatar_url ? (
+                            <img src={profile.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
+                        ) : (
+                            <span className="text-4xl text-primary font-bold uppercase">{profile?.full_name?.charAt(0) || user?.email?.charAt(0) || '?'}</span>
+                        )}
+                    </div>
+
+                    {isEditingProfile ? (
+                        <div className="w-full mt-6 space-y-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <Label htmlFor="full_name">Full Name</Label>
+                                    <Input
+                                        id="full_name"
+                                        value={editProfileData?.full_name || ''}
+                                        onChange={e => setEditProfileData(prev => ({ ...prev!, full_name: e.target.value }))}
+                                        className="bg-background/50 mt-1"
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="nickname">Nickname</Label>
+                                    <Input
+                                        id="nickname"
+                                        value={editProfileData?.nickname || ''}
+                                        onChange={e => setEditProfileData(prev => ({ ...prev!, nickname: e.target.value }))}
+                                        className="bg-background/50 mt-1"
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="country">Country of Origin</Label>
+                                    <Input
+                                        id="country"
+                                        value={editProfileData?.country || ''}
+                                        onChange={e => setEditProfileData(prev => ({ ...prev!, country: e.target.value }))}
+                                        className="bg-background/50 mt-1"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <Label htmlFor="bio">Bio</Label>
+                                <textarea
+                                    id="bio"
+                                    rows={3}
+                                    value={editProfileData?.bio || ''}
+                                    onChange={e => setEditProfileData(prev => ({ ...prev!, bio: e.target.value }))}
+                                    className="flex w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1"
+                                    placeholder="Tell us about yourself..."
+                                />
+                            </div>
+                            <div className="flex justify-end gap-2 mt-6">
+                                <Button className="bg-transparent text-foreground hover:bg-white/10" onClick={() => { setIsEditingProfile(false); setEditProfileData(profile || { full_name: '', nickname: '', country: '', bio: '', avatar_url: '' }); }}>Cancel</Button>
+                                <Button onClick={handleSaveProfile} disabled={isSubmitting}>
+                                    {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null} Save Profile
+                                </Button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="text-center mt-4 relative z-10">
+                            <h2 className="text-2xl font-bold tracking-tight">{profile?.full_name || profile?.nickname || user?.email?.split('@')[0]}</h2>
+                            {(profile?.full_name && profile?.nickname) && (
+                                <p className="text-muted-foreground pt-0.5 text-sm">@{profile.nickname}</p>
+                            )}
+                            {profile?.country && (
+                                <p className="text-sm pt-2 flex items-center justify-center gap-1 text-muted-foreground">
+                                    <MapPin className="w-3.5 h-3.5" /> {profile.country}
+                                </p>
+                            )}
+                            {profile?.bio ? (
+                                <p className="mt-5 text-sm max-w-sm mx-auto text-foreground/80 leading-relaxed">{profile.bio}</p>
+                            ) : (
+                                <p className="mt-5 text-sm max-w-sm mx-auto text-muted-foreground italic">No bio added yet.</p>
+                            )}
+                            <Button className="mt-6 rounded-full px-6 bg-transparent border border-input hover:bg-accent hover:text-accent-foreground h-9" onClick={() => setIsEditingProfile(true)}>
+                                Edit Profile
+                            </Button>
+                        </div>
+                    )}
+                </section>
 
                 {/* Log a Trip Section */}
                 <section className="glass-panel p-6 rounded-2xl border border-white/10 shadow-lg relative overflow-hidden">
@@ -284,7 +431,9 @@ const Profile = () => {
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-lg">
-                                                {locale === 'pt' ? (trip.regions?.name_pt || trip.regions?.name) : trip.regions?.name}
+                                                {trip.poi_id
+                                                    ? (locale === 'pt' ? (trip.pois?.name_pt || trip.pois?.name) : trip.pois?.name)
+                                                    : (locale === 'pt' ? (trip.regions?.name_pt || trip.regions?.name) : trip.regions?.name)}
                                             </h3>
                                             <div className="flex items-center text-xs text-muted-foreground gap-1.5 mt-1">
                                                 <Calendar className="w-3.5 h-3.5" />
