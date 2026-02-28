@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { RegionProperties } from "@/data/travelData";
 import { MONTHS } from "@/data/travelData";
-import { X, Thermometer, DollarSign, Star, Sparkles, MapPin, Calendar, Plus, Send, Loader2 } from "lucide-react";
+import { X, Thermometer, DollarSign, Star, Sparkles, MapPin, BookOpen, Loader2 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/contexts/AuthContext";
-import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 interface RegionSidebarProps {
   region: RegionProperties | null;
@@ -23,9 +23,8 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
   // Trips State
   const [trips, setTrips] = useState<any[]>([]);
   const [loadingTrips, setLoadingTrips] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setActiveTab("overview");
@@ -44,7 +43,7 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
       const { data, error } = await supabase
         .from("user_trips")
         .select(`
-          id, start_date, end_date,
+          id, start_date, end_date, description, notes, image_url,
           user_id,
           profiles ( full_name, nickname, avatar_url )
         `)
@@ -53,7 +52,7 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
 
       if (error) {
         console.warn("Could not fetch trip profiles via join, fallback to manual fetch", error);
-        const { data: trps } = await supabase.from('user_trips').select('id, start_date, end_date, user_id').eq('region_id', region.id).order("start_date", { ascending: false });
+        const { data: trps } = await supabase.from('user_trips').select('id, start_date, end_date, description, notes, image_url, user_id').eq('region_id', region.id).order("start_date", { ascending: false });
         if (!trps) {
           setTrips([]);
           return;
@@ -69,44 +68,6 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
       console.error("Error fetching trips:", err);
     } finally {
       setLoadingTrips(false);
-    }
-  };
-
-  const handleLogTrip = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!user) {
-      toast.error("You must be logged in to log a trip.");
-      return;
-    }
-    if (!startDate || !endDate) {
-      toast.error("Please fill all dates.");
-      return;
-    }
-    if (new Date(startDate) > new Date(endDate)) {
-      toast.error("End date cannot be before start date.");
-      return;
-    }
-
-    try {
-      setIsSubmitting(true);
-      const { error } = await supabase.from("user_trips").insert({
-        user_id: user.id,
-        region_id: region!.id,
-        start_date: startDate,
-        end_date: endDate,
-      });
-
-      if (error) throw error;
-
-      toast.success("Trip logged successfully!");
-      setStartDate("");
-      setEndDate("");
-      fetchTrips();
-    } catch (err: any) {
-      console.error("Error logging trip:", err);
-      toast.error(err.message || "Failed to log trip.");
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -248,50 +209,22 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
             >
               <div className="p-5 flex-1 space-y-4">
 
-                {/* Log Trip Form */}
-                <div className="bg-background/60 p-4 rounded-xl border border-white/10">
-                  <h4 className="text-sm font-semibold mb-3 flex items-center gap-1.5">
-                    <Plus className="w-4 h-4 text-primary" />
-                    Log Your Trip
-                  </h4>
-                  {user ? (
-                    <form onSubmit={handleLogTrip} className="space-y-3">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div>
-                          <label className="text-[10px] uppercase text-muted-foreground font-semibold block mb-1">Start</label>
-                          <input
-                            type="date"
-                            required
-                            value={startDate}
-                            onChange={(e) => setStartDate(e.target.value)}
-                            className="w-full bg-background/50 border border-white/10 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:border-primary/50 transition-colors [&::-webkit-calendar-picker-indicator]:filter-[invert(1)]"
-                            max={new Date().toISOString().split("T")[0]}
-                          />
-                        </div>
-                        <div>
-                          <label className="text-[10px] uppercase text-muted-foreground font-semibold block mb-1">End</label>
-                          <input
-                            type="date"
-                            required
-                            value={endDate}
-                            onChange={(e) => setEndDate(e.target.value)}
-                            className="w-full bg-background/50 border border-white/10 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:border-primary/50 transition-colors [&::-webkit-calendar-picker-indicator]:filter-[invert(1)]"
-                            max={new Date().toISOString().split("T")[0]}
-                          />
-                        </div>
-                      </div>
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-primary text-primary-foreground py-2 rounded-lg text-xs font-semibold hover:bg-primary/90 disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
-                      >
-                        {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save to Passport"}
-                      </button>
-                    </form>
-                  ) : (
-                    <p className="text-xs text-muted-foreground text-center italic py-2">
-                      Log in to add this region to your passport.
+                {/* CTA to log trip */}
+                <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center gap-3">
+                  <BookOpen className="w-5 h-5 text-primary shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-semibold text-foreground">
+                      {user ? "Add this to your Passport" : "Log in to add to Passport"}
                     </p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">Fill dates, notes and photos in your profile</p>
+                  </div>
+                  {user && (
+                    <button
+                      onClick={() => { onClose(); navigate("/profile"); }}
+                      className="shrink-0 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors"
+                    >
+                      Go →
+                    </button>
                   )}
                 </div>
 
@@ -310,38 +243,50 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
                       <p className="text-xs text-muted-foreground">No community trips logged yet. Be the first!</p>
                     </div>
                   ) : (
-                    <div className="space-y-2">
-                      {trips.map((trip) => (
-                        <div key={trip.id} className="bg-primary/5 p-3 rounded-xl border border-white/5 flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 overflow-hidden">
-                              {Array.isArray(trip.profiles) ? (
-                                trip.profiles[0]?.avatar_url ? (
-                                  <img src={trip.profiles[0].avatar_url} alt="Avatar" className="w-full h-full object-cover" />
-                                ) : (
-                                  <Calendar className="w-4 h-4" />
-                                )
-                              ) : (
-                                trip.profiles?.avatar_url ? (
-                                  <img src={trip.profiles.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
-                                ) : (
-                                  <Calendar className="w-4 h-4" />
-                                )
+                    <div className="space-y-3">
+                      {trips.map((trip) => {
+                        const profile = Array.isArray(trip.profiles) ? trip.profiles[0] : trip.profiles;
+                        const travelerName = profile?.full_name || profile?.nickname || 'Verified Traveler';
+                        return (
+                          <div key={trip.id} className="bg-primary/5 rounded-xl border border-white/5 overflow-hidden">
+                            {trip.image_url && (
+                              <div
+                                className="h-36 w-full cursor-pointer overflow-hidden"
+                                onClick={() => setSelectedImage(trip.image_url)}
+                              >
+                                <img src={trip.image_url} alt="Trip photo" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                              </div>
+                            )}
+                            <div className="p-3">
+                              <div className="flex items-center gap-2 mb-2">
+                                <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center shrink-0 overflow-hidden border border-white/10">
+                                  {profile?.avatar_url ? (
+                                    <img src={profile.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
+                                  ) : (
+                                    <span className="text-[10px] font-bold text-primary">{travelerName.charAt(0)}</span>
+                                  )}
+                                </div>
+                                <div>
+                                  <div className="text-[11px] font-semibold text-foreground leading-none">{travelerName}</div>
+                                  <div className="text-[10px] text-muted-foreground mt-0.5">
+                                    {formatDate(trip.start_date)} – {formatDate(trip.end_date)}
+                                  </div>
+                                </div>
+                              </div>
+                              {trip.description && (
+                                <p className="text-xs text-foreground/90 leading-relaxed italic border-l-2 border-primary/30 pl-2 mb-2">
+                                  "{trip.description}"
+                                </p>
+                              )}
+                              {trip.notes && (
+                                <div className="text-xs text-foreground/70 bg-background/30 p-2 rounded-lg border border-white/5 whitespace-pre-line">
+                                  {trip.notes}
+                                </div>
                               )}
                             </div>
-                            <div>
-                              <div className="text-xs font-medium text-foreground opacity-90">
-                                {Array.isArray(trip.profiles)
-                                  ? (trip.profiles[0]?.full_name || trip.profiles[0]?.nickname || 'Verified Traveler')
-                                  : (trip.profiles?.full_name || trip.profiles?.nickname || 'Verified Traveler')}
-                              </div>
-                              <div className="text-[10px] text-muted-foreground flex gap-1 mt-0.5">
-                                {formatDate(trip.start_date)} - {formatDate(trip.end_date)}
-                              </div>
-                            </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -351,6 +296,30 @@ export function RegionSidebar({ region, selectedMonth, onClose }: RegionSidebarP
           )}
         </AnimatePresence>
       </div>
+
+      {/* Lightbox */}
+      {selectedImage && (
+        <motion.div
+          className="fixed inset-0 z-[3000] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            onClick={(e) => { e.stopPropagation(); setSelectedImage(null); }}
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Fullscreen view"
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </motion.div>
+      )}
 
     </motion.div>
   );

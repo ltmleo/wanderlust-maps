@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { POIProperties } from "@/data/travelData";
-import { X, Clock, MapPin, Star, Send, Loader2, Calendar, Plus } from "lucide-react";
+import { X, Clock, MapPin, Star, Send, Loader2, BookOpen } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 interface Review {
   id: string;
@@ -29,6 +30,9 @@ interface TripInfo {
   start_date: string;
   end_date: string;
   user_id: string;
+  description?: string;
+  notes?: string;
+  image_url?: string;
   profiles?: {
     full_name: string | null;
     nickname: string | null;
@@ -77,9 +81,7 @@ export function POIModal({ poi, onClose }: POIModalProps) {
   // Trips State
   const [trips, setTrips] = useState<TripInfo[]>([]);
   const [loadingTrips, setLoadingTrips] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [isSubmittingTrip, setIsSubmittingTrip] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setActiveTab("overview");
@@ -134,7 +136,7 @@ export function POIModal({ poi, onClose }: POIModalProps) {
       const { data, error } = await supabase
         .from("user_trips")
         .select(`
-          id, start_date, end_date,
+          id, start_date, end_date, description, notes, image_url,
           user_id,
           profiles ( full_name, nickname, avatar_url )
         `)
@@ -143,7 +145,7 @@ export function POIModal({ poi, onClose }: POIModalProps) {
 
       if (error) {
         console.warn("Could not fetch trip profiles via join, fallback to manual fetch", error);
-        const { data: trps } = await supabase.from('user_trips').select('id, start_date, end_date, user_id').eq('poi_id', poi.id).order("start_date", { ascending: false });
+        const { data: trps } = await supabase.from('user_trips').select('id, start_date, end_date, description, notes, image_url, user_id').eq('poi_id', poi.id).order("start_date", { ascending: false });
         if (!trps) {
           setTrips([]);
           return;
@@ -193,44 +195,6 @@ export function POIModal({ poi, onClose }: POIModalProps) {
       toast.error("Failed to add tip.");
     } finally {
       setIsSubmittingReview(false);
-    }
-  };
-
-  const handleLogTrip = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!user) {
-      toast.error("You must be logged in to log a trip.");
-      return;
-    }
-    if (!startDate || !endDate) {
-      toast.error("Please fill all dates.");
-      return;
-    }
-    if (new Date(startDate) > new Date(endDate)) {
-      toast.error("End date cannot be before start date.");
-      return;
-    }
-
-    try {
-      setIsSubmittingTrip(true);
-      const { error } = await supabase.from("user_trips").insert({
-        user_id: user.id,
-        poi_id: poi!.id,
-        start_date: startDate,
-        end_date: endDate,
-      });
-
-      if (error) throw error;
-
-      toast.success("Trip logged to POI successfully!");
-      setStartDate("");
-      setEndDate("");
-      fetchTrips();
-    } catch (err: any) {
-      console.error("Error logging trip:", err);
-      toast.error(err.message || "Failed to log trip.");
-    } finally {
-      setIsSubmittingTrip(false);
     }
   };
 
@@ -548,55 +512,27 @@ export function POIModal({ poi, onClose }: POIModalProps) {
                     Community Trips
                   </h3>
 
-                  {/* Log Trip Form */}
-                  <div className="bg-background/40 p-4 rounded-xl border border-white/10 shrink-0">
-                    <h4 className="text-xs font-semibold mb-3 flex items-center gap-1.5">
-                      <Plus className="w-3.5 h-3.5 text-primary" />
-                      Log Your Trip
-                    </h4>
-                    {user ? (
-                      <form onSubmit={handleLogTrip} className="space-y-3">
-                        <div className="grid grid-cols-2 gap-2">
-                          <div>
-                            <label className="text-[10px] uppercase text-muted-foreground font-semibold block mb-1">Start Date</label>
-                            <input
-                              type="date"
-                              required
-                              value={startDate}
-                              onChange={(e) => setStartDate(e.target.value)}
-                              className="w-full bg-background/50 border border-white/10 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:border-primary/50 transition-colors [&::-webkit-calendar-picker-indicator]:filter-[invert(1)]"
-                              max={new Date().toISOString().split("T")[0]}
-                            />
-                          </div>
-                          <div>
-                            <label className="text-[10px] uppercase text-muted-foreground font-semibold block mb-1">End Date</label>
-                            <input
-                              type="date"
-                              required
-                              value={endDate}
-                              onChange={(e) => setEndDate(e.target.value)}
-                              className="w-full bg-background/50 border border-white/10 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:border-primary/50 transition-colors [&::-webkit-calendar-picker-indicator]:filter-[invert(1)]"
-                              max={new Date().toISOString().split("T")[0]}
-                            />
-                          </div>
-                        </div>
-                        <button
-                          type="submit"
-                          disabled={isSubmittingTrip}
-                          className="w-full bg-primary text-primary-foreground py-2 rounded-lg text-xs font-semibold hover:bg-primary/90 disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
-                        >
-                          {isSubmittingTrip ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save to Passport"}
-                        </button>
-                      </form>
-                    ) : (
-                      <div className="text-center py-2">
-                        <p className="text-xs text-muted-foreground italic">Log in to add this place to your passport.</p>
-                      </div>
+                  {/* CTA to log trip */}
+                  <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center gap-3">
+                    <BookOpen className="w-5 h-5 text-primary shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-semibold text-foreground">
+                        {user ? "Add this to your Passport" : "Log in to add to Passport"}
+                      </p>
+                      <p className="text-[10px] text-muted-foreground mt-0.5">Fill dates, notes and photos in your profile</p>
+                    </div>
+                    {user && (
+                      <button
+                        onClick={() => { onClose(); navigate("/profile"); }}
+                        className="shrink-0 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors"
+                      >
+                        Go →
+                      </button>
                     )}
                   </div>
 
                   {/* Community Trips List */}
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {loadingTrips ? (
                       <div className="flex justify-center p-4">
                         <Loader2 className="w-5 h-5 animate-spin text-primary" />
@@ -606,37 +542,49 @@ export function POIModal({ poi, onClose }: POIModalProps) {
                         <p className="text-xs text-muted-foreground">No community trips logged yet. Be the first!</p>
                       </div>
                     ) : (
-                      trips.map((trip) => (
-                        <div key={trip.id} className="bg-primary/5 p-3 rounded-xl border border-white/5 flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 overflow-hidden">
-                              {Array.isArray(trip.profiles) ? (
-                                trip.profiles[0]?.avatar_url ? (
-                                  <img src={trip.profiles[0].avatar_url} alt="Avatar" className="w-full h-full object-cover" />
-                                ) : (
-                                  <Calendar className="w-4 h-4" />
-                                )
-                              ) : (
-                                trip.profiles?.avatar_url ? (
-                                  <img src={trip.profiles.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
-                                ) : (
-                                  <Calendar className="w-4 h-4" />
-                                )
+                      trips.map((trip) => {
+                        const profile = Array.isArray(trip.profiles) ? trip.profiles[0] : trip.profiles;
+                        const travelerName = profile?.full_name || profile?.nickname || 'Verified Traveler';
+                        return (
+                          <div key={trip.id} className="bg-primary/5 rounded-xl border border-white/5 overflow-hidden">
+                            {trip.image_url && (
+                              <div
+                                className="h-36 w-full cursor-pointer overflow-hidden"
+                                onClick={() => setSelectedImage(trip.image_url!)}
+                              >
+                                <img src={trip.image_url} alt="Trip photo" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                              </div>
+                            )}
+                            <div className="p-3">
+                              <div className="flex items-center gap-2 mb-2">
+                                <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center shrink-0 overflow-hidden border border-white/10">
+                                  {profile?.avatar_url ? (
+                                    <img src={profile.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
+                                  ) : (
+                                    <span className="text-[10px] font-bold text-primary">{travelerName.charAt(0)}</span>
+                                  )}
+                                </div>
+                                <div>
+                                  <div className="text-[11px] font-semibold text-foreground leading-none">{travelerName}</div>
+                                  <div className="text-[10px] text-muted-foreground mt-0.5">
+                                    {formatDate(trip.start_date)} – {formatDate(trip.end_date)}
+                                  </div>
+                                </div>
+                              </div>
+                              {trip.description && (
+                                <p className="text-xs text-foreground/90 leading-relaxed italic border-l-2 border-primary/30 pl-2 mb-2">
+                                  "{trip.description}"
+                                </p>
+                              )}
+                              {trip.notes && (
+                                <div className="text-xs text-foreground/70 bg-background/30 p-2 rounded-lg border border-white/5 whitespace-pre-line">
+                                  {trip.notes}
+                                </div>
                               )}
                             </div>
-                            <div>
-                              <div className="text-xs font-medium text-foreground opacity-90">
-                                {Array.isArray(trip.profiles)
-                                  ? (trip.profiles[0]?.full_name || trip.profiles[0]?.nickname || 'Verified Traveler')
-                                  : (trip.profiles?.full_name || trip.profiles?.nickname || 'Verified Traveler')}
-                              </div>
-                              <div className="text-[10px] text-muted-foreground flex gap-1 mt-0.5">
-                                {formatDate(trip.start_date)} - {formatDate(trip.end_date)}
-                              </div>
-                            </div>
                           </div>
-                        </div>
-                      ))
+                        );
+                      })
                     )}
                   </div>
                 </motion.div>

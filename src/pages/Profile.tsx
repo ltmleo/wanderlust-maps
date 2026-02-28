@@ -17,6 +17,8 @@ interface Trip {
     start_date: string;
     end_date: string;
     notes?: string | null;
+    description?: string | null;
+    image_url?: string | null;
     companions?: string | null;
     trip_type?: string | null;
     regions?: { name: string; name_pt: string | null };
@@ -67,58 +69,90 @@ const Profile = () => {
     const [selectedRegion, setSelectedRegion] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
+    const [description, setDescription] = useState("");
     const [notes, setNotes] = useState("");
     const [companions, setCompanions] = useState("");
     const [tripType, setTripType] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
     useEffect(() => {
         if (user) loadData();
     }, [user]);
 
     const loadData = async () => {
-        try {
-            setLoading(true);
-            const { data: userTrips, error: tripsError } = await supabase
-                .from("user_trips")
-                .select(`id, region_id, poi_id, start_date, end_date, notes, companions, trip_type, regions (name, name_pt), pois (name, name_pt)`)
-                .eq("user_id", user?.id)
-                .order("start_date", { ascending: false });
-            if (tripsError) throw tripsError;
-            setTrips((userTrips as any) || []);
+        setLoading(true);
 
-            const { data: userStamps, error: stampsError } = await supabase
+        // Run all queries independently so one failure doesn't block others
+        const [tripsResult, stampsResult, profileResult, regionsResult] = await Promise.allSettled([
+            // Trips: try with new columns first, fall back to basic query on error
+            supabase
+                .from("user_trips")
+                .select(`id, region_id, poi_id, start_date, end_date, notes, description, image_url, companions, trip_type, regions (name, name_pt), pois (name, name_pt)`)
+                .eq("user_id", user?.id)
+                .order("start_date", { ascending: false }),
+            supabase
                 .from("poi_reviews")
                 .select(`id, rating, content, social_video_url, social_image_url, created_at, pois (id, name, name_pt)`)
                 .eq("user_id", user?.id)
-                .order("created_at", { ascending: false });
-            if (stampsError) throw stampsError;
-            setStamps((userStamps as any) || []);
-
-            const { data: userProfile, error: profileError } = await supabase
+                .order("created_at", { ascending: false }),
+            supabase
                 .from("profiles")
                 .select("full_name, nickname, country, bio, avatar_url")
                 .eq("id", user?.id)
-                .single();
-            if (profileError && profileError.code !== 'PGRST116') throw profileError;
-            if (userProfile) {
-                setProfile(userProfile);
-                setEditProfileData({ full_name: userProfile.full_name || '', nickname: userProfile.nickname || '', country: userProfile.country || '', bio: userProfile.bio || '', avatar_url: userProfile.avatar_url || '' });
-            } else {
-                setEditProfileData({ full_name: '', nickname: '', country: '', bio: '', avatar_url: '' });
-            }
-
-            const { data: allRegions, error: regionsError } = await supabase
+                .single(),
+            supabase
                 .from("regions")
                 .select("id, name, name_pt")
-                .order("name", { ascending: true });
-            if (regionsError) throw regionsError;
-            setRegions(allRegions || []);
-        } catch (error: any) {
-            console.error("Error loading profile data:", error.message);
-            toast.error(t("auth.error") || "Error loading trips");
-        } finally {
-            setLoading(false);
+                .order("name", { ascending: true }),
+        ]);
+
+        // Handle trips
+        if (tripsResult.status === "fulfilled") {
+            const { data, error } = tripsResult.value;
+            if (error) {
+                console.error("Trips error (new columns may not exist yet):", error.message);
+                // Fallback: try without any new columns
+                const { data: basicTrips } = await supabase
+                    .from("user_trips")
+                    .select(`id, region_id, poi_id, start_date, end_date, regions (name, name_pt), pois (name, name_pt)`)
+                    .eq("user_id", user?.id)
+                    .order("start_date", { ascending: false });
+                setTrips((basicTrips as any) || []);
+            } else {
+                setTrips((data as any) || []);
+            }
         }
+
+        // Handle stamps
+        if (stampsResult.status === "fulfilled") {
+            const { data, error } = stampsResult.value;
+            if (!error) setStamps((data as any) || []);
+            else console.error("Stamps error:", error.message);
+        }
+
+        // Handle profile
+        if (profileResult.status === "fulfilled") {
+            const { data, error } = profileResult.value;
+            if (!error || error.code === 'PGRST116') {
+                if (data) {
+                    setProfile(data);
+                    setEditProfileData({ full_name: data.full_name || '', nickname: data.nickname || '', country: data.country || '', bio: data.bio || '', avatar_url: data.avatar_url || '' });
+                } else {
+                    setEditProfileData({ full_name: '', nickname: '', country: '', bio: '', avatar_url: '' });
+                }
+            } else {
+                console.error("Profile error:", error.message);
+            }
+        }
+
+        // Handle regions
+        if (regionsResult.status === "fulfilled") {
+            const { data, error } = regionsResult.value;
+            if (!error) setRegions(data || []);
+            else console.error("Regions error:", error.message);
+        }
+
+        setLoading(false);
     };
 
     const handleLogTrip = async (e: React.FormEvent) => {
@@ -140,13 +174,15 @@ const Profile = () => {
                     region_id: selectedRegion,
                     start_date: startDate,
                     end_date: endDate,
+                    description: description || null,
                     notes: notes || null,
+                    image_url: imageUrl || null,
                     companions: companions || null,
                     trip_type: tripType || null,
                 });
             if (error) throw error;
             toast.success("Trip logged successfully!");
-            setSelectedRegion(""); setStartDate(""); setEndDate(""); setNotes(""); setCompanions(""); setTripType("");
+            setSelectedRegion(""); setStartDate(""); setEndDate(""); setDescription(""); setNotes(""); setImageUrl(""); setCompanions(""); setTripType("");
             setShowTripForm(false);
             loadData();
         } catch (error: any) {
@@ -349,11 +385,10 @@ const Profile = () => {
                                                     key={type}
                                                     type="button"
                                                     onClick={() => setTripType(tripType === type ? "" : type)}
-                                                    className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200 ${
-                                                        tripType === type
-                                                            ? 'bg-primary text-primary-foreground border-primary shadow-md'
-                                                            : 'bg-background border-input text-muted-foreground hover:border-primary/50 hover:text-foreground'
-                                                    }`}
+                                                    className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200 ${tripType === type
+                                                        ? 'bg-primary text-primary-foreground border-primary shadow-md'
+                                                        : 'bg-background border-input text-muted-foreground hover:border-primary/50 hover:text-foreground'
+                                                        }`}
                                                 >
                                                     {t(`passport.tripTypes.${type}`)}
                                                 </button>
@@ -370,6 +405,22 @@ const Profile = () => {
                                         <Input id="companions" value={companions} onChange={(e) => setCompanions(e.target.value)} placeholder={t("passport.companionsPlaceholder")} />
                                     </div>
 
+                                    {/* Description */}
+                                    <div>
+                                        <Label htmlFor="description" className="flex items-center gap-1.5 mb-1.5">
+                                            <FileText className="w-3.5 h-3.5 text-primary" />
+                                            {t("passport.description") || "Description"}
+                                        </Label>
+                                        <textarea
+                                            id="description"
+                                            rows={2}
+                                            value={description}
+                                            onChange={(e) => setDescription(e.target.value)}
+                                            className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                                            placeholder="Short description... (optional)"
+                                        />
+                                    </div>
+
                                     {/* Notes */}
                                     <div>
                                         <Label htmlFor="notes" className="flex items-center gap-1.5 mb-1.5">
@@ -384,6 +435,15 @@ const Profile = () => {
                                             className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                                             placeholder={t("passport.notesPlaceholder")}
                                         />
+                                    </div>
+
+                                    {/* Image URL */}
+                                    <div>
+                                        <Label htmlFor="imageUrl" className="flex items-center gap-1.5 mb-1.5">
+                                            <span className="text-xl">📸</span>
+                                            {t("passport.imageUrl") || "Image URL"}
+                                        </Label>
+                                        <Input id="imageUrl" type="url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="https://..." />
                                     </div>
 
                                     <Button type="submit" className="w-full" disabled={isSubmitting}>
@@ -445,10 +505,20 @@ const Profile = () => {
                                                         </span>
                                                     )}
                                                 </div>
-                                                {trip.notes && (
-                                                    <p className="mt-2 text-sm text-foreground/70 italic border-l-2 border-primary/20 pl-2">
-                                                        {trip.notes}
+                                                {trip.description && (
+                                                    <p className="mt-2 text-sm text-foreground/90 italic border-l-2 border-primary/30 pl-2">
+                                                        "{trip.description}"
                                                     </p>
+                                                )}
+                                                {trip.notes && (
+                                                    <div className="mt-2 text-sm text-foreground/80 bg-background/30 p-2 rounded-lg border border-border/50 whitespace-pre-line">
+                                                        {trip.notes}
+                                                    </div>
+                                                )}
+                                                {trip.image_url && (
+                                                    <div className="mt-3 rounded-xl overflow-hidden cursor-pointer w-full max-h-48 border border-border/50 relative group/img">
+                                                        <img src={trip.image_url} alt="Trip photo" className="w-full h-full object-cover" />
+                                                    </div>
                                                 )}
                                             </div>
                                         </div>
